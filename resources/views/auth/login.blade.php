@@ -267,13 +267,7 @@
                                 <nav class="main-menu">
                                     <ul>
                                         <li>
-                                            <a href="#">Home <i class="la la-angle-down fs-12"></i></a>
-                                            <ul class="dropdown-menu-item">
-                                                <li><a href="index.html">Home One</a></li>
-                                                <li><a href="home-2.html">Home Two</a></li>
-                                                <li><a href="home-3.html">Home Three</a></li>
-                                                <li><a href="home-4.html">Home four</a></li>
-                                            </ul>
+                                            <a href="{{url('/')}}">Home </a>
                                         </li>
                                         <li>
                                             <a href="#">courses <i class="la la-angle-down fs-12"></i></a>
@@ -382,7 +376,7 @@
                                             <ul class="cart-dropdown-menu">
                                                 <li class="media media-card">
                                                     <a href="shopping-cart.html" class="media-img">
-                                                        <img src="images/small-img.jpg" alt="Cart image">
+                                                        <img src="{{asset('frontend/images/small-img.jpg')}}" alt="Cart image">
                                                     </a>
                                                     <div class="media-body">
                                                         <h5><a href="course-details.html">The Complete JavaScript
@@ -394,7 +388,7 @@
                                                 </li>
                                                 <li class="media media-card">
                                                     <a href="shopping-cart.html" class="media-img">
-                                                        <img src="images/small-img.jpg" alt="Cart image">
+                                                        <img src="{{asset('frontend/images/small-img.jpg')}}" alt="Cart image">
                                                     </a>
                                                     <div class="media-body">
                                                         <h5><a href="course-details.html">The Complete JavaScript
@@ -811,9 +805,9 @@
                         <div class="divider border-bottom-0"><span></span></div>
                         <div class="mobile-app">
                             <p class="pb-3 lh-24">Download our mobile app and learn on the go.</p>
-                            <a href="#" class="d-block mb-2 hover-s"><img src="images/appstore.png"
+                            <a href="#" class="d-block mb-2 hover-s"><img src="{{asset('frontend/images/appstore.png')}}"
                                     alt="App store" class="img-fluid"></a>
-                            <a href="#" class="d-block hover-s"><img src="images/googleplay.png"
+                            <a href="#" class="d-block hover-s"><img src="{{asset('frontend/images/googleplay.png')}}"
                                     alt="Google play store" class="img-fluid"></a>
                         </div>
                     </div><!-- end footer-item -->
@@ -842,7 +836,7 @@
                     <div class="col-lg-6">
                         <div class="d-flex flex-wrap align-items-center">
                             <a href="index.html" class="pr-4">
-                                <img src="images/logo.png" alt="footer logo" class="footer__logo">
+                                <img src="{{asset('frontend/images/logo.png')}}" alt="footer logo" class="footer__logo">
                             </a>
                             <p class="copy-desc">Copyright &copy; 2021 <a href="https://techydevs.com/">TechyDevs</a>
                                 Inc.</p>
