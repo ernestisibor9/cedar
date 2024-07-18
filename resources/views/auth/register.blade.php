@@ -103,7 +103,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-2">
                             <div class="logo-box">
-                                <a href="index.html" class="logo"><img src="images/logo.png" alt="logo"></a>
+                                <a href="index.html" class="logo"><img src="{{asset('frontend/images/logo.png')}}" alt="logo"></a>
                                 <div class="user-btn-action">
                                     <div class="search-menu-toggle icon-element icon-element-sm shadow-sm mr-2"
                                         data-toggle="tooltip" data-placement="top" title="Search">
@@ -805,7 +805,7 @@
                             <a href="index.html" class="pr-4">
                                 <img src="{{asset('frontend/images/logo.png')}}" alt="footer logo" class="footer__logo">
                             </a>
-                            <p class="copy-desc">Copyright &copy; 2021 <a href="https://techydevs.com/">TechyDevs</a>
+                            <p class="copy-desc">Copyright &copy; <?= date('Y') ?> <a href="https://techydevs.com/">TechyDevs</a>
                                 Inc.</p>
                         </div>
                     </div><!-- end col-lg-6 -->
