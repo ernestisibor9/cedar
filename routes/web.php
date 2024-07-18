@@ -22,7 +22,7 @@ Route::get('/', [UserController::class, 'Index'])->name('index');
 // });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('frontend.dashboard.user_dashboard');
 })->middleware(['auth', 'roles:user', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

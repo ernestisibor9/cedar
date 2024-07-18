@@ -39,8 +39,8 @@
                             </ul>
                         @else
                             <ul class="generic-list-item d-flex flex-wrap align-items-center fs-14 border-left border-left-gray pl-3 ml-3">
-                                <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray"><i class="la la-sign-in mr-1"></i><a href="login.html"> Login</a></li>
-                                <li class="d-flex align-items-center"><i class="la la-user mr-1"></i><a href="sign-up.html"> Register</a></li>
+                                <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray"><i class="la la-sign-in mr-1"></i><a href="{{route('login')}}"> Login</a></li>
+                                <li class="d-flex align-items-center"><i class="la la-user mr-1"></i><a href="{{route('register')}}"> Register</a></li>
                             </ul>
                         @endauth
                     </div><!-- end header-widget -->
@@ -221,7 +221,7 @@
                                             <li><a href="my-courses.html">My courses</a></li>
                                         </ul>
                                     </li>
-                                    <li>
+                                    {{-- <li>
                                         <a href="#">Student <i class="la la-angle-down fs-12"></i></a>
                                         <ul class="dropdown-menu-item">
                                             <li><a href="student-detail.html">student detail</a></li>
@@ -244,7 +244,7 @@
                                             <li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
                                             <li><a href="blog-single.html">blog detail</a></li>
                                         </ul>
-                                    </li>
+                                    </li> --}}
                                 </ul><!-- end ul -->
                             </nav><!-- end main-menu -->
                             <div class="shop-cart mr-4">

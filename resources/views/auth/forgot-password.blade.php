@@ -20,6 +20,9 @@
 </head>
 
 <body class="">
+    @php
+        $user = App\Models\User::latest()->get();
+    @endphp
 	<!-- wrapper -->
 	<div class="wrapper">
 		<div class="authentication-forgot d-flex align-items-center justify-content-center">
@@ -50,7 +53,7 @@
 
                         <div class="d-grid gap-2 mt-4">
 							<button type="submit" class="btn btn-primary">Send</button>
-							 <a href="{{route('admin.login')}}" class="btn btn-light"><i class='bx bx-arrow-back me-1'></i>Back to Login</a>
+							 {{-- <a href="{{ $user->role === 'admin' ? route('admin.login') : route('login') }}" class="btn btn-light"><i class='bx bx-arrow-back me-1'></i>Back to Login</a> --}}
 						</div>
                         </form>
 					</div>
