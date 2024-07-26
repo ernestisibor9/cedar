@@ -1,3 +1,9 @@
+<style>
+    .hero-area{
+        height: 600px !important;
+    }
+</style>
+
 <section class="hero-area">
     <div class="hero-slider owl-action-styled">
         <div class="hero-slider-item hero-bg-1">
@@ -5,10 +11,10 @@
             <div class="container">
                 <div class="hero-content">
                     <div class="section-heading">
-                        <h2 class="section__title text-white fs-65 lh-80 pb-3">We Help You Learn <br> What You Love</h2>
-                        <p class="section__desc text-white pb-4">Emply dummy text of the printing and typesetting
-                            industry orem Ipsum has been the
-                            <br>industry's standard dummy text ever sinceprinting and typesetting industry.
+                        <h2 class="section__title text-white fs-65 lh-80 pb-3">Start Learning Coding <br> From Home With Expert <br>Instructors</b></h2>
+                        <p class="section__desc text-white pb-4">We are providing high-quality online courses to
+                            improve your skills.
+                            <br>Our instructors are highly experienced and experts.
                         </p>
                     </div><!-- end section-heading -->
                     <div class="hero-btn-box d-flex flex-wrap align-items-center pt-1">
@@ -26,11 +32,10 @@
             <div class="container">
                 <div class="hero-content text-center">
                     <div class="section-heading">
-                        <h2 class="section__title text-white fs-65 lh-80 pb-3">Join Aduca & Get <br> Your Free Courses!
+                        <h2 class="section__title text-white fs-65 lh-80 pb-3">Join Cedar & Get <br> Your Free Courses!
                         </h2>
-                        <p class="section__desc text-white pb-4">Emply dummy text of the printing and typesetting
-                            industry orem Ipsum has been the
-                            <br>industry's standard dummy text ever sinceprinting and typesetting industry.
+                        <p class="section__desc text-white pb-4">Join us at Cedar to get free and premium courses
+                            <br>
                         </p>
                     </div><!-- end section-heading -->
                     <div class="hero-btn-box d-flex flex-wrap align-items-center pt-1 justify-content-center">
@@ -48,11 +53,10 @@
             <div class="container">
                 <div class="hero-content text-right">
                     <div class="section-heading">
-                        <h2 class="section__title text-white fs-65 lh-80 pb-3">Learn Anything, <br> Anytime, Anywhere
+                        <h2 class="section__title text-white fs-65 lh-80 pb-3">Our Classes Are Weekends Only <br> Except Holidays
                         </h2>
-                        <p class="section__desc text-white pb-4">Emply dummy text of the printing and typesetting
-                            industry orem Ipsum has been the
-                            <br>industry's standard dummy text ever sinceprinting and typesetting industry.
+                        <p class="section__desc text-white pb-4">Our learning days will never affect your chil's school work, rather it
+                            <br>will boost their confidence in problem-solving ability.
                         </p>
                     </div>
                     <div class="hero-btn-box d-flex flex-wrap align-items-center pt-1 justify-content-end">

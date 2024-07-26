@@ -71,10 +71,32 @@
                     </div><!-- end col-lg-2 -->
                     <div class="col-lg-10">
                         <div class="menu-wrapper">
-                            <div class="menu-category">
+                            <form method="post">
+                                <div class="form-group mb-0">
+                                    <input class="form-control form--control pl-3" type="text" name="search" placeholder="Search for anything">
+                                    <span class="la la-search search-icon"></span>
+                                </div>
+                            </form><!-- end menu-category -->
+
+                            <nav class="main-menu">
                                 <ul>
                                     <li>
-                                        <a href="#">Categories <i class="la la-angle-down fs-12"></i></a>
+                                        <a href="{{url('/')}}">Home </a>
+                                    </li>
+                                </ul><!-- end ul -->
+                            </nav>
+                            <nav class="main-menu">
+                                <ul>
+                                    <li>
+                                        <a href="{{url('/')}}">About </a>
+                                    </li>
+                                </ul><!-- end ul -->
+                            </nav>
+
+                            <div class="menu-category" style="margin-right: 20px">
+                                <ul>
+                                    <li>
+                                        <a href="#">Course <i class="la la-angle-down fs-12"></i></a>
                                         <ul class="cat-dropdown-menu">
                                             <li>
                                                 <a href="course-grid.html">Development <i class="la la-angle-right"></i></a>
@@ -195,24 +217,12 @@
                                         </ul>
                                     </li>
                                 </ul>
-                            </div><!-- end menu-category -->
-                            <form method="post">
-                                <div class="form-group mb-0">
-                                    <input class="form-control form--control pl-3" type="text" name="search" placeholder="Search for anything">
-                                    <span class="la la-search search-icon"></span>
-                                </div>
-                            </form>
+                            </div>
+
                             <nav class="main-menu">
                                 <ul>
                                     <li>
-                                        <a href="{{url('/')}}">Home </a>
-                                    </li>
-                                </ul><!-- end ul -->
-                            </nav>
-                            <nav class="main-menu">
-                                <ul>
-                                    <li>
-                                        <a href="{{url('/')}}">Courses </a>
+                                        <a href="{{url('/')}}">Contact </a>
                                     </li>
                                 </ul><!-- end ul -->
                             </nav><!-- end main-menu -->

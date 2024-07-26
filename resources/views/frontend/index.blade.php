@@ -101,7 +101,7 @@
     <!-- ================================
            START CLIENT-LOGO AREA
     ================================= -->
-    @include('frontend.home.client-logo-area')
+    {{-- @include('frontend.home.client-logo-area') --}}
 <!-- end client-logo-area -->
     <!-- ================================
            START CLIENT-LOGO AREA
@@ -119,7 +119,7 @@
     <!--======================================
             START GET STARTED AREA
     ======================================-->
-    @include('frontend.home.started-area')
+    {{-- @include('frontend.home.started-area') --}}
 <!-- end get-started-area -->
     <!-- ================================
            START GET STARTED AREA

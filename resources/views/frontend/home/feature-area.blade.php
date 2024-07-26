@@ -55,8 +55,10 @@
                             </g>
                         </svg>
                     </div>
-                    <h3 class="info__title">Expert Teachers</h3>
-                    <p class="info__text">Timply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                    <h3 class="info__title">Expert Instructors</h3>
+                    <p class="info__text">Our coding instructors bring a wealth of knowledge and experience to the
+                        table. With a passion for teaching, Our instructors are dedicated to helping you master the art
+                        of coding.</p>
                 </div><!-- end info-box -->
             </div><!-- end col-lg-3 -->
             <div class="col-lg-4 responsive-column-half">
@@ -77,8 +79,10 @@
                                 d="m28.709 72a1 1 0 0 1 -.736-1.677l16.092-17.515a1 1 0 0 1 1.473 1.354l-16.093 17.515a1 1 0 0 1 -.736.323z" />
                         </svg>
                     </div>
-                    <h3 class="info__title">Easy Communication</h3>
-                    <p class="info__text">Timply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                    <h3 class="info__title">High Quality Courses</h3>
+                    <p class="info__text">We are committed to delivering high quality courses that empower you with the
+                        skills and knowledge you need to thrive in the tech industry. We have courses tailored for each
+                        age group.</p>
                 </div><!-- end info-box -->
             </div><!-- end col-lg-3 -->
             <div class="col-lg-4 responsive-column-half">
@@ -103,8 +107,10 @@
                                 d="m66.406 49.5h-5.687a1 1 0 0 1 -.978-1.211l.736-3.411a3.156 3.156 0 0 1 6.171 0l.736 3.411a1 1 0 0 1 -.978 1.211zm-4.448-2h3.209l-.474-2.2a1.157 1.157 0 0 0 -2.261 0z" />
                         </svg>
                     </div>
-                    <h3 class="info__title">Get Certificates</h3>
-                    <p class="info__text">Timply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                    <h3 class="info__title">Life Time Access</h3>
+                    <p class="info__text">At Cedar Growth Consult, we believe in your journey of continuous learning.
+                        That is why we offer lifetime access to our courses, with this unique advantage, you can revisit
+                        and review the material at your pace</p>
                 </div><!-- end info-box -->
             </div><!-- end col-lg-3 -->
         </div><!-- end row -->

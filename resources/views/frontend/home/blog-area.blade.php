@@ -12,7 +12,7 @@
             <div class="card card-item">
                 <div class="card-image">
                     <a href="blog-single.html" class="d-block">
-                        <img class="card-img-top" src="images/img8.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="{{asset('frontend/images/img8.jpg')}}" alt="Card image cap">
                     </a>
                     <div class="course-badge-labels">
                         <div class="course-badge">Jan 24, 2020</div>
@@ -41,7 +41,7 @@
             <div class="card card-item">
                 <div class="card-image">
                     <a href="blog-single.html" class="d-block">
-                        <img class="card-img-top" src="images/img9.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="{{asset('frontend/images/img9.jpg')}}" alt="Card image cap">
                     </a>
                     <div class="course-badge-labels">
                         <div class="course-badge">Jan 24, 2020</div>
@@ -70,7 +70,7 @@
             <div class="card card-item">
                 <div class="card-image">
                     <a href="blog-single.html" class="d-block">
-                        <img class="card-img-top" src="images/img10.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="{{asset('frontend/images/img10.jpg')}}" alt="Card image cap">
                     </a>
                     <div class="course-badge-labels">
                         <div class="course-badge">Jan 24, 2020</div>
@@ -99,7 +99,7 @@
             <div class="card card-item">
                 <div class="card-image">
                     <a href="blog-single.html" class="d-block">
-                        <img class="card-img-top" src="images/img11.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="{{asset('frontend/images/img11.jpg')}}" alt="Card image cap">
                     </a>
                     <div class="course-badge-labels">
                         <div class="course-badge">Jan 24, 2020</div>
@@ -128,7 +128,7 @@
             <div class="card card-item">
                 <div class="card-image">
                     <a href="blog-single.html" class="d-block">
-                        <img class="card-img-top" src="images/img12.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="{{asset('frontend/images/img12.jpg')}}" alt="Card image cap">
                     </a>
                     <div class="course-badge-labels">
                         <div class="course-badge">Jan 24, 2020</div>
@@ -157,7 +157,7 @@
             <div class="card card-item">
                 <div class="card-image">
                     <a href="blog-single.html" class="d-block">
-                        <img class="card-img-top" src="images/img13.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="{{asset('frontend/images/img13.jpg')}}" alt="Card image cap">
                     </a>
                     <div class="course-badge-labels">
                         <div class="course-badge">Jan 24, 2020</div>

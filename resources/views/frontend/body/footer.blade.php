@@ -1,17 +1,17 @@
-<section class="footer-area pt-100px">
+<section class="footer-area pt-100px" style="background-color: #374F71">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 responsive-column-half">
                 <div class="footer-item">
                     <a href="index.html">
-                        <img src="images/logo.png" alt="footer logo" class="footer__logo">
+                        <img src="{{asset('frontend/images/logo.png')}}" alt="footer logo" class="footer__logo">
                     </a>
                     <ul class="generic-list-item pt-4">
-                        <li><a href="tel:+1631237884">+163 123 7884</a></li>
-                        <li><a href="mailto:support@wbsite.com">support@website.com</a></li>
-                        <li>Melbourne, Australia, 105 South Park Avenue</li>
+                        <li><a href="tel:+1631237884" class="text-white">+163 123 7884</a></li>
+                        <li><a href="mailto:support@wbsite.com" class="text-white">support@website.com</a></li>
+                        <li class="text-white">Melbourne, Australia, 105 South Park Avenue</li>
                     </ul>
-                    <h3 class="fs-20 font-weight-semi-bold pt-4 pb-2">We are on</h3>
+                    <h3 class="fs-20 font-weight-semi-bold pt-4 pb-2 text-white">We are on</h3>
                     <ul class="social-icons social-icons-styled">
                         <li class="mr-1"><a href="#" class="facebook-bg"><i class="la la-facebook"></i></a></li>
                         <li class="mr-1"><a href="#" class="twitter-bg"><i class="la la-twitter"></i></a></li>
@@ -22,53 +22,55 @@
             </div><!-- end col-lg-3 -->
             <div class="col-lg-3 responsive-column-half">
                 <div class="footer-item">
-                    <h3 class="fs-20 font-weight-semi-bold">Company</h3>
+                    <h3 class="fs-20 font-weight-semi-bold text-white">Company</h3>
                     <span class="section-divider section--divider"></span>
                     <ul class="generic-list-item">
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Contact us</a></li>
-                        <li><a href="#">Become a Teacher</a></li>
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="#" class="text-white">About us</a></li>
+                        <li><a href="#" class="text-white">Contact us</a></li>
+                        <li><a href="#" class="text-white">Become a Teacher</a></li>
+                        <li><a href="#" class="text-white">Support</a></li>
+                        <li><a href="#" class="text-white">FAQs</a></li>
+                        <li><a href="#" class="text-white">Blog</a></li>
                     </ul>
                 </div><!-- end footer-item -->
             </div><!-- end col-lg-3 -->
             <div class="col-lg-3 responsive-column-half">
                 <div class="footer-item">
-                    <h3 class="fs-20 font-weight-semi-bold">Courses</h3>
+                    <h3 class="fs-20 font-weight-semi-bold text-white">Courses</h3>
                     <span class="section-divider section--divider"></span>
                     <ul class="generic-list-item">
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Hacking</a></li>
-                        <li><a href="#">PHP Learning</a></li>
-                        <li><a href="#">Spoken English</a></li>
-                        <li><a href="#">Self-Driving Car</a></li>
-                        <li><a href="#">Garbage Collectors</a></li>
+                        <li><a href="#" class="text-white">Web Development</a></li>
+                        <li><a href="#" class="text-white">Hacking</a></li>
+                        <li><a href="#" class="text-white">PHP Learning</a></li>
+                        <li><a href="#" class="text-white">Spoken English</a></li>
+                        <li><a href="#" class="text-white">Self-Driving Car</a></li>
+                        <li><a href="#" class="text-white">Garbage Collectors</a></li>
                     </ul>
                 </div><!-- end footer-item -->
             </div><!-- end col-lg-3 -->
             <div class="col-lg-3 responsive-column-half">
                 <div class="footer-item">
-                    <h3 class="fs-20 font-weight-semi-bold">Download App</h3>
+                    <h3 class="fs-20 font-weight-semi-bold text-white">Download App</h3>
                     <span class="section-divider section--divider"></span>
                     <div class="mobile-app">
-                        <p class="pb-3 lh-24">Download our mobile app and learn on the go.</p>
-                        <a href="#" class="d-block mb-2 hover-s"><img src="images/appstore.png" alt="App store" class="img-fluid"></a>
-                        <a href="#" class="d-block hover-s"><img src="images/googleplay.png" alt="Google play store" class="img-fluid"></a>
+                        <p class="pb-3 lh-24 text-white">Download our mobile app and learn on the go.</p>
+                        <a href="#" class="d-block mb-2 hover-s"><img src="{{asset('frontend/images/appstore.png')}}" alt="App store" class="img-fluid"></a>
+                        <a href="#" class="d-block hover-s"><img src="{{asset('frontend/images/googleplay.png')}}" alt="Google play store" class="img-fluid"></a>
                     </div>
                 </div><!-- end footer-item -->
             </div><!-- end col-lg-3 -->
         </div><!-- end row -->
     </div><!-- end container -->
     <div class="section-block"></div>
-    <div class="copyright-content py-4">
+    <div class="copyright-content py-4 bg-dark">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <p class="copy-desc">&copy; 2021 Aduca. All Rights Reserved. by <a href="https://techydevs.com/">TechyDevs</a></p>
+                    <p class="copy-desc text-white">&copy; @php
+                        echo date('Y')
+                    @endphp Aduca. All Rights Reserved. by <a href="https://techydevs.com/" class="text-white">Cedar Growth Consult</a></p>
                 </div><!-- end col-lg-6 -->
-                <div class="col-lg-6">
+                {{-- <div class="col-lg-6">
                     <div class="d-flex flex-wrap align-items-center justify-content-end">
                         <ul class="generic-list-item d-flex flex-wrap align-items-center fs-14">
                             <li class="mr-3"><a href="terms-and-conditions.html">Terms & Conditions</a></li>
@@ -97,7 +99,7 @@
                             </select>
                         </div>
                     </div>
-                </div><!-- end col-lg-6 -->
+                </div><!-- end col-lg-6 --> --}}
             </div><!-- end row -->
         </div><!-- end container -->
     </div><!-- end copyright-content -->
