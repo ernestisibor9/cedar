@@ -208,6 +208,13 @@
                                         <a href="{{url('/')}}">Home </a>
                                     </li>
                                 </ul><!-- end ul -->
+                            </nav>
+                            <nav class="main-menu">
+                                <ul>
+                                    <li>
+                                        <a href="{{url('/')}}">Courses </a>
+                                    </li>
+                                </ul><!-- end ul -->
                             </nav><!-- end main-menu -->
                             <div class="shop-cart mr-4">
                                 <ul>

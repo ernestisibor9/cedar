@@ -29,13 +29,45 @@
 
         <li class="menu-label">UI Elements</li>
         <li>
-            <a href="widgets.html">
-                <div class="parent-icon"><i class='bx bx-cookie'></i>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-cart'></i>
                 </div>
-                <div class="menu-title">Widgets</div>
+                <div class="menu-title">Manage Course</div>
             </a>
+            <ul>
+                <li> <a href="{{ route('all.courses') }}"><i class='bx bx-radio-circle'></i>All Courses</a>
+                </li>
+                <li> <a href="{{route('add.courses')}}"><i class='bx bx-radio-circle'></i>Add Course</a>
+                </li>
+            </ul>
         </li>
-        {{-- <li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-cart'></i>
+                </div>
+                <div class="menu-title">Course Outline</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('all.course.outline') }}"><i class='bx bx-radio-circle'></i>All Course Outline</a>
+                </li>
+                <li> <a href="{{route('add.course.outline')}}"><i class='bx bx-radio-circle'></i>Add Course Outline</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-cart'></i>
+                </div>
+                <div class="menu-title">Course Benefits</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('all.course.benefits') }}"><i class='bx bx-radio-circle'></i>All Course Benefits</a>
+                </li>
+                {{-- <li> <a href="{{route('add.course.outline')}}"><i class='bx bx-radio-circle'></i>Add Course Outline</a>
+                </li> --}}
+            </ul>
+        </li>
+                <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
                 </div>
@@ -46,10 +78,22 @@
                 </li>
                 <li> <a href="{{route('add.category')}}"><i class='bx bx-radio-circle'></i>Add Category</a>
                 </li>
-                <li> <a href="{{route('all.subcategory')}}"><i class='bx bx-radio-circle'></i>All SubCategory</a>
                 </li>
             </ul>
-        </li> --}}
+        </li>
+        {{-- <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-cart'></i>
+                </div>
+                <div class="menu-title">Manage Course</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('all.course') }}"><i class='bx bx-radio-circle'></i>All Courses</a>
+                </li>
+                <li> <a href="{{route('add.courses')}}"><i class='bx bx-radio-circle'></i>Add Course</a>
+                </li>
+            </ul>
+        </li>  --}}
 
         {{-- <li>
             <a href="javascript:;" class="has-arrow">
