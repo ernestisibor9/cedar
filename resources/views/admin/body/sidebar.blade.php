@@ -58,6 +58,19 @@
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
                 </div>
+                <div class="menu-title">Student's Project</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('all.student.project') }}"><i class='bx bx-radio-circle'></i>All Student Projects</a>
+                </li>
+                {{-- <li> <a href="{{route('add.course.outline')}}"><i class='bx bx-radio-circle'></i>Add Course Outline</a>
+                </li> --}}
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-cart'></i>
+                </div>
                 <div class="menu-title">Course Benefits</div>
             </a>
             <ul>

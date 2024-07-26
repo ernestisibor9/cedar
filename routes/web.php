@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CategoryCategory;
 use App\Http\Controllers\Backend\CourseController;
+use App\Http\Controllers\Backend\StudentProjectController as BackendStudentProjectController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -65,6 +66,20 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
         Route::get('/admin/all/courses', 'AllCourse')->name('all.courses');
         Route::get('/admin/add/courses', 'AddCourse')->name('add.courses');
         Route::post('/admin/store/course', 'StoreCourse')->name('store.course');
+        // Route::get('/subcategory/ajax/{category_id}', 'GetSubCategory')->name('add.course');
+        // Route::post('/admin/store/course', 'StoreCourse')->name('store.course');
+        // Route::get('/admin/edit/course/{id}', 'EditCourse')->name('edit.course');
+        // Route::post('/admin/update/course', 'UpdateCourse')->name('update.course');
+        // Route::post('/update/course/image', 'UpdateCourseImage')->name('update.course.image');
+        // Route::post('/update/course/video', 'UpdateCourseVideo')->name('update.course.video');
+        // Route::post('/update/course/goal', 'UpdateCourseGoal')->name('update.course.goal');
+        // Route::get('//admin/delete/course/{id}', 'DeleteCourse')->name('delete.course');
+    });
+    //all.student.project   Student Project
+    Route::controller(BackendStudentProjectController::class)->group(function(){
+        Route::get('/admin/all/student/projects', 'AllStudentPoject')->name('all.student.project');
+        // Route::get('/admin/add/courses', 'AddCourse')->name('add.courses');
+        // Route::post('/admin/store/course', 'StoreCourse')->name('store.course');
         // Route::get('/subcategory/ajax/{category_id}', 'GetSubCategory')->name('add.course');
         // Route::post('/admin/store/course', 'StoreCourse')->name('store.course');
         // Route::get('/admin/edit/course/{id}', 'EditCourse')->name('edit.course');
