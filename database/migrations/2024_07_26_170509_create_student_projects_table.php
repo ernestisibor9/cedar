@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('student_projects', function (Blueprint $table) {
             $table->id();
+            $table->string('student_name');
             $table->string('project_url')->nullable();
             $table->tinyInteger('status')->default(0)->comment('0 = Inactive', '1=Active')->nullable();
             $table->timestamps();

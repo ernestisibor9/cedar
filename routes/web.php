@@ -4,6 +4,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CategoryCategory;
 use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\Backend\StudentProjectController as BackendStudentProjectController;
+use App\Http\Controllers\Frontend\CourseController as FrontendCourseController;
+use App\Http\Controllers\Frontend\StudentProjectController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -75,11 +77,14 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
         // Route::post('/update/course/goal', 'UpdateCourseGoal')->name('update.course.goal');
         // Route::get('//admin/delete/course/{id}', 'DeleteCourse')->name('delete.course');
     });
-    //all.student.project   Student Project
+    // Student Project routes  ----  view.all.project
     Route::controller(BackendStudentProjectController::class)->group(function(){
         Route::get('/admin/all/student/projects', 'AllStudentPoject')->name('all.student.project');
-        // Route::get('/admin/add/courses', 'AddCourse')->name('add.courses');
-        // Route::post('/admin/store/course', 'StoreCourse')->name('store.course');
+        Route::get('/admin/add/student/project', 'AddStudentProject')->name('add.student.project');
+        Route::post('/admin/store/student/project', 'StoreStudentProject')->name('store.student.project');
+        Route::get('/admin/edit/student/project/{id}', 'EditStudentProject')->name('edit.student.project');
+        Route::post('/admin/update/student/project', 'UpdateStudentProject')->name('update.student.project');
+        Route::get('//admin/delete/student/project/{id}', 'DeleteStudentProject')->name('delete.student.project');
         // Route::get('/subcategory/ajax/{category_id}', 'GetSubCategory')->name('add.course');
         // Route::post('/admin/store/course', 'StoreCourse')->name('store.course');
         // Route::get('/admin/edit/course/{id}', 'EditCourse')->name('edit.course');
@@ -128,3 +133,9 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
 
 // Admin Login
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
+
+// General User Route
+Route::get('/view/all/project', [StudentProjectController::class, 'ViewAllProject'])->name('view.all.project');
+
+// Course Controller
+Route::get('/course/details/{id}/{slug}', [FrontendCourseController::class, 'CourseDetails']);

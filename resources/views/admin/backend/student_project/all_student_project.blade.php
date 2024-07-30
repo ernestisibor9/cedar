@@ -13,6 +13,7 @@
                     <thead>
                         <tr>
                             <th>S/N</th>
+                            <th>Student Name</th>
                             <th>Project URL</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -22,19 +23,18 @@
                         @foreach ($studentProjects as $key => $studentProject)
                         <tr>
                             <td>{{$key + 1}}</td>
-                            <td>{{$studentProject->project_url}}</td>
+                            <td>{{$studentProject->student_name}}</td>
+                            <td>{{Str::substr($studentProject->project_url, 0, 30)}}...</td>
                             <td>
                                 @if($studentProject->status == 0)
-                                    <span class="badge badge-danger">Inactive</span>
+                                    <span class="badge badge-danger" style="color:red">Inactive</span>
                                 @else
-                                    <span class="badge badge-success">Active</span>
+                                    <span class="badge badge-success" style="color:green">Active</span>
                                 @endif
                             </td>
                             <td>
-                                <a href="{{route('edit.category', $category->id)}}" class="btn btn-primary">Edit</a>
-                                <a href="{{route('delete.category', $category->id)}}" class="btn btn-danger" id="delete">Delete</a>
-                                {{-- <a href="{{route('edit.category', $category->id)}}" class="btn btn-primary">Edit</a>
-                                <a href="{{route('delete.category', $category->id)}}" class="btn btn-danger" id="delete">Delete</a> --}}
+                                <a href="{{route('edit.student.project', $studentProject->id)}}" class="btn btn-primary">Edit</a>
+                                <a href="{{route('delete.student.project', $studentProject->id)}}" class="btn btn-danger" id="delete">Delete</a>
                             </td>
                         </tr>
                         @endforeach

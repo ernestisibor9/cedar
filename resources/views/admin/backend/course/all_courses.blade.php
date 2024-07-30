@@ -32,7 +32,7 @@
                             <td>{{$course->discount_price}}</td>
                             <td>
                                 <button class="btn btn-primary">Edit</button>
-                                <button class="btn btn-danger">Danger</button>
+                                <button class="btn btn-danger">Delete</button>
                                 {{-- <a href="{{route('edit.course', $course->id)}}" title="Lecture" class="btn btn-warning" id="delete">View</a>
                                 <a href="{{route('add.course.lecture', $course->id)}}" title="Add" class="btn btn-success">Add</a>
                                 <a href="{{route('edit.course', $course->id)}}" title="Edit" class="btn btn-primary">Edit</a>

@@ -63,8 +63,8 @@
             <ul>
                 <li> <a href="{{ route('all.student.project') }}"><i class='bx bx-radio-circle'></i>All Student Projects</a>
                 </li>
-                {{-- <li> <a href="{{route('add.course.outline')}}"><i class='bx bx-radio-circle'></i>Add Course Outline</a>
-                </li> --}}
+                <li> <a href="{{route('add.student.project')}}"><i class='bx bx-radio-circle'></i>Add Student Project</a>
+                </li>
             </ul>
         </li>
         <li>
