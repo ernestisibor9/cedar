@@ -31,8 +31,8 @@
                             <td>{{$course->selling_price}}</td>
                             <td>{{$course->discount_price}}</td>
                             <td>
-                                <button class="btn btn-primary">Edit</button>
-                                <button class="btn btn-danger">Delete</button>
+                                <a href="{{route('edit.course', $course->id)}}" title="Edit" class="btn btn-primary">Edit</a>
+                                <a href="{{route('delete.course', $course->id)}}" title="Delete" class="btn btn-danger" id="delete">Delete</a>
                                 {{-- <a href="{{route('edit.course', $course->id)}}" title="Lecture" class="btn btn-warning" id="delete">View</a>
                                 <a href="{{route('add.course.lecture', $course->id)}}" title="Add" class="btn btn-success">Add</a>
                                 <a href="{{route('edit.course', $course->id)}}" title="Edit" class="btn btn-primary">Edit</a>

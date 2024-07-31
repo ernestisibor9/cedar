@@ -114,10 +114,10 @@
                                 <div class="row">
                                     <div class="mb-3">
                                         <label for="">Course Outline</label>
-                                        <textarea name="course_outlines" id="mytextarea" cols="30" rows="10" class="form-control @error('course_outlines')is-invalid @enderror">
+                                        <textarea name="course_outlines" id="mytextarea" cols="30" rows="10" class="form-control @error('course_outline')is-invalid @enderror">
 
                                         </textarea>
-                                        @error('course_outlines')
+                                        @error('course_outline')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -126,10 +126,10 @@
                                 <div class="row">
                                     <div class="mb-3">
                                         <label for="">Course Benefits</label>
-                                        <textarea name="course_benefits" id="mytextarea" cols="30" rows="10" class="form-control @error('course_outlines')is-invalid @enderror">
+                                        <textarea name="course_benefits" id="mytextarea" cols="30" rows="10" class="form-control @error('course_benefits')is-invalid @enderror">
 
                                         </textarea>
-                                        @error('course_outlines')
+                                        @error('course_benefits')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>

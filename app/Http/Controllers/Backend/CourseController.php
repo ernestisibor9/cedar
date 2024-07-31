@@ -43,7 +43,6 @@ class CourseController extends Controller
         $video = $request->file('video');
         $filename = time() . '.' . $video->getClientOriginalName();
         $video->move(public_path('upload/courses/video/'), $filename);
-
         $save_video = 'upload/courses/video/' . $filename;
 
         Course::insert([
@@ -68,6 +67,130 @@ class CourseController extends Controller
         $notification = array(
             'message' => 'Course Inserted Successfully',
             'alert-type' => 'success'
+        );
+        return redirect()->route('all.courses')->with($notification);
+    }
+    public function EditCourse($id)
+    {
+        $course = Course::find($id);
+        $categories = Category::latest()->get();
+        return view('admin.backend.course.edit_course', compact('categories', 'course'));
+    }
+    // UpdateCourseImage
+    public function UpdateCourse(Request $request)
+    {
+        $course_id = $request->course_id;
+        $oldImage = $request->old_img;
+        $oldVideo = $request->old_vid;
+
+        if($request->file('course_image')){
+            if (file_exists($oldImage)) {
+                unlink($oldImage);
+            }
+
+            $image = $request->file('course_image');
+            $filename = date('YmdHi') . $image->getClientOriginalName();
+            $image->move(public_path('upload/courses/thumbnail/'), $filename);
+            $save_url = 'upload/courses/thumbnail/' . $filename;
+
+            if (file_exists($oldImage)) {
+                unlink($oldImage);
+            }
+
+            Course::find($course_id)->update([
+                'category_id' => $request->category_id,
+                'course_title' => $request->course_title,
+                'course_name' => $request->course_name,
+                'course_name_slug' => Str::slug($request->course_name),
+                'description' => $request->description,
+                // 'video' => $save_video,
+                'duration' => $request->duration,
+                'selling_price' => $request->selling_price,
+                'discount_price' => $request->discount_price,
+                'language' => $request->language,
+                'level' => $request->level,
+                'course_outlines' => $request->course_outlines,
+                'course_benefits' => $request->course_benefits,
+                'start_date' => $request->start_date,
+                'course_image' => $save_url,
+                'updated_at' => Carbon::now()
+            ]);
+        }
+        else if($request->file('video')){
+            if (file_exists($oldVideo)) {
+                unlink($oldVideo);
+            }
+
+            $video = $request->file('video');
+            $filename = time() . '.' . $video->getClientOriginalName();
+            $video->move(public_path('upload/courses/video/'), $filename);
+            $save_video = 'upload/courses/video/' . $filename;
+
+            if (file_exists($oldVideo)) {
+                unlink($oldVideo);
+            }
+
+            Course::find($course_id)->update([
+                'category_id' => $request->category_id,
+                'course_title' => $request->course_title,
+                'course_name' => $request->course_name,
+                'course_name_slug' => Str::slug($request->course_name),
+                'description' => $request->description,
+                'video' => $save_video,
+                'duration' => $request->duration,
+                'selling_price' => $request->selling_price,
+                'discount_price' => $request->discount_price,
+                'language' => $request->language,
+                'level' => $request->level,
+                'course_outlines' => $request->course_outlines,
+                'course_benefits' => $request->course_benefits,
+                'start_date' => $request->start_date,
+                'updated_at' => Carbon::now()
+            ]);
+        }
+        else{
+            Course::find($course_id)->update([
+                'category_id' => $request->category_id,
+                'course_title' => $request->course_title,
+                'course_name' => $request->course_name,
+                'course_name_slug' => Str::slug($request->course_name),
+                'description' => $request->description,
+                'duration' => $request->duration,
+                'selling_price' => $request->selling_price,
+                'discount_price' => $request->discount_price,
+                'language' => $request->language,
+                'level' => $request->level,
+                'course_outlines' => $request->course_outlines,
+                'course_benefits' => $request->course_benefits,
+                'start_date' => $request->start_date,
+                'updated_at' => Carbon::now()
+            ]);
+        }
+
+        $notification = array(
+            'message' => 'Course Updated Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.courses')->with($notification);
+    }
+    // DeleteCourse
+    public function DeleteCourse($id){
+        $course = Course::find($id);
+        $oldImage = $course->old_img;
+        $oldVideo = $course->old_vid;
+
+        if (file_exists($oldImage)) {
+            unlink($oldImage);
+        }
+
+        if (file_exists($oldVideo)) {
+            unlink($oldVideo);
+        }
+
+        Course::find($id)->delete();
+        $notification = array(
+           'message' => 'Course deleted Successfully',
+            'alert-type' => 'error'
         );
         return redirect()->route('all.courses')->with($notification);
     }
