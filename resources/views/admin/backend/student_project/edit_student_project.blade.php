@@ -8,7 +8,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-7">
                     <div class="card">
-                        <h5 class="text-center pt-4">Edit Student Project</h5>
+                        <h5 class="text-center pt-4">Edit User Profile</h5>
                         <div class="card-body">
                             <form action="{{ route('update.student.project') }}" method="post" enctype="multipart/form-data">
                                 @csrf
@@ -25,7 +25,7 @@
                                         name="project_url" id="" value="{{$studentProject->project_url}}">
                                 </div>
                                 <div class="mb-2">
-                                    <button type="submit" class="btn btn-primary">Add Student Project</button>
+                                    <button type="submit" class="btn btn-primary">Update Student Project</button>
                                 </div>
                             </form>
                         </div>

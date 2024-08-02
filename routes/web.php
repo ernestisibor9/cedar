@@ -4,8 +4,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CategoryCategory;
 use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\Backend\StudentProjectController as BackendStudentProjectController;
+use App\Http\Controllers\Backend\UserController as BackendUserController;
 use App\Http\Controllers\Frontend\CourseController as FrontendCourseController;
 use App\Http\Controllers\Frontend\StudentProjectController;
+use App\Http\Controllers\Frontend\WishListController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -37,9 +39,18 @@ Route::middleware(['auth', 'roles:user', 'verified'])->group(function(){
 // })->middleware(['auth', 'roles:user', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/user/profile', [UserController::class, 'UserProfile'])->name('user.profile');
+    Route::post('/user/profile/update', [UserController::class, 'UserProfileUpdate'])->name('user.profile.update');
+    Route::get('/user/logout', [UserController::class, 'UserLogout2'])->name('user.logout');
+    Route::get('/user/change/password', [UserController::class, 'UserChangePassword'])->name('user.change.password');
+    Route::post('/user/password/update', [UserController::class, 'UserPasswordUpdate'])->name('user.password.update');
+
+    // User WishList Routes
+    Route::controller(WishListController::class)->group(function(){
+        Route::get('/user/wishlist', 'AllWishlist')->name('user.wishlist');
+        Route::get('/get-wishlist-course/','GetWishlistCourse');
+        Route::get('/wishlist-remove/{id}','RemoveWishlist');
+    });
 });
 
 require __DIR__.'/auth.php';
@@ -131,7 +142,19 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
         // Route::post('/update/course/video', 'UpdateCourseVideo')->name('update.course.video');
         // Route::post('/update/course/goal', 'UpdateCourseGoal')->name('update.course.goal');
         // Route::get('//admin/delete/course/{id}', 'DeleteCourse')->name('delete.course');
-    }); // all.course
+    }); //
+
+    // All Users Routes
+    Route::controller(BackendUserController::class)->group(function(){
+        Route::get('/admin/all/users', 'AllUsers')->name('all.users');
+        Route::get('/admin/edit/user/{id}', 'EditUser')->name('edit.user');
+        Route::post('/admin/update/user', 'UpdateUser')->name('update.user');
+        // Route::get('/admin/add/category', 'AddCategory')->name('add.category');
+        // Route::post('/admin/store/category', 'StoreCategory')->name('store.category');
+        // Route::get('/admin/edit/category/{id}', 'EditCategory')->name('edit.category');
+        // Route::post('/admin/update/category', 'UpdateCategory')->name('update.category');
+        // Route::get('/admin/delete/category/{id}', 'DeleteCategory')->name('delete.category');
+    });
 });
 
 // Admin Login
@@ -140,5 +163,8 @@ Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.
 // General User Route
 Route::get('/view/all/project', [StudentProjectController::class, 'ViewAllProject'])->name('view.all.project');
 
-// Course Controller
+// Course Route
 Route::get('/course/details/{id}/{slug}', [FrontendCourseController::class, 'CourseDetails']);
+
+// WishList Route
+Route::post('/add-to-wishlist/{course_id}', [WishListController::class, 'AddToWishList']);

@@ -193,12 +193,20 @@
         </li>
 
         <li>
+            <a href="{{route('all.users')}}">
+                <div class="parent-icon"><i class='bx bx-code-alt'></i>
+                </div>
+                <div class="menu-title">All Users</div>
+            </a>
+        </li>
+
+        {{-- <li>
             <a href="form-froala-editor.html">
                 <div class="parent-icon"><i class='bx bx-code-alt'></i>
                 </div>
                 <div class="menu-title">Froala Editor</div>
             </a>
-        </li>
+        </li> --}}
         <li class="menu-label">Forms & Tables</li>
 
         <li class="menu-label">Pages</li>

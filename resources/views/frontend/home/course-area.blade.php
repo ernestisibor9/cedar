@@ -84,7 +84,7 @@
                                             @endif
                                             {{-- <p class="card-price text-black font-weight-bold">12.99 <span class="before-price font-weight-medium">129.99</span></p> --}}
                                             <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
-                                                title="Add to Wishlist"><i class="la la-heart-o"></i></div>
+                                                title="Add to Wishlist" id="{{ $course->id }}" onclick="addToWishList(this.id)"><i class="la la-heart-o"></i></div>
                                         </div>
                                     </div><!-- end card-body -->
                                 </div><!-- end card -->
