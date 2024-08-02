@@ -8,7 +8,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-7">
                     <div class="card">
-                        <h5 class="text-center pt-4">Edit Student Project</h5>
+                        <h5 class="text-center pt-4">Edit User Profile</h5>
                         <div class="card-body">
                             <form action="{{ route('update.user') }}" method="post" enctype="multipart/form-data">
                                 @csrf
@@ -25,8 +25,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="">Phone</label>
-                                    <input type="text" class="form-control"
-                                        name="phone" id="" value="{{$user->phone}}">
+                                    <input type="text" class="form-control" name="phone" id="" value="{{$user->phone}}">
                                 </div>
                                 <div class="row">
                                     <div class="col-9 mb-3">

@@ -17,7 +17,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
-                            <th>Action</th>
+                            <th>Address</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -28,12 +28,7 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->phone}}</td>
-                            <td>
-                                <a href="{{route('edit.user', $user->id)}}" title="Edit" class="btn btn-primary">Edit</a>
-                                <button class="btn btn-danger">Delete</button>
-                                {{-- <a href="{{route('edit.user', $user->id)}}" title="Edit" class="btn btn-primary">Edit</a>
-                                <a href="{{route('delete.user', $user->id)}}" title="Delete" class="btn btn-danger" id="delete">Delete</a> --}}
-                            </td>
+                            <td>{{$user->address}}</td>
                         </tr>
                         @endforeach
                     </tbody>

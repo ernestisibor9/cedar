@@ -147,8 +147,8 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
     // All Users Routes
     Route::controller(BackendUserController::class)->group(function(){
         Route::get('/admin/all/users', 'AllUsers')->name('all.users');
-        Route::get('/admin/edit/user/{id}', 'EditUser')->name('edit.user');
-        Route::post('/admin/update/user', 'UpdateUser')->name('update.user');
+        // Route::get('/admin/edit/user/{id}', 'EditUser')->name('edit.user');
+        // Route::post('/admin/update/user', 'UpdateUser')->name('update.user');
         // Route::get('/admin/add/category', 'AddCategory')->name('add.category');
         // Route::post('/admin/store/category', 'StoreCategory')->name('store.category');
         // Route::get('/admin/edit/category/{id}', 'EditCategory')->name('edit.category');
