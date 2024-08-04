@@ -1,7 +1,7 @@
 <div class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
-            <img src="{{asset('backend/assets/images/logo-icon.png')}}" class="logo-icon" alt="logo icon">
+            <img src="{{ asset('backend/assets/images/logo.png') }}" class="logo-icon" alt="logo icon">
         </div>
         <div>
             <h4 class="logo-text">Admin</h4>
@@ -38,6 +38,8 @@
                 <li> <a href="{{ route('all.courses') }}"><i class='bx bx-radio-circle'></i>All Courses</a>
                 </li>
                 <li> <a href="{{route('add.courses')}}"><i class='bx bx-radio-circle'></i>Add Course</a>
+                </li>
+                <li> <a href="{{route('add.bronchure')}}"><i class='bx bx-radio-circle'></i>Add Bronchure</a>
                 </li>
             </ul>
         </li>

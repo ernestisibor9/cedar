@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\CourseOutline;
+use App\Models\DownloadCourse;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -194,11 +195,57 @@ class CourseController extends Controller
         );
         return redirect()->route('all.courses')->with($notification);
     }
-    // AllCourseOutlines
-    // public function AllCourseOutlines()
+    // AddCourseBronchure
+    public function AddCourseBronchure()
+    {
+        $courses = Course::latest()->get();
+        return view('admin.backend.course.add_course_bronchure', compact('courses'));
+    }
+    // StoreCourseBronchure
+    public function StoreCourseBronchure(Request $request){
+        $request->validate([
+            'pdf_file' => 'required|mimes:pdf|max:2048', // PDF files, maximum 2MB
+            'course_id' => 'required',
+            ]);
+
+            $pdfPath = $request->file('pdf_file');
+            $filename = date('YmdHi') . $pdfPath->getClientOriginalName();
+            $pdfPath->move(public_path('upload/bronchure'), $filename);
+            // You can store the $pdfPath in your database if needed
+            // $dateOfUpload = date('Y-m-d', strtotime($request->date_upload));
+
+            DownloadCourse::insert([
+                'course_id' => $request->course_id,
+                'pdf_file' => $filename,
+                'created_at' => Carbon::now()
+            ]);
+            $notification = array(
+                'message'=> 'Course Bronchure uploaded successfully',
+                'alert-type'=>'success'
+            );
+            return redirect()->back()->with($notification);
+    }
+    // DownloadBronchure
+    public function DownloadBronchure($id)
+    {
+        $download = DownloadCourse::find($id);
+        $pdfPath = public_path('upload/bronchure/'. $download->pdf_file);
+        return response()->download($pdfPath, $download->pdf_file);
+    }
+    // DeleteCourseBronchure
+    // public function DeleteCourseBronchure($id)
     // {
-    //     $courseOutline = CourseOutline::latest()->get();
-    //     return view('admin.backend.course_outline.all_course_outlines', compact('courseOutline'));
+    //     $download = DownloadCourse::find($id);
+    //     $filePath = public_path('upload/bronchure/'. $download->pdf_file);
+    //     if (file_exists($filePath)) {
+    //         unlink($filePath);
+    //     }
+    //     DownloadCourse::find($id)->delete();
+    //     $notification = array(
+    //        'message' => 'Course Bronchure deleted Successfully',
+    //         'alert-type' => 'error'
+    //     );
+    //     return redirect()->route('all.course.bronchure')->with($notification);
     // }
     // AddCourseOutline
     // public function AddCourseOutline()

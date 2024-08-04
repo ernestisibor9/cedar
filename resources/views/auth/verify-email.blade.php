@@ -29,7 +29,7 @@
                         <div class="card shadow">
                             <div class="card-body">
                                 <div class="text-center mb-4">
-                                    <img src="{{ asset('backend/assets/images/icons/forgot-2.png') }}" width="100"
+                                    <img src="{{ asset('backend/assets/images/logo.png') }}"
                                         alt="" />
                                 </div>
                                 <div class="mb-4 text-sm text-gray-600">

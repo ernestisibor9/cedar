@@ -82,6 +82,9 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
         Route::get('/admin/edit/course/{id}', 'EditCourse')->name('edit.course');
         Route::post('/admin/update/course', 'UpdateCourse')->name('update.course');
         Route::get('/admin/delete/course/{id}', 'DeleteCourse')->name('delete.course');
+        Route::get('/admin/add/course/bronchure', 'AddCourseBronchure')->name('add.bronchure');
+        Route::post('/admin/store/course/bronchure', 'StoreCourseBronchure')->name('store.bronchure');
+        Route::get('/admin/course/download_bronchure/{id}', 'DownloadBronchure')->name('download_bronchure');
         // Route::get('/subcategory/ajax/{category_id}', 'GetSubCategory')->name('add.course');
         // Route::post('/admin/store/course', 'StoreCourse')->name('store.course');
         // Route::get('/admin/edit/course/{id}', 'EditCourse')->name('edit.course');

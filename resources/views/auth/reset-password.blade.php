@@ -27,7 +27,7 @@
 				<div class="card-body">
 					<div class="p-3">
 						<div class="text-center">
-							<img src="{{asset('backend/assets/images/icons/forgot-2.png')}}" width="100" alt="" />
+							<img src="{{ asset('backend/assets/images/logo.png') }}" width="100" alt="" />
 						</div>
 						<h4 class="mt-5 font-weight-bold">Generate New Password?</h4>
 						<p class="text-muted">We received your reset password request. Please enter your new password!</p>
