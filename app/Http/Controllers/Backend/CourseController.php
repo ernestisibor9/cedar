@@ -34,6 +34,7 @@ class CourseController extends Controller
             'course_title' => 'required | min:3',
             'video' => 'required|mimes:mp4,mpeg',
             'course_image' => 'required',
+            'pdf_file' => 'required|mimes:pdf|max:2048', // PDF files, maximum 2MB
         ]);
 
         $image = $request->file('course_image');
@@ -46,7 +47,11 @@ class CourseController extends Controller
         $video->move(public_path('upload/courses/video/'), $filename);
         $save_video = 'upload/courses/video/' . $filename;
 
-        Course::insert([
+        $pdfPath = $request->file('pdf_file');
+        $filename = date('YmdHi') . $pdfPath->getClientOriginalName();
+        $pdfPath->move(public_path('upload/bronchure'), $filename);
+
+        $course_id = Course::insertGetId([
             'category_id' => $request->category_id,
             'course_title' => $request->course_title,
             'course_name' => $request->course_name,
@@ -62,6 +67,12 @@ class CourseController extends Controller
             'course_benefits' => $request->course_benefits,
             'start_date' => $request->start_date,
             'course_image' => $save_url,
+            'created_at' => Carbon::now()
+        ]);
+        // Insert Data into Download Bronchure table
+        DownloadCourse::insert([
+            'course_id' => $course_id,
+            'pdf_file' => $filename,
             'created_at' => Carbon::now()
         ]);
 

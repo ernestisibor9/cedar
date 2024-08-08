@@ -28,6 +28,7 @@ return new class extends Migration
             $table->integer('discount_price')->nullable();
             $table->string('language')->nullable();
             $table->string('level')->nullable();
+            $table->string('pdf_file')->nullable();
             $table->tinyInteger('status')->default(0)->comment('0 = Inactive', '1=Active')->nullable();
             $table->timestamps();
         });

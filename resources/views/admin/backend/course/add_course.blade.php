@@ -98,7 +98,12 @@
                                         <input type="text" class="form-control " name="duration" id="">
                                     </div>
                                 </div>
-
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <label for="">Upload Bronchure PDF</label>
+                                        <input type="file" class="form-control" name="pdf_file" id="">
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="mb-3">
                                         <label for="">Description</label>

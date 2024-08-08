@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CategoryCategory;
 use App\Http\Controllers\Backend\CourseController;
+use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\StudentProjectController as BackendStudentProjectController;
 use App\Http\Controllers\Backend\UserController as BackendUserController;
 use App\Http\Controllers\Frontend\CourseController as FrontendCourseController;
@@ -94,6 +95,13 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
         // Route::post('/update/course/goal', 'UpdateCourseGoal')->name('update.course.goal');
         // Route::get('//admin/delete/course/{id}', 'DeleteCourse')->name('delete.course');
     });
+    // Admin Review All Route
+Route::controller(ReviewController::class)->group(function(){
+    Route::get('/admin/pending/review','AdminPendingReview')->name('admin.pending.review');
+    Route::post('/update/review/status','UpdateReviewStatus')->name('update.review.status');
+    Route::get('/admin/active/review','AdminActiveReview')->name('admin.active.review');
+
+});
     // Student Project routes  ----  view.all.project
     Route::controller(BackendStudentProjectController::class)->group(function(){
         Route::get('/admin/all/student/projects', 'AllStudentPoject')->name('all.student.project');
@@ -171,3 +179,7 @@ Route::get('/course/details/{id}/{slug}', [FrontendCourseController::class, 'Cou
 
 // WishList Route
 Route::post('/add-to-wishlist/{course_id}', [WishListController::class, 'AddToWishList']);
+
+// Review Route
+
+Route::post('/store/review', [ReviewController::class, 'StoreReview'])->name('store.review');

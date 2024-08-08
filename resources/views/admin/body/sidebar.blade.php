@@ -47,6 +47,19 @@
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
                 </div>
+                <div class="menu-title">Manage Review</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('admin.pending.review') }}"><i class='bx bx-radio-circle'></i>Pending Review</a>
+                </li>
+                <li> <a href="{{route('admin.active.review')}}"><i class='bx bx-radio-circle'></i>Active Reveiew</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-cart'></i>
+                </div>
                 <div class="menu-title">Course Outline</div>
             </a>
             <ul>
