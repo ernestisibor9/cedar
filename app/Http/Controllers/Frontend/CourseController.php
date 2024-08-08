@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\DownloadCourse;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -17,5 +18,12 @@ class CourseController extends Controller
         orderBy('id', 'DESC')->limit(3)->get();
         ;
         return view('frontend.course.course_details', compact('course', 'relatedCourses'));
+    }
+    // DownloadBronchure
+    public function DownloadBronchure($id)
+    {
+        $download = DownloadCourse::find($id);
+        $pdfPath = public_path('upload/bronchure/'. $download->pdf_file);
+        return response()->download($pdfPath, $download->pdf_file);
     }
 }

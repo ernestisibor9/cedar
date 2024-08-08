@@ -1,3 +1,12 @@
+<style>
+    .my-img{
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+</style>
+
 <section class="testimonial-area section-padding">
     <div class="container">
         <div class="section-heading text-center">
@@ -258,7 +267,7 @@
                 <div class="card-body">
                     <div class="media media-card align-items-center pb-3">
                         <div class="media-img avatar-md">
-                            <img src="{{asset('frontend/images/small-avatar-5.jpg')}}" alt="Testimonial avatar" class="rounded-full">
+                            <img src="{{asset('frontend/images/small-avatar-5.jpg')}}" alt="Testimonial avatar" class="rounded-full my-img">
                         </div>
                         <div class="media-body">
                             <h5>Daniel Ward</h5>

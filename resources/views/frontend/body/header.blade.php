@@ -92,6 +92,13 @@
                                     </li>
                                 </ul><!-- end ul -->
                             </nav>
+                            <nav class="main-menu">
+                                <ul>
+                                    <li>
+                                        <a href="{{route('blog')}}">Blog </a>
+                                    </li>
+                                </ul><!-- end ul -->
+                            </nav>
 
                             <div class="menu-category" style="margin-right: 20px">
                                 <ul>

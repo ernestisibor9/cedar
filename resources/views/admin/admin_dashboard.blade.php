@@ -9,6 +9,7 @@
     <link rel="icon" href="{{ asset('backend/assets/images/favicon-32x32.png') }}" type="image/png" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--plugins-->
+    <link rel="stylesheet" href="{{asset('backend/assets/plugins/input-tags/css/tagsinput.css')}}">
     <link href="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
     <link href="{{ asset('backend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
     <link href="{{ asset('backend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
@@ -83,6 +84,7 @@
     <script src="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
     <script src="{{ asset('backend/assets/plugins/chartjs/js/chart.js') }}"></script>
     <script src="{{ asset('backend/assets/js/index.js') }}"></script>
+    <script src="{{asset('backend/assets/plugins/input-tags/js/tagsinput.js')}}"></script>
     <script src="{{ asset('backend/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('backend/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
     <!--app JS-->

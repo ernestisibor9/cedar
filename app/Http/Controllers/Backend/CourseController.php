@@ -237,12 +237,12 @@ class CourseController extends Controller
             return redirect()->back()->with($notification);
     }
     // DownloadBronchure
-    public function DownloadBronchure($id)
-    {
-        $download = DownloadCourse::find($id);
-        $pdfPath = public_path('upload/bronchure/'. $download->pdf_file);
-        return response()->download($pdfPath, $download->pdf_file);
-    }
+    // public function DownloadBronchure($id)
+    // {
+    //     $download = DownloadCourse::find($id);
+    //     $pdfPath = public_path('upload/bronchure/'. $download->pdf_file);
+    //     return response()->download($pdfPath, $download->pdf_file);
+    // }
     // DeleteCourseBronchure
     // public function DeleteCourseBronchure($id)
     // {

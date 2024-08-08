@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\CategoryCategory;
 use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\Backend\ReviewController;
@@ -85,7 +86,7 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
         Route::get('/admin/delete/course/{id}', 'DeleteCourse')->name('delete.course');
         Route::get('/admin/add/course/bronchure', 'AddCourseBronchure')->name('add.bronchure');
         Route::post('/admin/store/course/bronchure', 'StoreCourseBronchure')->name('store.bronchure');
-        Route::get('/admin/course/download_bronchure/{id}', 'DownloadBronchure')->name('download_bronchure');
+        // Route::get('/admin/course/download_bronchure/{id}', 'DownloadBronchure')->name('download_bronchure');
         // Route::get('/subcategory/ajax/{category_id}', 'GetSubCategory')->name('add.course');
         // Route::post('/admin/store/course', 'StoreCourse')->name('store.course');
         // Route::get('/admin/edit/course/{id}', 'EditCourse')->name('edit.course');
@@ -100,6 +101,21 @@ Route::controller(ReviewController::class)->group(function(){
     Route::get('/admin/pending/review','AdminPendingReview')->name('admin.pending.review');
     Route::post('/update/review/status','UpdateReviewStatus')->name('update.review.status');
     Route::get('/admin/active/review','AdminActiveReview')->name('admin.active.review');
+
+});
+// Admin Blog Category Route
+Route::controller(BlogController::class)->group(function(){
+    Route::get('/blog/category','AllBlogCategory')->name('blog.category');
+    Route::post('/blog/category/store','StoreBlogCategory')->name('blog.category.store');
+    Route::get('/edit/blog/category/{id}','EditBlogCategory');
+    Route::post('/blog/category/update','UpdateBlogCategory')->name('blog.category.update');
+    Route::get('/delete/blog/category/{id}','DeleteBlogCategory')->name('delete.blog.category');
+    Route::get('/blog/post','BlogPost')->name('blog.post');
+    Route::get('/add/blog/post','AddBlogPost')->name('add.blog.post');
+    Route::post('/store/blog/post','StoreBlogPost')->name('store.blog.post');
+    Route::get('/edit/post/{id}','EditBlogPost')->name('edit.post');
+    Route::post('/update/blog/post','UpdateBlogPost')->name('update.blog.post');
+    Route::get('/delete/post/{id}','DeleteBlogPost')->name('delete.post');
 
 });
     // Student Project routes  ----  view.all.project
@@ -181,5 +197,16 @@ Route::get('/course/details/{id}/{slug}', [FrontendCourseController::class, 'Cou
 Route::post('/add-to-wishlist/{course_id}', [WishListController::class, 'AddToWishList']);
 
 // Review Route
-
 Route::post('/store/review', [ReviewController::class, 'StoreReview'])->name('store.review');
+
+// Blog Details Route
+Route::get('/blog/details/{slug}', [BlogController::class, 'BlogDetails']);
+
+// Blog Category List Route
+Route::get('/blog/cat/list/{id}', [BlogController::class, 'BlogCatList']);
+
+// Blog Route
+Route::get('/blog', [BlogController::class, 'BlogList'])->name('blog');
+
+// Download Bronchure Route
+Route::get('/course/download_bronchure/{id}', [FrontendCourseController::class, 'DownloadBronchure'])->name('download_bronchure');

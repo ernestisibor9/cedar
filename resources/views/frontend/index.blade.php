@@ -90,7 +90,7 @@
     <!--======================================
             START REGISTER AREA
     ======================================-->
-    @include('frontend.home.register-area')
+    {{-- @include('frontend.home.register-area') --}}
 <!-- end register-area -->
     <!--======================================
             END REGISTER AREA
