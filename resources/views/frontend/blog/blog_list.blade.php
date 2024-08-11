@@ -37,7 +37,7 @@
     <div class="col-lg-6">
         <div class="card card-item">
             <div class="card-image">
-                <a href="blog-single.html" class="d-block">
+                <a href="{{ url('blog/details/'.$item->post_slug) }}" class="d-block">
                     <img class="card-img-top lazy" src="{{ asset($item->post_image)  }}" data-src="images/img8.jpg" alt="Card image cap">
                 </a>
                 <div class="course-badge-labels">

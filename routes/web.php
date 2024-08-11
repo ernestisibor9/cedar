@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\StudentProjectController as BackendStudentProjectController;
 use App\Http\Controllers\Backend\UserController as BackendUserController;
+use App\Http\Controllers\Frontend\CommentController;
 use App\Http\Controllers\Frontend\CourseController as FrontendCourseController;
 use App\Http\Controllers\Frontend\StudentProjectController;
 use App\Http\Controllers\Frontend\WishListController;
@@ -116,6 +117,9 @@ Route::controller(BlogController::class)->group(function(){
     Route::get('/edit/post/{id}','EditBlogPost')->name('edit.post');
     Route::post('/update/blog/post','UpdateBlogPost')->name('update.blog.post');
     Route::get('/delete/post/{id}','DeleteBlogPost')->name('delete.post');
+    Route::get('/admin/blog/comment','AdminBlogComment')->name('admin.blog.comment');
+    Route::get('/admin/comment/reply/{id}', [BlogController::class, 'AdminCommentReply'])->name('admin.comment.reply');
+    Route::post('/reply/message', [BlogController::class, 'ReplyMessage'])->name('reply.message');
 
 });
     // Student Project routes  ----  view.all.project
@@ -210,3 +214,5 @@ Route::get('/blog', [BlogController::class, 'BlogList'])->name('blog');
 
 // Download Bronchure Route
 Route::get('/course/download_bronchure/{id}', [FrontendCourseController::class, 'DownloadBronchure'])->name('download_bronchure');
+
+Route::post('/store/comment', [CommentController::class, 'StoreComment'])->name('store.comment');

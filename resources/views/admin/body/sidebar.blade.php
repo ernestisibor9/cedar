@@ -219,6 +219,13 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a href="{{route('admin.blog.comment')}}">
+                <div class="parent-icon"><i class='bx bx-code-alt'></i>
+                </div>
+                <div class="menu-title">Blog Comment</div>
+            </a>
+        </li>
 
         <li>
             <a href="{{route('all.users')}}">
