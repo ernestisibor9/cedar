@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\CategoryCategory;
 use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\StudentProjectController as BackendStudentProjectController;
+use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\UserController as BackendUserController;
 use App\Http\Controllers\Frontend\CommentController;
 use App\Http\Controllers\Frontend\CourseController as FrontendCourseController;
@@ -104,6 +105,15 @@ Route::controller(ReviewController::class)->group(function(){
     Route::get('/admin/active/review','AdminActiveReview')->name('admin.active.review');
 
 });
+    // Admin Testimonial Route
+    Route::controller(TestimonialController::class)->group(function(){
+        Route::get('/admin/all/testimonial','AllTestimonial')->name('all.testimonial');
+        Route::get('/admin/add/testimonial','AddTestimonial')->name('add.testimonial');
+        Route::post('/store/testimonial', 'StoreTestimonial')->name('store.testimonial');
+        Route::get('/edit/testimonial/{id}', 'EditTestimonial')->name('edit.testimonial');
+        Route::post('/update/testimonial', 'UpdateTestimonial')->name('update.testimonial');
+        Route::get('/delete/testimonial/{id}', 'DeleteTestimonial')->name('delete.testimonial');
+    });
 // Admin Blog Category Route
 Route::controller(BlogController::class)->group(function(){
     Route::get('/blog/category','AllBlogCategory')->name('blog.category');
@@ -216,3 +226,4 @@ Route::get('/blog', [BlogController::class, 'BlogList'])->name('blog');
 Route::get('/course/download_bronchure/{id}', [FrontendCourseController::class, 'DownloadBronchure'])->name('download_bronchure');
 
 Route::post('/store/comment', [CommentController::class, 'StoreComment'])->name('store.comment');
+

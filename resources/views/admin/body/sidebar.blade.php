@@ -122,6 +122,20 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-cart'></i>
+                </div>
+                <div class="menu-title">Manage Testimonial</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('all.testimonial') }}"><i class='bx bx-radio-circle'></i>All Testimonial</a>
+                </li>
+                <li> <a href="{{route('add.testimonial')}}"><i class='bx bx-radio-circle'></i>Add Testimonial</a>
+                </li>
+                </li>
+            </ul>
+        </li>
         {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
