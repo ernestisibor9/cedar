@@ -7,15 +7,16 @@
 
 @section('home')
 
+
 <section class="breadcrumb-area section-padding img-bg-2">
     <div class="overlay"></div>
     <div class="container">
         <div class="breadcrumb-content d-flex flex-wrap align-items-center justify-content-between">
             <div class="section-heading">
-                <h2 class="section__title text-white">Student Projects</h2>
+                <h2 class="section__title text-white">Our Courses</h2>
             </div>
             <ul class="generic-list-item generic-list-item-white generic-list-item-arrow d-flex flex-wrap align-items-center">
-                <li><a href="{{url('/')}}">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li>Courses</li>
                 <li>Course Grid</li>
             </ul>
@@ -32,16 +33,10 @@
 <section class="course-area section-padding">
     <div class="container">
         <div class="filter-bar mb-4">
-            <p>50 projects</p>
-        </div>
-        {{-- <div class="filter-bar mb-4">
             <div class="filter-bar-inner d-flex flex-wrap align-items-center justify-content-between">
                 <p class="fs-14">We found <span class="text-black">56</span> courses available for you</p>
                 <div class="d-flex flex-wrap align-items-center">
-                    <ul class="filter-nav mr-3">
-                        <li><a href="course-grid.html" data-toggle="tooltip" data-placement="top" title="Grid View" class="active"><span class="la la-th-large"></span></a></li>
-                        <li><a href="course-list.html" data-toggle="tooltip" data-placement="top" title="List View"><span class="la la-list"></span></a></li>
-                    </ul>
+
                     <div class="select-container select--container mr-3">
                         <select class="select-container-select">
                             <option value="all-category">All Category</option>
@@ -53,10 +48,7 @@
                             <option value="low-to-high">Price: low to high</option>
                         </select>
                     </div>
-                    <a class="btn theme-btn theme-btn-sm theme-btn-white lh-28 collapse-btn" data-toggle="collapse" href="#collapseFilter" role="button" aria-expanded="false" aria-controls="collapseFilter">
-                        Filters <i class="la la-angle-down ml-1 collapse-btn-hide"></i>
-                        <i class="la la-angle-up ml-1 collapse-btn-show"></i>
-                    </a>
+
                 </div>
             </div><!-- end filter-bar-inner -->
             <div class="collapse pt-4" id="collapseFilter">
@@ -448,43 +440,103 @@
                     </div><!-- end col-lg-3 -->
                 </div><!-- end row -->
             </div><!-- end collapse -->
-        </div><!-- end filter-bar --> --}}
+        </div><!-- end filter-bar -->
         <div class="row">
-            @foreach ($studentProjects as $studentProject)
-                <div class="col-md-6 mb-3">
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{$studentProject->project_url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            @foreach ($courses as $course)
+                <div class="col-lg-4 responsive-column-half">
+                    <div class="card card-item card-preview" data-tooltip-content="">
+                        <div class="card-image">
+                            <a href="{{ url('course/details/' . $course->id . '/' . $course->course_name_slug) }}" class="d-block">
+                                <img class="card-img-top lazy my-img" src="{{ asset($course->course_image) }}"
+                                    data-src="{{ asset($course->course_image) }}" alt="Card image cap">
+                            </a>
+                            @php
+                            $reviewcount = App\Models\Review::where('course_id',$course->id)->where('status',1)->latest()->get();
+                            $avarage = App\Models\Review::where('course_id',$course->id)->where('status',1)->avg('rating');
+
+                        @endphp
+                        </div><!-- end card-image -->
+                        <div class="card-body">
+                            <h6 class="ribbon ribbon-blue-bg fs-14 mb-3">{{ $course->level }}</h6>
+                            <h5 class="card-title"><a
+                                    href="{{ url('course/details/' . $course->id . '/' . $course->course_name_slug) }}">{{ $course->course_name }}</a></h5>
+                            <p class="card-text"><a href="teacher-detail.html">Duration {{$course->duration}}</a></p>
+                            <div class="rating-wrap d-flex align-items-center py-2">
+                                <div class="review-stars">
+                                    <span class="rating-number">{{ round($avarage,1) }}</span>
+                                    @if ($avarage == 0)
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    @elseif ($avarage == 1 || $avarage < 2)
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    @elseif ($avarage == 2 || $avarage < 3)
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    @elseif ($avarage == 3 || $avarage < 4)
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    @elseif ($avarage == 4 || $avarage < 5)
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star-o"></span>
+                                    @elseif ($avarage == 5 || $avarage < 5)
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    @endif
+                                </div>
+                                <span class="rating-total pl-1">({{ count($reviewcount) }})</span>
+                            </div><!-- end rating-wrap -->
+                            <div class="d-flex justify-content-between align-items-center">
+                                @if ($course->discount_price === null)
+                                    <p class="card-price text-black font-weight-bold">
+                                        &pound;{{ $course->selling_price }}</p>
+                                @else
+                                    <p class="card-price text-black font-weight-bold">
+                                        &pound;{{ $course->discount_price }} <span
+                                            class="before-price font-weight-medium">	&pound;{{ $course->selling_price }}</span>
+                                @endif
+                                {{-- <p class="card-price text-black font-weight-bold">12.99 <span class="before-price font-weight-medium">129.99</span></p> --}}
+                                <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
+                                    title="Add to Wishlist" id="{{ $course->id }}" onclick="addToWishList(this.id)"><i class="la la-heart-o"></i></div>
+                            </div>
+                        </div><!-- end card-body -->
+                    </div><!-- end card -->
                 </div>
-            @endforeach<!-- end col-lg-4 -->
+            @endforeach
+            <!-- end col-lg-4 -->
+            <!-- end col-lg-4 -->
         </div><!-- end row -->
         <div class="text-center pt-3">
             <nav aria-label="Page navigation example" class="pagination-box">
-                {{-- <ul class="pagination justify-content-center">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true"><i class="la la-arrow-left"></i></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true"><i class="la la-arrow-right"></i></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </li>
-                </ul>
-                 --}}
-                 <div class="pagination justify-content-center">
-                    {!!$studentProjects->links('pagination::bootstrap-5')!!}
-                 </div>
+                <div class="pagination justify-content-center">
+                    {!!$courses->links('pagination::bootstrap-5')!!}
+                </div>
             </nav>
 
         </div>
     </div><!-- end container -->
 </section><!-- end courses-area -->
+<!--======================================
+        END COURSE AREA
+======================================-->
+
 
 @endsection
-
-

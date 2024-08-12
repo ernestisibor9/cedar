@@ -19,7 +19,7 @@
         <div class="row align-items-center">
             <div class="col-lg-9">
                 <div class="category-content-wrap">
-                    <div class="section-heading">
+                    <div class="section-heading text-center">
                         <h5 class="ribbon ribbon-lg mb-2">Categories</h5>
                         <h2 class="section__title">Popular Categories</h2>
                         <span class="section-divider"></span>
@@ -27,10 +27,10 @@
                 </div>
             </div><!-- end col-lg-9 -->
             <div class="col-lg-3">
-                <div class="category-btn-box text-right">
+                {{-- <div class="category-btn-box text-right">
                     <a href="categories.html" class="btn theme-btn">All Categories <i
-                            class="la la-arrow-right icon ml-1"></i></a>
-                </div><!-- end category-btn-box-->
+                            class="la la-arrow-right icon ></ml-1"></i>
+                </div><!-- end category-btn-box--> --}}
             </div><!-- end col-lg-3 -->
         </div><!-- end row -->
         <div class="category-wrapper mt-30px">
@@ -47,8 +47,8 @@
                                 <div class="category-inner">
                                     <h3 class="cat__title"><a href="#">{{ $cat->category_name }}</a></h3>
                                     <p class="cat__meta">{{ count($course) }} courses</p>
-                                    <a href="#" class="btn theme-btn theme-btn-sm theme-btn-white">Explore<i
-                                            class="la la-arrow-right icon ml-1"></i></a>
+                                    {{-- <a href="#" class="btn theme-btn theme-btn-sm theme-btn-white">Explore<i
+                                            class="la la-arrow-right icon ml-1"></i></a> --}}
                                 </div>
 
                             </div><!-- end category-content -->

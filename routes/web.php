@@ -227,3 +227,8 @@ Route::get('/course/download_bronchure/{id}', [FrontendCourseController::class, 
 
 Route::post('/store/comment', [CommentController::class, 'StoreComment'])->name('store.comment');
 
+// browse.all.course
+Route::get('/browse/all/courses', [FrontendCourseController::class, 'BrowseAllCourse'])->name('browse.all.course');
+
+// Search route
+Route::post('/search/courses', [FrontendCourseController::class, 'SearchCourse'])->name('search.course');

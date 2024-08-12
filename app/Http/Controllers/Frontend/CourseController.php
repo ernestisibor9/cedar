@@ -26,4 +26,15 @@ class CourseController extends Controller
         $pdfPath = public_path('upload/bronchure/'. $download->pdf_file);
         return response()->download($pdfPath, $download->pdf_file);
     }
+    // BrowseAllCourse
+    public function BrowseAllCourse(){
+        $courses = Course::latest()->paginate(6);
+        return view('frontend.course.browse_all_course', compact('courses'));
+    }
+    // Search Course
+    public function SearchCourse(Request $request){
+        $search = $request->search;
+        $courses = Course::where('course_title', 'LIKE', '%'.$search.'%')->orWhere('course_name', 'LIKE', '%'.$search.'%')->paginate(6);
+        return view('frontend.course.search_course', compact('courses'));
+    }
 }
