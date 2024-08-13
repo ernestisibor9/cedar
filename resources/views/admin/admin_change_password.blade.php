@@ -96,7 +96,7 @@
                                                     class="form-control @error('old_password')
                           is-invalid
                           @enderror"
-                                                    value="{{ $profileData->name }}" />
+                                                   />
                                             </div>
                                             @error('old_password')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -126,7 +126,7 @@
                                             </div>
                                             <div class="col-sm-9 text-secondary">
                                                 <input type="password" name="new_password_confirmation"
-                                                    class="form-control" value="{{ $profileData->name }}"
+                                                    class="form-control"
                                                     id="new_password_confirmation" />
                                             </div>
                                         </div>

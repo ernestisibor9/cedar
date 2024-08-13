@@ -12,12 +12,12 @@
                         <ol class="breadcrumb mb-0 p-0">
                             <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">User Profilep</li>
+                            <li class="breadcrumb-item active" aria-current="page">User Profile</li>
                         </ol>
                     </nav>
                 </div>
                 <div class="ms-auto">
-                    <div class="btn-group">
+                    {{-- <div class="btn-group">
                         <button type="button" class="btn btn-primary">Settings</button>
                         <button type="button"
                             class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
@@ -30,7 +30,7 @@
                             <div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Separated
                                 link</a>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <!--end breadcrumb-->
