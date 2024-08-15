@@ -107,7 +107,7 @@
                                         <a href="{{route('browse.all.course')}}">Course <i class="la la-angle-down fs-12"></i></a>
                                         <ul class="cat-dropdown-menu">
                                             <li>
-                                                <a href="course-grid.html">Recorded Classes</a>
+                                                <a href="{{route('view.all.project')}}">Recorded Classes</a>
                                                 {{-- <i class="la la-angle-right"></i> --}}
                                                 {{-- <ul class="sub-menu">
                                                     <li><a href="#">All Development</a></li>

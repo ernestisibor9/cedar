@@ -386,192 +386,82 @@
                                 </div><!-- end generic-accordion -->
                             </div><!-- end curriculum-content -->
                         </div><!-- end course-overview-card --> --}}
+                        @php
+                            $paidCourses = App\Models\Payment::latest()->limit(5)->get();
+                        @endphp
                         <div class="course-overview-card pt-4">
                             <h3 class="fs-24 font-weight-semi-bold pb-4">Students also bought</h3>
                             <div class="view-more-carousel owl-action-styled">
+                                @foreach ($paidCourses as $coursePaid)
                                 <div class="card card-item card-item-list-layout border border-gray shadow-none">
                                     <div class="card-image">
                                         <a href="course-details.html" class="d-block">
-                                            <img class="card-img-top" src="images/img8.jpg" alt="Card image cap">
+                                            <img class="card-img-top" src="{{asset($coursePaid->course->course_image)}}" alt="Card image cap">
                                         </a>
-                                        <div class="course-badge-labels">
+                                        {{-- <div class="course-badge-labels">
                                             <div class="course-badge">Bestseller</div>
                                             <div class="course-badge blue">-39%</div>
-                                        </div>
+                                        </div> --}}
                                     </div><!-- end card-image -->
                                     <div class="card-body">
-                                        <h6 class="ribbon ribbon-blue-bg fs-14 mb-3">All Levels</h6>
-                                        <h5 class="card-title"><a href="course-details.html">The Business Intelligence
-                                                Analyst Course 2021</a></h5>
-                                        <p class="card-text"><a href="teacher-detail.html">Jose Portilla</a></p>
+                                        <h6 class="ribbon ribbon-blue-bg fs-14 mb-3">{{$coursePaid->course->level}} Levels</h6>
+                                        <h5 class="card-title"><a href="course-details.html">{{$coursePaid->course->course_name}}
+                                                </a></h5>
+                                        <p class="card-text"><a href="teacher-detail.html">Cedar</a></p>
                                         <div class="rating-wrap d-flex align-items-center py-2">
                                             <div class="review-stars">
-                                                <span class="rating-number">4.4</span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star-o"></span>
-                                            </div>
-                                            <span class="rating-total pl-1">(20,230)</span>
-                                        </div><!-- end rating-wrap -->
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <p class="card-price text-black font-weight-bold">12.99 <span
-                                                    class="before-price font-weight-medium">129.99</span></p>
-                                            <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
-                                                title="Add to Wishlist"><i class="la la-heart-o"></i></div>
-                                        </div>
-                                    </div><!-- end card-body -->
-                                </div><!-- end card -->
-                                <div class="card card-item card-item-list-layout border border-gray shadow-none">
-                                    <div class="card-image">
-                                        <a href="course-details.html" class="d-block">
-                                            <img class="card-img-top" src="images/img9.jpg" alt="Card image cap">
-                                        </a>
-                                        <div class="course-badge-labels">
-                                            <div class="course-badge red">Featured</div>
-                                        </div>
-                                    </div><!-- end card-image -->
-                                    <div class="card-body">
-                                        <h6 class="ribbon ribbon-blue-bg fs-14 mb-3">All Levels</h6>
-                                        <h5 class="card-title"><a href="course-details.html">The Business Intelligence
-                                                Analyst Course 2021</a></h5>
-                                        <p class="card-text"><a href="teacher-detail.html">Jose Portilla</a></p>
-                                        <div class="rating-wrap d-flex align-items-center py-2">
-                                            <div class="review-stars">
-                                                <span class="rating-number">4.4</span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star-o"></span>
-                                            </div>
-                                            <span class="rating-total pl-1">(20,230)</span>
-                                        </div><!-- end rating-wrap -->
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <p class="card-price text-black font-weight-bold">129.99</p>
-                                            <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
-                                                title="Add to Wishlist"><i class="la la-heart-o"></i></div>
-                                        </div>
-                                    </div><!-- end card-body -->
-                                </div><!-- end card -->
-                                <div class="card card-item card-item-list-layout border border-gray shadow-none">
-                                    <div class="card-image">
-                                        <a href="course-details.html" class="d-block">
-                                            <img class="card-img-top" src="images/img8.jpg" alt="Card image cap">
-                                        </a>
-                                        <div class="course-badge-labels">
-                                            <div class="course-badge">Bestseller</div>
-                                            <div class="course-badge blue">-39%</div>
-                                        </div>
-                                    </div><!-- end card-image -->
-                                    <div class="card-body">
-                                        <h6 class="ribbon ribbon-blue-bg fs-14 mb-3">All Levels</h6>
-                                        <h5 class="card-title"><a href="course-details.html">The Business Intelligence
-                                                Analyst Course 2021</a></h5>
-                                        <p class="card-text"><a href="teacher-detail.html">Jose Portilla</a></p>
-                                        <div class="rating-wrap d-flex align-items-center py-2">
-                                            <div class="review-stars">
-                                                <span class="rating-number">4.4</span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star-o"></span>
-                                            </div>
-                                            <span class="rating-total pl-1">(20,230)</span>
-                                        </div><!-- end rating-wrap -->
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <p class="card-price text-black font-weight-bold">12.99 <span
-                                                    class="before-price font-weight-medium">129.99</span></p>
-                                            <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
-                                                title="Add to Wishlist"><i class="la la-heart-o"></i></div>
-                                        </div>
-                                    </div><!-- end card-body -->
-                                </div><!-- end card -->
-                                <div class="card card-item card-item-list-layout border border-gray shadow-none">
-                                    <div class="card-image">
-                                        <a href="course-details.html" class="d-block">
-                                            <img class="card-img-top" src="images/img9.jpg" alt="Card image cap">
-                                        </a>
-                                        <div class="course-badge-labels">
-                                            <div class="course-badge red">Featured</div>
-                                        </div>
-                                    </div><!-- end card-image -->
-                                    <div class="card-body">
-                                        <h6 class="ribbon ribbon-blue-bg fs-14 mb-3">All Levels</h6>
-                                        <h5 class="card-title"><a href="course-details.html">The Business Intelligence
-                                                Analyst Course 2021</a></h5>
-                                        <p class="card-text"><a href="teacher-detail.html">Jose Portilla</a></p>
-
-                                        @php
-                                            $reviewcount = App\Models\Review::where('course_id', $course->id)
-                                                ->where('status', 1)
-                                                ->latest()
-                                                ->get();
-                                            $avarage = App\Models\Review::where('course_id', $course->id)
-                                                ->where('status', 1)
-                                                ->avg('rating');
-                                        @endphp
-
-                                        <div class="rating-wrap d-flex align-items-center py-2">
-                                            <div class="review-stars">
-
-                                                <span class="rating-total pl-1">({{ count($reviewcount) }} ratings)</span>
-                                                <span class="rating-number">{{ round($avarage, 1) }}</span>
+                                                <span class="rating-number">{{ round($avarage,1) }}</span>
                                                 @if ($avarage == 0)
-                                                    <span class="la la-star-o"></span>
-                                                    <span class="la la-star-o"></span>
-                                                    <span class="la la-star-o"></span>
-                                                    <span class="la la-star-o"></span>
-                                                    <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
                                                 @elseif ($avarage == 1 || $avarage < 2)
-                                                    <span class="la la-star"></span>
-                                                    <span class="la la-star-o"></span>
-                                                    <span class="la la-star-o"></span>
-                                                    <span class="la la-star-o"></span>
-                                                    <span class="la la-star-o"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
                                                 @elseif ($avarage == 2 || $avarage < 3)
-                                                    <span class="la la-star"></span>
-                                                    <span class="la la-star"></span>
-                                                    <span class="la la-star-o"></span>
-                                                    <span class="la la-star-o"></span>
-                                                    <span class="la la-star-o"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
                                                 @elseif ($avarage == 3 || $avarage < 4)
-                                                    <span class="la la-star"></span>
-                                                    <span class="la la-star"></span>
-                                                    <span class="la la-star"></span>
-                                                    <span class="la la-star-o"></span>
-                                                    <span class="la la-star-o"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star-o"></span>
+                                                <span class="la la-star-o"></span>
                                                 @elseif ($avarage == 4 || $avarage < 5)
-                                                    <span class="la la-star"></span>
-                                                    <span class="la la-star"></span>
-                                                    <span class="la la-star"></span>
-                                                    <span class="la la-star"></span>
-                                                    <span class="la la-star-o"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star-o"></span>
                                                 @elseif ($avarage == 5 || $avarage < 5)
-                                                    <span class="la la-star"></span>
-                                                    <span class="la la-star"></span>
-                                                    <span class="la la-star"></span>
-                                                    <span class="la la-star"></span>
-                                                    <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
+                                                <span class="la la-star"></span>
                                                 @endif
                                             </div>
-                                            {{-- <span class="rating-total pl-1">(20,230)</span> --}}
-                                            {{-- <span class="rating-total pl-1">({{ count($reviewcount) }} ratings)</span> --}}
-                                            {{-- @php
-                                                $enrollmentCount = App\Models\Order::where('course_id',$course->id)->count();
-                                            @endphp --}}
-
-                                            {{-- <span class="student-total pl-2">{{ number_format($enrollmentCount) }} students</span> --}}
+                                            {{-- <span class="rating-total pl-1">({{ count($reviewcount) }})</span> --}}
                                         </div><!-- end rating-wrap -->
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <p class="card-price text-black font-weight-bold">129.99</p>
-                                            <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
-                                                title="Add to Wishlist"><i class="la la-heart-o"></i></div>
+                                            <p class="card-price text-black font-weight-bold">${{number_format($coursePaid->course->selling_price, 2)}} <span
+                                                    class="before-price font-weight-medium">${{number_format($coursePaid->course->discount_price, 2)}} </span></p>
+                                                    <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
+                                                    title="Add to Wishlist" id="{{ $course->id }}" onclick="addToWishList(this.id)"><i class="la la-heart-o"></i></div>
                                         </div>
                                     </div><!-- end card-body -->
                                 </div><!-- end card -->
+<!-- end card -->
+                                @endforeach
+
                             </div><!-- end view-more-carousel -->
                         </div><!-- end course-overview-card -->
                         {{-- <div class="course-overview-card pt-4">
