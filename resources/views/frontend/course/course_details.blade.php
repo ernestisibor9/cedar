@@ -2,8 +2,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer">
-</script>
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 @section('home')
     @php
@@ -12,8 +11,8 @@
     @endphp
 
     <!-- ================================
-            START BREADCRUMB AREA
-        ================================= -->
+                START BREADCRUMB AREA
+            ================================= -->
     <section class="breadcrumb-area pt-50px pb-50px bg-white pattern-bg">
         <div class="container">
             <div class="col-lg-8 mr-auto">
@@ -29,59 +28,63 @@
                     </div>
 
                     @php
-                    $reviewcount = App\Models\Review::where('course_id',$course->id)->where('status',1)->latest()->get();
-                    $avarage = App\Models\Review::where('course_id',$course->id)->where('status',1)->avg('rating');
-                @endphp
+                        $reviewcount = App\Models\Review::where('course_id', $course->id)
+                            ->where('status', 1)
+                            ->latest()
+                            ->get();
+                        $avarage = App\Models\Review::where('course_id', $course->id)
+                            ->where('status', 1)
+                            ->avg('rating');
+                    @endphp
                     <!-- end section-heading -->
                     <div class="d-flex flex-wrap align-items-center pt-3">
-                        <h6 class="ribbon ribbon-lg mr-2 bg-3 text-white">Bestseller</h6>
+                        <h6 class="ribbon ribbon-lg mr-2 bg-3 text-white"></h6>
                         <div class="rating-wrap d-flex flex-wrap align-items-center">
                             <div class="review-stars">
                                 <span class="rating-number">{{ count($reviewcount) }}</span>
 
-                                  @if ($avarage == 0)
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            @elseif ($avarage == 1 || $avarage < 2)
-                            <span class="la la-star"></span>
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            @elseif ($avarage == 2 || $avarage < 3)
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            @elseif ($avarage == 3 || $avarage < 4)
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            @elseif ($avarage == 4 || $avarage < 5)
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            <span class="la la-star-o"></span>
-                            @elseif ($avarage == 5 || $avarage < 5)
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            @endif
+                                @if ($avarage == 0)
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                @elseif ($avarage == 1 || $avarage < 2)
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                @elseif ($avarage == 2 || $avarage < 3)
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                @elseif ($avarage == 3 || $avarage < 4)
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                @elseif ($avarage == 4 || $avarage < 5)
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star-o"></span>
+                                @elseif ($avarage == 5 || $avarage < 5)
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                @endif
                             </div>
-                            <span class="rating-total pl-1">({{ round($avarage,1) }} ratings)</span>
+                            <span class="rating-total pl-1">({{ round($avarage, 1) }} ratings)</span>
                         </div>
                     </div><!-- end d-flex -->
-                    <p class="pt-2 pb-1">Created by <a href="teacher-detail.html" class="text-color hover-underline">Tim
-                            Buchalka</a></p>
+                    <p class="pt-2 pb-1">Created by <a href="#" class="text-color hover-underline">Cedar</a></p>
                     <div class="d-flex flex-wrap align-items-center">
                         <p class="pr-3 d-flex align-items-center">
                             <svg class="svg-icon-color-gray mr-1" width="16px" viewBox="0 0 24 24">
@@ -120,12 +123,12 @@
         </div><!-- end container -->
     </section><!-- end breadcrumb-area -->
     <!-- ================================
-            END BREADCRUMB AREA
-        ================================= -->
+                END BREADCRUMB AREA
+            ================================= -->
 
     <!--======================================
-                START COURSE DETAILS AREA
-        ======================================-->
+                    START COURSE DETAILS AREA
+            ======================================-->
     <section class="course-details-area pb-20px">
         <div class="container">
             <div class="row">
@@ -133,7 +136,10 @@
                     <div class="course-details-content-wrap pt-90px">
                         <div class="course-overview-card bg-gray p-4 rounded">
                             <h3 class="fs-24 font-weight-semi-bold pb-3">What you'll learn?</h3>
-                            <ul class="generic-list-item overview-list-item">
+                            <p>
+                                {!! $course->description !!}
+                            </p>
+                            {{-- <ul class="generic-list-item overview-list-item">
                                 <li><i class="la la-check mr-1 text-black"></i> Learn the core Java skills needed to apply
                                     for Java developer positions in just 14 hours.</li>
                                 <li><i class="la la-check mr-1 text-black"></i> Be able to demonstrate your understanding of
@@ -147,21 +153,21 @@
                                     for 18 years.</li>
                                 <li><i class="la la-check mr-1 text-black"></i> Obtain proficiency in Java 8 and Java 11.
                                 </li>
-                            </ul>
+                            </ul> --}}
                         </div><!-- end course-overview-card -->
                         <div class="course-overview-card bg-gray p-4 rounded">
-                            <h3 class="fs-16 font-weight-semi-bold">Curated for the <a href="for-business.html"
-                                    class="text-color hover-underline">Aduca for Business</a> collection</h3>
+                            <h3 class="fs-16 font-weight-semi-bold">Created by the <a href="for-business.html"
+                                    class="text-color hover-underline">Cedar team</a> collection</h3>
                         </div><!-- end course-overview-card -->
-                        <div class="course-overview-card">
+                        {{-- <div class="course-overview-card">
                             <h3 class="fs-24 font-weight-semi-bold pb-3">Requirements</h3>
                             <ul class="generic-list-item generic-list-item-bullet fs-15">
                                 <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
                                 <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
                                 <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
                             </ul>
-                        </div><!-- end course-overview-card -->
-                        <div class="course-overview-card border border-gray p-4 rounded">
+                        </div><!-- end course-overview-card --> --}}
+                        {{-- <div class="course-overview-card border border-gray p-4 rounded">
                             <h3 class="fs-20 font-weight-semi-bold">Top companies trust Aduca</h3>
                             <p class="fs-15 pb-1">Get your team access to Aduca's top 5,000+ courses</p>
                             <div class="pb-3">
@@ -379,7 +385,7 @@
                                     </div><!-- end card -->
                                 </div><!-- end generic-accordion -->
                             </div><!-- end curriculum-content -->
-                        </div><!-- end course-overview-card -->
+                        </div><!-- end course-overview-card --> --}}
                         <div class="course-overview-card pt-4">
                             <h3 class="fs-24 font-weight-semi-bold pb-4">Students also bought</h3>
                             <div class="view-more-carousel owl-action-styled">
@@ -499,52 +505,57 @@
                                         <p class="card-text"><a href="teacher-detail.html">Jose Portilla</a></p>
 
                                         @php
-                                        $reviewcount = App\Models\Review::where('course_id',$course->id)->where('status',1)->latest()->get();
-                                        $avarage = App\Models\Review::where('course_id',$course->id)->where('status',1)->avg('rating');
-                                    @endphp
+                                            $reviewcount = App\Models\Review::where('course_id', $course->id)
+                                                ->where('status', 1)
+                                                ->latest()
+                                                ->get();
+                                            $avarage = App\Models\Review::where('course_id', $course->id)
+                                                ->where('status', 1)
+                                                ->avg('rating');
+                                        @endphp
 
                                         <div class="rating-wrap d-flex align-items-center py-2">
                                             <div class="review-stars">
 
                                                 <span class="rating-total pl-1">({{ count($reviewcount) }} ratings)</span>
-                                                <span class="rating-number">{{ round($avarage,1) }}</span>
-                            @if ($avarage == 0)
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            @elseif ($avarage == 1 || $avarage < 2)
-                            <span class="la la-star"></span>
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            @elseif ($avarage == 2 || $avarage < 3)
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            @elseif ($avarage == 3 || $avarage < 4)
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            <span class="la la-star-o"></span>
-                            <span class="la la-star-o"></span>
-                            @elseif ($avarage == 4 || $avarage < 5)
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            <span class="la la-star-o"></span>
-                            @elseif ($avarage == 5 || $avarage < 5)
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            <span class="la la-star"></span>
-                            @endif
+                                                <span class="rating-number">{{ round($avarage, 1) }}</span>
+                                                @if ($avarage == 0)
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
+                                                @elseif ($avarage == 1 || $avarage < 2)
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
+                                                @elseif ($avarage == 2 || $avarage < 3)
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
+                                                @elseif ($avarage == 3 || $avarage < 4)
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
+                                                @elseif ($avarage == 4 || $avarage < 5)
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star-o"></span>
+                                                @elseif ($avarage == 5 || $avarage < 5)
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                @endif
                                             </div>
                                             {{-- <span class="rating-total pl-1">(20,230)</span> --}}
                                             {{-- <span class="rating-total pl-1">({{ count($reviewcount) }} ratings)</span> --}}
@@ -552,7 +563,7 @@
                                                 $enrollmentCount = App\Models\Order::where('course_id',$course->id)->count();
                                             @endphp --}}
 
-                                                                {{-- <span class="student-total pl-2">{{ number_format($enrollmentCount) }} students</span> --}}
+                                            {{-- <span class="student-total pl-2">{{ number_format($enrollmentCount) }} students</span> --}}
                                         </div><!-- end rating-wrap -->
                                         <div class="d-flex justify-content-between align-items-center">
                                             <p class="card-price text-black font-weight-bold">129.99</p>
@@ -563,7 +574,7 @@
                                 </div><!-- end card -->
                             </div><!-- end view-more-carousel -->
                         </div><!-- end course-overview-card -->
-                        <div class="course-overview-card pt-4">
+                        {{-- <div class="course-overview-card pt-4">
                             <h3 class="fs-24 font-weight-semi-bold pb-4">About the instructor</h3>
                             <div class="instructor-wrap">
                                 <div class="media media-card">
@@ -612,103 +623,104 @@
                                     </div>
                                 </div>
                             </div><!-- end instructor-wrap -->
-                        </div><!-- end course-overview-card -->
+                        </div><!-- end course-overview-card --> --}}
                         <div class="course-overview-card pt-4">
                             <h3 class="fs-24 font-weight-semi-bold pb-40px">Student feedback</h3>
                             <div class="feedback-wrap">
                                 <div class="media media-card align-items-center">
                                     <div class="review-rating-summary">
-                                        <span class="stats-average__count">{{ round($avarage,1) }}</span>
+                                        <span class="stats-average__count">{{ round($avarage, 1) }}</span>
                                         <div class="rating-wrap pt-1">
                                             <div class="review-stars">
                                                 @if ($avarage == 0)
-                                                <span class="la la-star-o"></span>
-                                                <span class="la la-star-o"></span>
-                                                <span class="la la-star-o"></span>
-                                                <span class="la la-star-o"></span>
-                                                <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
                                                 @elseif ($avarage == 1 || $avarage < 2)
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star-o"></span>
-                                                <span class="la la-star-o"></span>
-                                                <span class="la la-star-o"></span>
-                                                <span class="la la-star-o"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
                                                 @elseif ($avarage == 2 || $avarage < 3)
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star-o"></span>
-                                                <span class="la la-star-o"></span>
-                                                <span class="la la-star-o"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
                                                 @elseif ($avarage == 3 || $avarage < 4)
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star-o"></span>
-                                                <span class="la la-star-o"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star-o"></span>
+                                                    <span class="la la-star-o"></span>
                                                 @elseif ($avarage == 4 || $avarage < 5)
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star-o"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star-o"></span>
                                                 @elseif ($avarage == 5 || $avarage < 5)
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
-                                                <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
+                                                    <span class="la la-star"></span>
                                                 @endif
                                                 <span class="la la-star-half-alt"></span>
                                             </div>
                                             <span class="rating-total d-block">({{ count($reviewcount) }})</span>
 
-                                            <span class="rating-total pl-1">({{ round($avarage,1) }} ratings)</span>
+                                            <span class="rating-total pl-1">({{ round($avarage, 1) }} ratings)</span>
                                             <span>Course Rating</span>
                                         </div><!-- end rating-wrap -->
                                     </div><!-- end review-rating-summary -->
                                     <div class="media-body">
 
-        @php
-        $reviewcount = App\Models\Review::where('course_id',$course->id)
-                        ->where('status',1)
-                        ->select('rating', DB::raw('count(*) as count'))
-                        ->groupBy('rating')
-                        ->orderBy('rating','desc')
-                        ->get();
-        $totalReviews = $reviewcount->sum('count');
-        $percentages = [];
-        for ($i=5; $i >= 1 ; $i--) {
-            $ratingCount = $reviewcount->where('rating',$i)->first();
-            $count =  $ratingCount ? $ratingCount->count : 0;
-            $percent = $totalReviews  > 0 ? ($count / $totalReviews) * 100 : 0;
-            $percentages[] = [
-                'rating' => $i,
-                'percent' => $percent,
-                'count' => $count,
-           ];
-        }
-    @endphp
+                                        @php
+                                            $reviewcount = App\Models\Review::where('course_id', $course->id)
+                                                ->where('status', 1)
+                                                ->select('rating', DB::raw('count(*) as count'))
+                                                ->groupBy('rating')
+                                                ->orderBy('rating', 'desc')
+                                                ->get();
+                                            $totalReviews = $reviewcount->sum('count');
+                                            $percentages = [];
+                                            for ($i = 5; $i >= 1; $i--) {
+                                                $ratingCount = $reviewcount->where('rating', $i)->first();
+                                                $count = $ratingCount ? $ratingCount->count : 0;
+                                                $percent = $totalReviews > 0 ? ($count / $totalReviews) * 100 : 0;
+                                                $percentages[] = [
+                                                    'rating' => $i,
+                                                    'percent' => $percent,
+                                                    'count' => $count,
+                                                ];
+                                            }
+                                        @endphp
 
 
-    @if (count($percentages) > 0)
-    @foreach ($percentages as $ratingInfo)
-
-    <div class="review-bars d-flex align-items-center mb-2">
-        <div class="review-bars__text">{{ $ratingInfo['rating'] }} stars</div>
-        <div class="review-bars__fill">
-            <div class="skillbar-box">
-<div class="skillbar" data-percent="{{ $ratingInfo['percent'] }}%">
-                    <div class="skillbar-bar bg-3" style="width: {{ $ratingInfo['percent'] }}%;" ></div>
-                </div> <!-- End Skill Bar -->
-            </div>
-        </div><!-- end review-bars__fill -->
-        <div class="review-bars__percent">{{ number_format($ratingInfo['percent'], 2) }}%</div>
-    </div><!-- end review-bars -->
-
-    @endforeach
-    @else
-    <p>No Reviews Available</p>
-    @endif
+                                        @if (count($percentages) > 0)
+                                            @foreach ($percentages as $ratingInfo)
+                                                <div class="review-bars d-flex align-items-center mb-2">
+                                                    <div class="review-bars__text">{{ $ratingInfo['rating'] }} stars</div>
+                                                    <div class="review-bars__fill">
+                                                        <div class="skillbar-box">
+                                                            <div class="skillbar"
+                                                                data-percent="{{ $ratingInfo['percent'] }}%">
+                                                                <div class="skillbar-bar bg-3"
+                                                                    style="width: {{ $ratingInfo['percent'] }}%;"></div>
+                                                            </div> <!-- End Skill Bar -->
+                                                        </div>
+                                                    </div><!-- end review-bars__fill -->
+                                                    <div class="review-bars__percent">
+                                                        {{ number_format($ratingInfo['percent'], 2) }}%</div>
+                                                </div><!-- end review-bars -->
+                                            @endforeach
+                                        @else
+                                            <p>No Reviews Available</p>
+                                        @endif
                                     </div><!-- end media-body -->
                                 </div>
                             </div><!-- end feedback-wrap -->
@@ -794,10 +806,10 @@
                                 <!-- end media -->
                                 <!-- end media -->
                             </div><!-- end review-wrap -->
-                            <div class="see-more-review-btn text-center">
+                            {{-- <div class="see-more-review-btn text-center">
                                 <button type="button" class="btn theme-btn theme-btn-transparent">Load more
                                     reviews</button>
-                            </div>
+                            </div> --}}
                         </div>
 
                         @guest
@@ -882,21 +894,25 @@
                                 </div><!-- end preview-course-video -->
                                 <div class="preview-course-feature-content pt-40px">
                                     <p class="d-flex align-items-center pb-2">
-                                        <span class="fs-35 font-weight-semi-bold text-black">$76.99</span>
-                                        <span class="before-price mx-1">$104.99</span>
-                                        <span class="price-discount">24% off</span>
+                                        <span
+                                            class="fs-35 font-weight-semi-bold text-black">${{ number_format($course->selling_price, 2) }}</span>
+                                        <span
+                                            class="before-price mx-1">${{ number_format($course->discount_price, 2) }}</span>
+                                        {{-- <span class="price-discount">24% off</span> --}}
                                     </p>
                                     <p class="preview-price-discount-text pb-35px">
                                         <span class="text-color-3">4 days</span> left at this price!
                                     </p>
                                     <div class="buy-course-btn-box">
-                                        <button type="submit"
+                                        <a href="{{route('enroll.course', $course->id)}}" class="btn theme-btn w-100 mb-2"><i
+                                                class="la la-shopping-cart fs-18 mr-1"></i> Enroll Now</a>
+                                        {{-- <button type="submit"
                                             onclick="addToCart({{ $course->id }}, '{{ $course->course_name }}',
                                     '{{ $course->course_name_slug }}')"
                                             class="btn theme-btn w-100 mb-2"><i
-                                                class="la la-shopping-cart fs-18 mr-1"></i> Add to cart</button>
-                                        <button type="button" class="btn theme-btn w-100 theme-btn-white mb-2"><i
-                                                class="la la-shopping-bag mr-1"></i> Buy this course</button>
+                                                class="la la-shopping-cart fs-18 mr-1"></i> Add to cart</button> --}}
+                                        {{-- <button type="button" class="btn theme-btn w-100 theme-btn-white mb-2"><i
+                                                class="la la-shopping-bag mr-1"></i> Buy this course</button> --}}
                                         <a type="button"
                                             href="{{ route('download_bronchure', $downloadBronchure->id) }}"
                                             class="btn theme-btn w-100  mb-2"><i
@@ -906,9 +922,10 @@
                                     <div class="preview-course-incentives">
                                         <h3 class="card-title fs-18 pb-2">This course includes</h3>
                                         <ul class="generic-list-item pb-3">
-                                            <li><i class="la la-play-circle-o mr-2 text-color"></i>2.5 hours on-demand
+                                            <li><i class="la la-play-circle-o mr-2 text-color"></i>{{ $course->duration }}
+                                                hours on-demand
                                                 video</li>
-                                            <li><i class="la la-file mr-2 text-color"></i>34 articles</li>
+                                            {{-- <li><i class="la la-file mr-2 text-color"></i>34 articles</li> --}}
                                             <li><i class="la la-file-text mr-2 text-color"></i>12 downloadable resources
                                             </li>
                                             <li><i class="la la-code mr-2 text-color"></i>51 coding exercises</li>
@@ -919,19 +936,19 @@
                                             </li>
                                         </ul>
                                         <div class="section-block"></div>
-                                        <div class="buy-for-team-container pt-4">
+                                        {{-- <div class="buy-for-team-container pt-4">
                                             <h3 class="fs-18 font-weight-semi-bold pb-2">Training 5 or more people?</h3>
                                             <p class="lh-24 pb-3">Get your team access to 3,000+ top Aduca courses anytime,
                                                 anywhere.</p>
                                             <a href="for-business.html"
                                                 class="btn theme-btn theme-btn-sm theme-btn-transparent lh-30 w-100">Try
                                                 Aduca for Business</a>
-                                        </div>
+                                        </div> --}}
                                     </div><!-- end preview-course-incentives -->
                                 </div><!-- end preview-course-content -->
                             </div>
                         </div><!-- end card -->
-                        <div class="card card-item">
+                        {{-- <div class="card card-item">
                             <div class="card-body">
                                 <h3 class="card-title fs-18 pb-2">Course Features</h3>
                                 <div class="divider"><span></span></div>
@@ -957,41 +974,38 @@
                                                 class="la la-certificate mr-2 text-color"></i>Certificate</span> Yes</li>
                                 </ul>
                             </div>
-                        </div><!-- end card -->
+                        </div><!-- end card --> --}}
                         <div class="card card-item">
                             <div class="card-body">
                                 <h3 class="card-title fs-18 pb-2">Course Categories</h3>
                                 <div class="divider"><span></span></div>
                                 <ul class="generic-list-item">
-                                    <li><a href="#">Development</a></li>
-                                    <li><a href="#">Web Design</a></li>
-                                    <li><a href="#">Technology</a></li>
-                                    <li><a href="#">IT & Software</a></li>
-                                    <li><a href="#">Backend</a></li>
-                                    <li><a href="#">Marketing</a></li>
-                                    <li><a href="#">Photography</a></li>
-                                    <li><a href="#">Frontend</a></li>
+                                    @foreach ($categories as $cat)
+                                        <li><a href="{{url('category/course/list/'.$cat->id)}}">{{ $cat->category_name }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div><!-- end card -->
+
                         <div class="card card-item">
                             <div class="card-body">
                                 <h3 class="card-title fs-18 pb-2">Related Courses</h3>
                                 <div class="divider"><span></span></div>
+                                @foreach ($relatedCourses as $relatedCourse)
                                 <div class="media media-card border-bottom border-bottom-gray pb-4 mb-4">
-                                    <a href="course-details.html" class="media-img">
+                                    <a href="{{ url('course/details/' . $relatedCourse->id . '/' . $relatedCourse->course_name_slug) }}" class="media-img">
                                         <img class="mr-3 lazy" src="images/img-loading.png"
-                                            data-src="images/small-img-2.jpg" alt="Related course image">
+                                            data-src="{{asset($relatedCourse->course_image)}}" alt="Related course image">
                                     </a>
                                     <div class="media-body">
-                                        <h5 class="fs-15"><a href="course-details.html">The Complete JavaScript Course
-                                                2021</a></h5>
-                                        <span class="d-block lh-18 py-1 fs-14">Kamran Ahmed</span>
-                                        <p class="text-black font-weight-semi-bold lh-18 fs-15">$12.99 <span
-                                                class="before-price fs-14">$129.99</span></p>
+                                        <h5 class="fs-15"><a href="{{ url('course/details/' . $relatedCourse->id . '/' . $relatedCourse->course_name_slug) }}">{{$relatedCourse->course_name}}</a></h5>
+                                        <span class="d-block lh-18 py-1 fs-14">Cedar</span>
+                                        <p class="text-black font-weight-semi-bold lh-18 fs-15">${{number_format($relatedCourse->selling_price, 2)}} <span
+                                                class="before-price fs-14">${{number_format($relatedCourse->discount_price, 2)}}</span></p>
                                     </div>
-                                </div><!-- end media -->
-                                <div class="media media-card border-bottom border-bottom-gray pb-4 mb-4">
+                                </div>
+                                @endforeach<!-- end media -->
+                                {{-- <div class="media media-card border-bottom border-bottom-gray pb-4 mb-4">
                                     <a href="course-details.html" class="media-img">
                                         <img class="mr-3 lazy" src="images/img-loading.png"
                                             data-src="images/small-img-3.jpg" alt="Related course image">
@@ -1014,14 +1028,14 @@
                                         <span class="d-block lh-18 py-1 fs-14">Kamran Ahmed</span>
                                         <p class="text-black font-weight-semi-bold lh-18 fs-15">Free</p>
                                     </div>
-                                </div><!-- end media -->
+                                </div><!-- end media --> --}}
                                 <div class="view-all-course-btn-box">
-                                    <a href="course-grid.html" class="btn theme-btn w-100">View All Courses <i
+                                    <a href="{{route('browse.all.course')}}" class="btn theme-btn w-100">View All Courses <i
                                             class="la la-arrow-right icon ml-1"></i></a>
                                 </div>
                             </div>
                         </div><!-- end card -->
-                        <div class="card card-item">
+                        {{-- <div class="card card-item">
                             <div class="card-body">
                                 <h3 class="card-title fs-18 pb-2">Course Tags</h3>
                                 <div class="divider"><span></span></div>
@@ -1037,168 +1051,115 @@
                                     <li class="mr-2"><a href="#">Technology</a></li>
                                 </ul>
                             </div>
-                        </div><!-- end card -->
+                        </div><!-- end card --> --}}
                     </div><!-- end sidebar -->
                 </div><!-- end col-lg-4 -->
             </div><!-- end row -->
         </div><!-- end container -->
     </section><!-- end course-details-area -->
     <!--======================================
-                END COURSE DETAILS AREA
-        ======================================-->
+                    END COURSE DETAILS AREA
+            ======================================-->
 
     <!--======================================
-                START RELATED COURSE AREA
-        ======================================-->
+                    START RELATED COURSE AREA
+            ======================================-->
     <section class="related-course-area bg-gray pt-60px pb-60px">
         <div class="container">
+            @php
+                $moreCourses = App\Models\Course::latest()->get();
+            @endphp
             <div class="related-course-wrap">
                 <h3 class="fs-28 font-weight-semi-bold pb-35px">More Courses by <a href="teacher-detail.html"
-                        class="text-color hover-underline">Tim Buchalka</a></h3>
+                        class="text-color hover-underline">Cedar</a></h3>
                 <div class="view-more-carousel-2 owl-action-styled">
+                    @foreach ($moreCourses as $moreCourse)
                     <div class="card card-item">
                         <div class="card-image">
-                            <a href="course-details.html" class="d-block">
-                                <img class="card-img-top" src="images/img8.jpg" alt="Card image cap">
+                            <a href="{{ url('course/details/' . $moreCourse->id . '/' . $moreCourse->course_name_slug) }}" class="d-block">
+                                <img class="card-img-top" src="{{asset($moreCourse->course_image)}}" alt="Card image cap">
                             </a>
-                            <div class="course-badge-labels">
+                            {{-- <div class="course-badge-labels">
                                 <div class="course-badge">Bestseller</div>
                                 <div class="course-badge blue">-39%</div>
-                            </div>
+                            </div> --}}
                         </div><!-- end card-image -->
                         <div class="card-body">
-                            <h6 class="ribbon ribbon-blue-bg fs-14 mb-3">All Levels</h6>
-                            <h5 class="card-title"><a href="course-details.html">The Business Intelligence Analyst Course
+                            <h6 class="ribbon ribbon-blue-bg fs-14 mb-3">{{$moreCourse->level}} Levels</h6>
+                            <h5 class="card-title"><a href="{{ url('course/details/' . $moreCourse->id . '/' . $moreCourse->course_name_slug) }}">{{$moreCourse->course_name}}
                                     2021</a></h5>
-                            <p class="card-text"><a href="teacher-detail.html">Jose Portilla</a></p>
+                            <p class="card-text"><a href="#">Cedar</a></p>
                             <div class="rating-wrap d-flex align-items-center py-2">
+                                @php
+                                        $reviewcount = App\Models\Review::where('course_id',$moreCourse->id)->where('status',1)->latest()->get();
+                                        $avarage = App\Models\Review::where('course_id',$moreCourse->id)->where('status',1)->avg('rating');
+
+                                    @endphp
                                 <div class="review-stars">
-                                    <span class="rating-number">4.4</span>
+                                    <span class="rating-number">{{ round($avarage,1) }}</span>
+                                    @if ($avarage == 0)
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    @elseif ($avarage == 1 || $avarage < 2)
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    @elseif ($avarage == 2 || $avarage < 3)
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    @elseif ($avarage == 3 || $avarage < 4)
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star-o"></span>
+                                    <span class="la la-star-o"></span>
+                                    @elseif ($avarage == 4 || $avarage < 5)
                                     <span class="la la-star"></span>
                                     <span class="la la-star"></span>
                                     <span class="la la-star"></span>
                                     <span class="la la-star"></span>
                                     <span class="la la-star-o"></span>
+                                    @elseif ($avarage == 5 || $avarage < 5)
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    @endif
                                 </div>
-                                <span class="rating-total pl-1">(20,230)</span>
-                            </div><!-- end rating-wrap -->
+                            </div>
+                                {{-- <span class="rating-total pl-1">({{ count($reviewcount) }})</span> --}}
                             <div class="d-flex justify-content-between align-items-center">
-                                <p class="card-price text-black font-weight-bold">12.99 <span
-                                        class="before-price font-weight-medium">129.99</span></p>
-                                <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
-                                    title="Add to Wishlist"><i class="la la-heart-o"></i></div>
+                                <p class="card-price text-black font-weight-bold">${{number_format($moreCourse->selling_price, 2)}}<span
+                                        class="before-price font-weight-medium">${{number_format($moreCourse->discount_price, 2)}}</span></p>
+                                        <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
+                                        title="Add to Wishlist" id="{{ $moreCourse->id }}" onclick="addToWishList(this.id)"><i class="la la-heart-o"></i></div>
                             </div>
                         </div><!-- end card-body -->
-                    </div><!-- end card -->
-                    <div class="card card-item">
-                        <div class="card-image">
-                            <a href="course-details.html" class="d-block">
-                                <img class="card-img-top" src="images/img9.jpg" alt="Card image cap">
-                            </a>
-                            <div class="course-badge-labels">
-                                <div class="course-badge red">Featured</div>
-                            </div>
-                        </div><!-- end card-image -->
-                        <div class="card-body">
-                            <h6 class="ribbon ribbon-blue-bg fs-14 mb-3">All Levels</h6>
-                            <h5 class="card-title"><a href="course-details.html">The Business Intelligence Analyst Course
-                                    2021</a></h5>
-                            <p class="card-text"><a href="teacher-detail.html">Jose Portilla</a></p>
-                            <div class="rating-wrap d-flex align-items-center py-2">
-                                <div class="review-stars">
-                                    <span class="rating-number">4.4</span>
-                                    <span class="la la-star"></span>
-                                    <span class="la la-star"></span>
-                                    <span class="la la-star"></span>
-                                    <span class="la la-star"></span>
-                                    <span class="la la-star-o"></span>
-                                </div>
-                                <span class="rating-total pl-1">(20,230)</span>
-                            </div><!-- end rating-wrap -->
-                            <div class="d-flex justify-content-between align-items-center">
-                                <p class="card-price text-black font-weight-bold">129.99</p>
-                                <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
-                                    title="Add to Wishlist"><i class="la la-heart-o"></i></div>
-                            </div>
-                        </div><!-- end card-body -->
-                    </div><!-- end card -->
-                    <div class="card card-item">
-                        <div class="card-image">
-                            <a href="course-details.html" class="d-block">
-                                <img class="card-img-top" src="images/img8.jpg" alt="Card image cap">
-                            </a>
-                            <div class="course-badge-labels">
-                                <div class="course-badge">Bestseller</div>
-                                <div class="course-badge blue">-39%</div>
-                            </div>
-                        </div><!-- end card-image -->
-                        <div class="card-body">
-                            <h6 class="ribbon ribbon-blue-bg fs-14 mb-3">All Levels</h6>
-                            <h5 class="card-title"><a href="course-details.html">The Business Intelligence Analyst Course
-                                    2021</a></h5>
-                            <p class="card-text"><a href="teacher-detail.html">Jose Portilla</a></p>
-                            <div class="rating-wrap d-flex align-items-center py-2">
-                                <div class="review-stars">
-                                    <span class="rating-number">4.4</span>
-                                    <span class="la la-star"></span>
-                                    <span class="la la-star"></span>
-                                    <span class="la la-star"></span>
-                                    <span class="la la-star"></span>
-                                    <span class="la la-star-o"></span>
-                                </div>
-                                <span class="rating-total pl-1">(20,230)</span>
-                            </div><!-- end rating-wrap -->
-                            <div class="d-flex justify-content-between align-items-center">
-                                <p class="card-price text-black font-weight-bold">12.99 <span
-                                        class="before-price font-weight-medium">129.99</span></p>
-                                <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
-                                    title="Add to Wishlist"><i class="la la-heart-o"></i></div>
-                            </div>
-                        </div><!-- end card-body -->
-                    </div><!-- end card -->
-                    <div class="card card-item">
-                        <div class="card-image">
-                            <a href="course-details.html" class="d-block">
-                                <img class="card-img-top" src="images/img9.jpg" alt="Card image cap">
-                            </a>
-                            <div class="course-badge-labels">
-                                <div class="course-badge red">Featured</div>
-                            </div>
-                        </div><!-- end card-image -->
-                        <div class="card-body">
-                            <h6 class="ribbon ribbon-blue-bg fs-14 mb-3">All Levels</h6>
-                            <h5 class="card-title"><a href="course-details.html">The Business Intelligence Analyst Course
-                                    2021</a></h5>
-                            <p class="card-text"><a href="teacher-detail.html">Jose Portilla</a></p>
-                            <div class="rating-wrap d-flex align-items-center py-2">
-                                <div class="review-stars">
-                                    <span class="rating-number">4.4</span>
-                                    <span class="la la-star"></span>
-                                    <span class="la la-star"></span>
-                                    <span class="la la-star"></span>
-                                    <span class="la la-star"></span>
-                                    <span class="la la-star-o"></span>
-                                </div>
-                                <span class="rating-total pl-1">(20,230)</span>
-                            </div><!-- end rating-wrap -->
-                            <div class="d-flex justify-content-between align-items-center">
-                                <p class="card-price text-black font-weight-bold">129.99</p>
-                                <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
-                                    title="Add to Wishlist"><i class="la la-heart-o"></i></div>
-                            </div>
-                        </div><!-- end card-body -->
+                    </div>
+                    @endforeach
+                  <!-- end card -->
+<!-- end card-body -->
                     </div><!-- end card -->
                 </div><!-- end view-more-carousel -->
             </div><!-- end related-course-wrap -->
         </div><!-- end container -->
     </section><!-- end related-course-area -->
     <!--======================================
-                END RELATED COURSE AREA
-        ======================================-->
+                    END RELATED COURSE AREA
+            ======================================-->
 
     <!--======================================
-                START CTA AREA
-        ======================================-->
+                    START CTA AREA
+            ======================================-->
     <section class="cta-area pt-60px pb-60px position-relative overflow-hidden">
         <span class="stroke-shape stroke-shape-1"></span>
         <span class="stroke-shape stroke-shape-2"></span>
@@ -1206,7 +1167,7 @@
         <span class="stroke-shape stroke-shape-4"></span>
         <span class="stroke-shape stroke-shape-5"></span>
         <span class="stroke-shape stroke-shape-6"></span>
-        <div class="container">
+        {{-- <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-9">
                     <div class="cta-content-wrap py-4 d-flex flex-wrap align-items-center">
@@ -1240,11 +1201,11 @@
                     </div>
                 </div><!-- end col-lg-3 -->
             </div><!-- end row -->
-        </div><!-- end container -->
+        </div><!-- end container --> --}}
     </section><!-- end cta-area -->
     <!--======================================
-                END CTA AREA
-        ======================================-->
+                    END CTA AREA
+            ======================================-->
 
     <div class="section-block"></div>
 

@@ -33,18 +33,18 @@
                         <li><a href="#" class="text-white">Blog</a></li>
                     </ul>
                 </div><!-- end footer-item -->
-            </div><!-- end col-lg-3 -->
+            </div>
+            @php
+                $courses = App\Models\Course::latest()->get();
+            @endphp<!-- end col-lg-3 -->
             <div class="col-lg-3 responsive-column-half">
                 <div class="footer-item">
                     <h3 class="fs-20 font-weight-semi-bold text-white">Courses</h3>
                     <span class="section-divider section--divider"></span>
                     <ul class="generic-list-item">
-                        <li><a href="#" class="text-white">Web Development</a></li>
-                        <li><a href="#" class="text-white">Hacking</a></li>
-                        <li><a href="#" class="text-white">PHP Learning</a></li>
-                        <li><a href="#" class="text-white">Spoken English</a></li>
-                        <li><a href="#" class="text-white">Self-Driving Car</a></li>
-                        <li><a href="#" class="text-white">Garbage Collectors</a></li>
+                        @foreach ($courses as $course)
+                        <li><a href="{{ url('course/details/' . $course->id . '/' . $course->course_name_slug) }}" class="text-white">{{  substr($course->course_name, 0, 20) }}</a></li>
+                        @endforeach
                     </ul>
                 </div><!-- end footer-item -->
             </div><!-- end col-lg-3 -->

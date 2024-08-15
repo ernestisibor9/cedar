@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Course;
 use App\Models\DownloadCourse;
 use Illuminate\Http\Request;
@@ -16,8 +17,9 @@ class CourseController extends Controller
 
         $relatedCourses = Course::where('category_id', $cat_id)->where('id', '!=', $id)->
         orderBy('id', 'DESC')->limit(3)->get();
-        ;
-        return view('frontend.course.course_details', compact('course', 'relatedCourses'));
+
+        $categories = Category::latest()->get();
+        return view('frontend.course.course_details', compact('course', 'relatedCourses', 'categories'));
     }
     // DownloadBronchure
     public function DownloadBronchure($id)
@@ -36,5 +38,17 @@ class CourseController extends Controller
         $search = $request->search;
         $courses = Course::where('course_title', 'LIKE', '%'.$search.'%')->orWhere('course_name', 'LIKE', '%'.$search.'%')->paginate(6);
         return view('frontend.course.search_course', compact('courses'));
+    }
+    // category/course/list/
+    public function CategoryCourses($id){
+        $courses = Course::where('category_id', $id)->latest()->paginate(6);
+        $breadCat = Category::where('id', $id)->first();
+        return view('frontend.course.category_course_list', compact('courses', 'breadCat'));
+    }
+    // EnrollCourse
+    public function EnrollCourse($id){
+        // code to enroll a course goes here
+        $eid = Course::find($id);
+        return view('frontend.course.enroll_course', compact('eid'));
     }
 }

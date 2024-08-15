@@ -133,7 +133,7 @@
                         </div>
                     </div><!-- end card -->
 <!-- end card -->
-                    <div class="card card-item">
+                    {{-- <div class="card card-item">
                         <div class="card-body">
                             <h3 class="card-title fs-18 pb-2">Post Tags</h3>
                             <div class="divider"><span></span></div>
@@ -151,7 +151,7 @@
                                 <li class="mr-2"><a href="#">Entrepreneur</a></li>
                             </ul>
                         </div>
-                    </div><!-- end card --><!-- end card -->
+                    </div><!-- end card --><!-- end card --> --}}
                     <div class="card card-item">
                         <div class="card-body">
                             <h3 class="card-title fs-18 pb-2">Connect & Follow</h3>

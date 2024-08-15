@@ -215,7 +215,8 @@ public function BlogList(){
     $blog = BlogPost::latest()->paginate(6);
     $bcategory = BlogCategory::latest()->get();
     $post = BlogPost::latest()->limit(3)->get();
-    return view('frontend.blog.blog_list',compact('blog','bcategory','post'));
+    $comment = Comment::latest()->get();
+    return view('frontend.blog.blog_list',compact('blog','bcategory','post', 'comment'));
 }// End Method
 //
 public function AdminBlogComment(){

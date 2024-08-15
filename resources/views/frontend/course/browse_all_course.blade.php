@@ -34,9 +34,9 @@
     <div class="container">
         <div class="filter-bar mb-4">
             <div class="filter-bar-inner d-flex flex-wrap align-items-center justify-content-between">
-                <p class="fs-14">We found <span class="text-black">56</span> courses available for you</p>
+                <p class="fs-14">We found <span class="text-black">{{count($courses)}}</span> courses available for you</p>
                 <div class="d-flex flex-wrap align-items-center">
-
+{{--
                     <div class="select-container select--container mr-3">
                         <select class="select-container-select">
                             <option value="all-category">All Category</option>
@@ -47,7 +47,7 @@
                             <option value="high-to-low">Price: high to low</option>
                             <option value="low-to-high">Price: low to high</option>
                         </select>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div><!-- end filter-bar-inner -->

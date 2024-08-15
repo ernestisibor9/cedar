@@ -55,8 +55,8 @@
                                         @php
                                         $reviewcount = App\Models\Review::where('course_id',$course->id)->where('status',1)->latest()->get();
                                         $avarage = App\Models\Review::where('course_id',$course->id)->where('status',1)->avg('rating');
-
                                     @endphp
+
                                     </div><!-- end card-image -->
                                     <div class="card-body">
                                         <h6 class="ribbon ribbon-blue-bg fs-14 mb-3">{{ $course->level }}</h6>
@@ -107,14 +107,17 @@
                                             <span class="rating-total pl-1">({{ count($reviewcount) }})</span>
                                         </div><!-- end rating-wrap -->
                                         <div class="d-flex justify-content-between align-items-center">
-                                            @if ($course->discount_price === null)
+                                            <div>
+
+                                            </div>
+                                            {{-- @if ($course->discount_price === null)
                                                 <p class="card-price text-black font-weight-bold">
                                                     &pound;{{ $course->selling_price }}</p>
                                             @else
                                                 <p class="card-price text-black font-weight-bold">
                                                     &pound;{{ $course->discount_price }} <span
                                                         class="before-price font-weight-medium">	&pound;{{ $course->selling_price }}</span>
-                                            @endif
+                                            @endif --}}
                                             {{-- <p class="card-price text-black font-weight-bold">12.99 <span class="before-price font-weight-medium">129.99</span></p> --}}
                                             <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
                                                 title="Add to Wishlist" id="{{ $course->id }}" onclick="addToWishList(this.id)"><i class="la la-heart-o"></i></div>

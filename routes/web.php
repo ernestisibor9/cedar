@@ -232,3 +232,9 @@ Route::get('/browse/all/courses', [FrontendCourseController::class, 'BrowseAllCo
 
 // Search route
 Route::post('/search/courses', [FrontendCourseController::class, 'SearchCourse'])->name('search.course');
+
+// Category Course routes
+Route::get('/category/course/list/{id}', [FrontendCourseController::class, 'CategoryCourses']);
+
+// Enroll course routes
+Route::get('/enroll/course/{course_id}', [FrontendCourseController::class, 'EnrollCourse'])->name('enroll.course');
