@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\UserController as BackendUserController;
 use App\Http\Controllers\Frontend\CommentController;
 use App\Http\Controllers\Frontend\CourseController as FrontendCourseController;
+use App\Http\Controllers\Frontend\PayPalController;
 use App\Http\Controllers\Frontend\StudentProjectController;
 use App\Http\Controllers\Frontend\WishListController;
 use App\Http\Controllers\ProfileController;
@@ -238,3 +239,8 @@ Route::get('/category/course/list/{id}', [FrontendCourseController::class, 'Cate
 
 // Enroll course routes
 Route::get('/enroll/course/{course_id}', [FrontendCourseController::class, 'EnrollCourse'])->name('enroll.course');
+
+// PayPal Payment routes
+Route::post('/buy/course/paypal', [PayPalController::class, 'PayPal'])->name('paypal');
+Route::get('/success', [PayPalController::class, 'Success'])->name('success');
+Route::get('/cancel', [PayPalController::class, 'Cancel'])->name('cancel');

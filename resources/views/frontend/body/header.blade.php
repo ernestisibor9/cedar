@@ -104,7 +104,7 @@
                             <div class="menu-category" style="margin-right: 20px">
                                 <ul>
                                     <li>
-                                        <a href="#">Course <i class="la la-angle-down fs-12"></i></a>
+                                        <a href="{{route('browse.all.course')}}">Course <i class="la la-angle-down fs-12"></i></a>
                                         <ul class="cat-dropdown-menu">
                                             <li>
                                                 <a href="course-grid.html">Recorded Classes</a>
