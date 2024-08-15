@@ -44,6 +44,7 @@ class PayPalController extends Controller
                 foreach ($response['links'] as $link) {
                     if ($link['rel'] === 'approve') {
                         session()->put('course_id', $request->course_id);
+                        session()->put('user_id', Auth::user()->id);
                         session()->put('course_name', $request->course_name);
                         session()->put('quantity', '1');
                         return redirect()->away($link['href']);
@@ -75,6 +76,7 @@ class PayPalController extends Controller
             // $payment->user_id = auth()->user()->id;
             $payment->payment_id = $response['id'];
             $payment->course_id = session()->get('course_id');
+            $payment->user_id = session()->get('user_id');
             $payment->course_name = session()->get('course_name');
             $payment->quantity = session()->get('quantity');
             $payment->amount = $response['purchase_units'][0]['payments']['captures'][0]['amount']['value'];
@@ -94,6 +96,7 @@ class PayPalController extends Controller
             unset($_SESSION['course_id']);
             unset($_SESSION['course_name']);
             unset($_SESSION['quantity']);
+            unset($_SESSION['user_id']);
         } else {
             // fail
             return redirect()->route('cancel');

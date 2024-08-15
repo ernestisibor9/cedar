@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->string('payment_id');
+            $table->string('user_id');
             $table->string('course_id');
             $table->string('course_name');
             $table->string('quantity');

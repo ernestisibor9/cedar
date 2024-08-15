@@ -2,6 +2,11 @@
 
 @section('admin')
 
+@php
+    $registeredStudents = App\Models\User::where('role', 'user')->get();
+    $enrollStudents = App\Models\Payment::latest()->get();
+@endphp
+
 
 <div class="page-content">
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
@@ -10,11 +15,11 @@
             <div class="card-body">
                 <div class="d-flex align-items-center">
                     <div>
-                        <p class="mb-0 text-secondary">Total Orders</p>
-                        <h4 class="my-1 text-info">4805</h4>
-                        <p class="mb-0 font-13">+2.5% from last week</p>
+                        <p class="mb-0 text-secondary">Registered Students</p>
+                        <h4 class="my-1 text-info">{{count($registeredStudents )}}</h4>
+                        <p class="mb-0 font-13">Total registered students</p>
                     </div>
-                    <div class="widgets-icons-2 rounded-circle bg-gradient-blues text-white ms-auto"><i class='bx bxs-cart'></i>
+                    <div class="widgets-icons-2 rounded-circle bg-gradient-blues text-white ms-auto"><i class='bx bxs-user-plus'></i>
                     </div>
                 </div>
             </div>
@@ -25,11 +30,11 @@
            <div class="card-body">
                <div class="d-flex align-items-center">
                    <div>
-                       <p class="mb-0 text-secondary">Total Revenue</p>
-                       <h4 class="my-1 text-danger">$84,245</h4>
-                       <p class="mb-0 font-13">+5.4% from last week</p>
+                       <p class="mb-0 text-secondary">Enrolled Students</p>
+                       <h4 class="my-1 text-danger">{{count($enrollStudents)}}</h4>
+                       <p class="mb-0 font-13">Total number of enrolled students</p>
                    </div>
-                   <div class="widgets-icons-2 rounded-circle bg-gradient-burning text-white ms-auto"><i class='bx bxs-wallet'></i>
+                   <div class="widgets-icons-2 rounded-circle bg-gradient-burning text-white ms-auto"><i class='bx bxs-user-plus'></i>
                    </div>
                </div>
            </div>
