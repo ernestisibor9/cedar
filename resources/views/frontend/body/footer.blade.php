@@ -7,9 +7,10 @@
                         <img src="{{asset('frontend/images/logo.png')}}" alt="footer logo" class="footer__logo">
                     </a>
                     <ul class="generic-list-item pt-4">
-                        <li><a href="tel:+1631237884" class="text-white">+163 123 7884</a></li>
-                        <li><a href="mailto:support@wbsite.com" class="text-white">support@website.com</a></li>
-                        <li class="text-white">Melbourne, Australia, 105 South Park Avenue</li>
+                        <li><a href="tel:+1631237884" class="text-white">+2347072485480 +447771222476
+                        </a></li>
+                        <li><a href="mailto:support@wbsite.com" class="text-white">Elizabeth.o@Cedargrowthconsult.com</a></li>
+                        <li class="text-white">Cedargrowthconsult</li>
                     </ul>
                     <h3 class="fs-20 font-weight-semi-bold pt-4 pb-2 text-white">We are on</h3>
                     <ul class="social-icons social-icons-styled">
@@ -27,10 +28,10 @@
                     <ul class="generic-list-item">
                         <li><a href="#" class="text-white">About us</a></li>
                         <li><a href="#" class="text-white">Contact us</a></li>
-                        <li><a href="#" class="text-white">Become a Teacher</a></li>
+                        <li><a href="#" class="text-white">Blog</a></li>
                         <li><a href="#" class="text-white">Support</a></li>
                         <li><a href="#" class="text-white">FAQs</a></li>
-                        <li><a href="#" class="text-white">Blog</a></li>
+                        <li><a href="{{route('all.courses')}}" class="text-white">Course</a></li>
                     </ul>
                 </div><!-- end footer-item -->
             </div>
