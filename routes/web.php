@@ -189,6 +189,7 @@ Route::controller(BlogController::class)->group(function(){
     // All Users Routes
     Route::controller(BackendUserController::class)->group(function(){
         Route::get('/admin/all/users', 'AllUsers')->name('all.users');
+        Route::get('/admin/all/enrolled/users', 'AllEnrolledUsers')->name('all.enrolled.users');
         // Route::get('/admin/edit/user/{id}', 'EditUser')->name('edit.user');
         // Route::post('/admin/update/user', 'UpdateUser')->name('update.user');
         // Route::get('/admin/add/category', 'AddCategory')->name('add.category');

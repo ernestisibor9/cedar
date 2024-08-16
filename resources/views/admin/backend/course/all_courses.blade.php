@@ -25,11 +25,11 @@
                         @foreach ($courses as $key => $course)
                         <tr>
                             <td>{{$key + 1}}</td>
-                            <td><img src="{{asset($course->course_image)}}" alt="" width="60px" height="60px"></td>
+                            <td><img src="{{asset($course->course_image)}}" alt="" width="80px" height="60px"></td>
                             <td>{{$course->course_name}}</td>
                             <td>{{$course->category->category_name}}</td>
-                            <td>{{$course->selling_price}}</td>
-                            <td>{{$course->discount_price}}</td>
+                            <td>${{number_format($course->selling_price, 2)}}</td>
+                            <td>${{number_format($course->discount_price, 2)}}</td>
                             <td>
                                 <a href="{{route('edit.course', $course->id)}}" title="Edit" class="btn btn-primary">Edit</a>
                                 <a href="{{route('delete.course', $course->id)}}" title="Delete" class="btn btn-danger" id="delete">Delete</a>

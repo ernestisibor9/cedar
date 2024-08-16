@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Payment;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -14,6 +15,11 @@ class UserController extends Controller
     public function AllUsers(){
         $users = User::where('role', 'user')->latest()->get();
         return view('admin.backend.user.all_users', compact('users'));
+    }
+    // AllEnrolledUsers
+    public function AllEnrolledUsers(){
+        $users = Payment::latest()->get();
+        return view('admin.backend.user.enrolled_users', compact('users'));
     }
     // EditUser
     // public function EditUser($id){

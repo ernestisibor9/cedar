@@ -22,7 +22,7 @@
                         @foreach ($categories as $key => $category)
                         <tr>
                             <td>{{$key + 1}}</td>
-                            <td><img src="{{asset($category->image)}}" alt="" width="60px" height="60px"></td>
+                            <td><img src="{{asset($category->image)}}" alt="" width="80px" height="60px"></td>
                             <td>{{$category->category_name}}</td>
                             <td>
                                 <a href="{{route('edit.category', $category->id)}}" class="btn btn-primary">Edit</a>

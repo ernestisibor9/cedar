@@ -235,7 +235,14 @@
             <a href="{{route('all.users')}}">
                 <div class="parent-icon"><i class='bx bx-user-plus'></i>
                 </div>
-                <div class="menu-title">All Users</div>
+                <div class="menu-title">Registered Students</div>
+            </a>
+        </li>
+        <li>
+            <a href="{{route('all.enrolled.users')}}">
+                <div class="parent-icon"><i class='bx bx-user-plus'></i>
+                </div>
+                <div class="menu-title">Enrolled Students</div>
             </a>
         </li>
 

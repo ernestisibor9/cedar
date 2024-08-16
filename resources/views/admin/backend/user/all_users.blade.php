@@ -4,7 +4,7 @@
 
 
 <div class="page-content">
-    <h6 class="mb-0 text-uppercase">All Users</h6>
+    <h6 class="mb-0 text-uppercase">{{count($users)}} Registered Students</h6>
     <hr/>
     <div class="card">
         <div class="card-body">
@@ -17,7 +17,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
-                            <th>Address</th>
+                            {{-- <th>Address</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -28,7 +28,7 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->phone}}</td>
-                            <td>{{$user->address}}</td>
+                            {{-- <td>{{$user->address}}</td> --}}
                         </tr>
                         @endforeach
                     </tbody>

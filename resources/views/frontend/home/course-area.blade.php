@@ -62,7 +62,7 @@
                                         <h6 class="ribbon ribbon-blue-bg fs-14 mb-3">{{ $course->level }}</h6>
                                         <h5 class="card-title"><a
                                                 href="{{ url('course/details/' . $course->id . '/' . $course->course_name_slug) }}">{{ $course->course_name }}</a></h5>
-                                        <p class="card-text"><a href="teacher-detail.html">Duration {{$course->duration}}</a></p>
+                                        <p class="card-text"><a href="teacher-detail.html">Duration {{$course->duration}} {{$course->duration > 1 ? 'months' : 'month'}}</a></p>
                                         <div class="rating-wrap d-flex align-items-center py-2">
                                             <div class="review-stars">
                                                 <span class="rating-number">{{ round($avarage,1) }}</span>

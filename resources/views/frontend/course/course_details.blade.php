@@ -20,11 +20,11 @@
                     <ul class="generic-list-item generic-list-item-arrow d-flex flex-wrap align-items-center">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="#">{{ $course->category->category_name }}</a></li>
-                        <li><a href="#">Java</a></li>
+                        <li><a href="#">{{$course->course_name}}</a></li>
                     </ul>
                     <div class="section-heading">
                         <h2 class="section__title">{{ $course->course_name }}</h2>
-                        <p class="section__desc pt-2 lh-30">{!! $course->description !!}</p>
+                        <p class="section__desc pt-2 lh-30">{!! substr($course->description, 0, 200) !!}...</p>
                     </div>
 
                     @php
@@ -107,7 +107,7 @@
                         <button class="btn theme-btn theme-btn-sm theme-btn-transparent lh-28 mr-2 mb-2">
                             <i class="la la-heart-o mr-1"></i>
                             <span class="swapping-btn" data-text-swap="Wishlisted"
-                                data-text-original="Wishlist">Wishlist</span>
+                                data-text-original="Wishlist" id="{{ $course->id }}" onclick="addToWishList(this.id)">Wishlist</span>
                         </button>
                         <button class="btn theme-btn theme-btn-sm theme-btn-transparent lh-28 mr-2 mb-2" data-toggle="modal"
                             data-target="#shareModal">
@@ -135,9 +135,13 @@
                 <div class="col-lg-8 pb-5">
                     <div class="course-details-content-wrap pt-90px">
                         <div class="course-overview-card bg-gray p-4 rounded">
-                            <h3 class="fs-24 font-weight-semi-bold pb-3">What you'll learn?</h3>
+                            <h3 class="fs-16 font-weight-semi-bold pb-2"> About Course</h3>
+                            <p>{!! $course->description !!}</p>
+                        </div>
+                        <div class="course-overview-card bg-gray p-4 rounded">
+                            <h3 class="fs-24 font-weight-semi-bold pb-3">Course Outlines</h3>
                             <p>
-                                {!! $course->description !!}
+                                {!! $course->course_outlines !!}
                             </p>
                             {{-- <ul class="generic-list-item overview-list-item">
                                 <li><i class="la la-check mr-1 text-black"></i> Learn the core Java skills needed to apply
@@ -156,8 +160,8 @@
                             </ul> --}}
                         </div><!-- end course-overview-card -->
                         <div class="course-overview-card bg-gray p-4 rounded">
-                            <h3 class="fs-16 font-weight-semi-bold">Created by the <a href="for-business.html"
-                                    class="text-color hover-underline">Cedar team</a> collection</h3>
+                            <h3 class="fs-16 font-weight-semi-bold pb-2"> COURSE BENEFITS</h3>
+                            <p>{!! $course->course_benefits !!}</p>
                         </div><!-- end course-overview-card -->
                         {{-- <div class="course-overview-card">
                             <h3 class="fs-24 font-weight-semi-bold pb-3">Requirements</h3>
@@ -390,7 +394,7 @@
                             $paidCourses = App\Models\Payment::latest()->limit(5)->get();
                         @endphp
                         <div class="course-overview-card pt-4">
-                            <h3 class="fs-24 font-weight-semi-bold pb-4">Students also bought</h3>
+                            <h3 class="fs-24 font-weight-semi-bold pb-4">{{ count($paidCourses) === 0 ? '' : 'Students also bought' }}</h3>
                             <div class="view-more-carousel owl-action-styled">
                                 @foreach ($paidCourses as $coursePaid)
                                 <div class="card card-item card-item-list-layout border border-gray shadow-none">

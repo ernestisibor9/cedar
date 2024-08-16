@@ -70,7 +70,7 @@
                                     </div>
                                     <div class="col">
                                         <label for="">Discount Price</label>
-                                        <input type="text" class="form-control " name="discount_price" id="" value="{{$course->selling_price}}">
+                                        <input type="text" class="form-control " name="discount_price" id="" value="{{$course->discount_price}}">
                                     </div>
                                 </div>
 

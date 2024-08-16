@@ -38,7 +38,7 @@
                                         <input type="file" class="form-control" name="course_image" id="image">
                                     </div>
                                     <div class="col">
-                                        <img id="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Admin"
+                                        <img id="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Courses Image"
                                             class="rounded-circle p-1 bg-primary" width="90">
                                     </div>
                                 </div>
