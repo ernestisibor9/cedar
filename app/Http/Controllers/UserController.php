@@ -114,4 +114,12 @@ class UserController extends Controller
         return back()->with($notification);
 
     }// End Method
+    //
+    public function ContactUs(){
+        return view('frontend.contact.contact_us');
+    }
+    //
+    public function AboutUs(){
+        return view('frontend.about.about_us');
+    }
 }

@@ -230,7 +230,13 @@
                 <div class="menu-title">Blog Comment</div>
             </a>
         </li>
-
+        <li>
+            <a href="{{route('student.course')}}">
+                <div class="parent-icon"><i class='bx bx-user-plus'></i>
+                </div>
+                <div class="menu-title">Student's Course</div>
+            </a>
+        </li>
         <li>
             <a href="{{route('all.users')}}">
                 <div class="parent-icon"><i class='bx bx-user-plus'></i>

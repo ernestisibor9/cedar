@@ -1,3 +1,9 @@
+<style>
+    .main-menu{
+        margin-right: 40px !important;
+    }
+</style>
+
 <header class="header-menu-area bg-white">
     <div class="header-top pr-150px pl-150px border-bottom border-bottom-gray py-1">
         <div class="container-fluid">
@@ -5,8 +11,8 @@
                 <div class="col-lg-6">
                     <div class="header-widget">
                         <ul class="generic-list-item d-flex flex-wrap align-items-center fs-14">
-                            <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray"><i class="la la-phone mr-1"></i><a href="tel:00123456789"> (00) 123 456 789</a></li>
-                            <li class="d-flex align-items-center"><i class="la la-envelope-o mr-1"></i><a href="mailto:contact@aduca.com"> contact@aduca.com</a></li>
+                            <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray"><i class="la la-phone mr-1"></i><a href="tel:+447771222476"> +44 777 1222 476, +234 7072 485 480</a></li>
+                            <li class="d-flex align-items-center"><i class="la la-envelope-o mr-1"></i><a href="mailto:info@cedargrowthconsult.com"> info@cedargrowthconsult.com</a></li>
                         </ul>
                     </div><!-- end header-widget -->
                 </div><!-- end col-lg-6 -->
@@ -74,7 +80,7 @@
                             <form method="post" action="{{route('search.course')}}">
                                 @csrf
                                 <div class="form-group mb-0">
-                                    <input class="form-control form--control pl-3" type="text" name="search" placeholder="Search Course">
+                                    <input class="form-control form--control pl-3 " type="text" name="search" placeholder="Search Course">
                                     <span><button type="submit" class="la la-search search-icon"></button></span>
                                 </div>
                             </form><!-- end menu-category -->
@@ -89,7 +95,7 @@
                             <nav class="main-menu">
                                 <ul>
                                     <li>
-                                        <a href="{{url('/')}}">About </a>
+                                        <a href="{{route('about')}}">About </a>
                                     </li>
                                 </ul><!-- end ul -->
                             </nav>
@@ -144,7 +150,7 @@
                             <nav class="main-menu">
                                 <ul>
                                     <li>
-                                        <a href="{{url('/')}}">Contact </a>
+                                        <a href="{{route('contact')}}">Contact </a>
                                     </li>
                                 </ul><!-- end ul -->
                             </nav><!-- end main-menu -->
@@ -171,7 +177,7 @@
                                 </ul>
                             </div><!-- end shop-cart -->
                             <div class="nav-right-button">
-                                <a href="admission.html" class="btn theme-btn d-none d-lg-inline-block"><i class="la la-user-plus mr-1"></i> Admission</a>
+                                <a href="#" class="btn theme-btn d-none d-lg-inline-block" id="datetime">Admission</a>
                             </div><!-- end nav-right-button -->
                         </div><!-- end menu-wrapper -->
                     </div><!-- end col-lg-10 -->
@@ -229,134 +235,39 @@
     <div class="off-canvas-menu custom-scrollbar-styled category-off-canvas-menu">
         <div class="off-canvas-menu-close cat-menu-close icon-element icon-element-sm shadow-sm" data-toggle="tooltip" data-placement="left" title="Close menu">
             <i class="la la-times"></i>
-        </div><!-- end off-canvas-menu-close -->
+        </div>
+        @php
+            $categories = App\Models\Category::latest()->get();
+            $courses = App\Models\Course::latest()->get();
+        @endphp<!-- end off-canvas-menu-close -->
         <ul class="generic-list-item off-canvas-menu-list pt-90px">
             <li>
-                <a href="course-grid.html">Development</a>
+                <a href="course-grid.html">Category</a>
                 <ul class="sub-menu">
-                    <li><a href="#">All Development</a></li>
-                    <li><a href="#">Web Development</a></li>
-                    <li><a href="#">Mobile Apps</a></li>
-                    <li><a href="#">Game Development</a></li>
-                    <li><a href="#">Databases</a></li>
-                    <li><a href="#">Programming Languages</a></li>
-                    <li><a href="#">Software Testing</a></li>
-                    <li><a href="#">Software Engineering</a></li>
-                    <li><a href="#">E-Commerce</a></li>
+                    @foreach ($categories as $item)
+                        <li><a href="#">{{$item->category_name}}</a></li>
+                    @endforeach
                 </ul>
             </li>
             <li>
-                <a href="course-grid.html">business</a>
+                <a href="course-grid.html">Course</a>
                 <ul class="sub-menu">
-                    <li><a href="#">All Business</a></li>
-                    <li><a href="#">Finance</a></li>
-                    <li><a href="#">Entrepreneurship</a></li>
-                    <li><a href="#">Strategy</a></li>
-                    <li><a href="#">Real Estate</a></li>
-                    <li><a href="#">Home Business</a></li>
-                    <li><a href="#">Communications</a></li>
-                    <li><a href="#">Industry</a></li>
-                    <li><a href="#">Other</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="course-grid.html">IT & Software</a>
-                <ul class="sub-menu">
-                    <li><a href="#">All IT & Software</a></li>
-                    <li><a href="#">IT Certification</a></li>
-                    <li><a href="#">Hardware</a></li>
-                    <li><a href="#">Network & Security</a></li>
-                    <li><a href="#">Operating Systems</a></li>
-                    <li><a href="#">Other</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="course-grid.html">Finance & Accounting</a>
-                <ul class="sub-menu">
-                    <li><a href="#"> All Finance & Accounting</a></li>
-                    <li><a href="#">Accounting & Bookkeeping</a></li>
-                    <li><a href="#">Cryptocurrency & Blockchain</a></li>
-                    <li><a href="#">Economics</a></li>
-                    <li><a href="#">Investing & Trading</a></li>
-                    <li><a href="#">Other Finance & Economics</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="course-grid.html">design</a>
-                <ul class="sub-menu">
-                    <li><a href="#">All Design</a></li>
-                    <li><a href="#">Graphic Design</a></li>
-                    <li><a href="#">Web Design</a></li>
-                    <li><a href="#">Design Tools</a></li>
-                    <li><a href="#">3D & Animation</a></li>
-                    <li><a href="#">User Experience</a></li>
-                    <li><a href="#">Other</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="course-grid.html">Personal Development</a>
-                <ul class="sub-menu">
-                    <li><a href="#">All Personal Development</a></li>
-                    <li><a href="#">Personal Transformation</a></li>
-                    <li><a href="#">Productivity</a></li>
-                    <li><a href="#">Leadership</a></li>
-                    <li><a href="#">Personal Finance</a></li>
-                    <li><a href="#">Career Development</a></li>
-                    <li><a href="#">Parenting & Relationships</a></li>
-                    <li><a href="#">Happiness</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="course-grid.html">Marketing</a>
-                <ul class="sub-menu">
-                    <li><a href="#">All Marketing</a></li>
-                    <li><a href="#">Digital Marketing</a></li>
-                    <li><a href="#">Search Engine Optimization</a></li>
-                    <li><a href="#">Social Media Marketing</a></li>
-                    <li><a href="#">Branding</a></li>
-                    <li><a href="#">Video & Mobile Marketing</a></li>
-                    <li><a href="#">Affiliate Marketing</a></li>
-                    <li><a href="#">Growth Hacking</a></li>
-                    <li><a href="#">Other</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="course-grid.html">Health & Fitness</a>
-                <ul class="sub-menu">
-                    <li><a href="#">All Health & Fitness</a></li>
-                    <li><a href="#">Fitness</a></li>
-                    <li><a href="#">Sports</a></li>
-                    <li><a href="#">Dieting</a></li>
-                    <li><a href="#">Self Defense</a></li>
-                    <li><a href="#">Meditation</a></li>
-                    <li><a href="#">Mental Health</a></li>
-                    <li><a href="#">Yoga</a></li>
-                    <li><a href="#">Dance</a></li>
-                    <li><a href="#">Other</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="course-grid.html">Photography</a>
-                <ul class="sub-menu">
-                    <li><a href="#">All Photography</a></li>
-                    <li><a href="#">Digital Photography</a></li>
-                    <li><a href="#">Photography Fundamentals</a></li>
-                    <li><a href="#">Commercial Photography</a></li>
-                    <li><a href="#">Video Design</a></li>
-                    <li><a href="#">Photography Tools</a></li>
-                    <li><a href="#">Other</a></li>
+                    @foreach ($courses as $item)
+                        <li><a href="#">{{$item->course_name}}</a></li>
+                    @endforeach
                 </ul>
             </li>
         </ul>
+
     </div><!-- end off-canvas-menu -->
     <div class="mobile-search-form">
         <div class="d-flex align-items-center">
-            <form method="post" class="flex-grow-1 mr-3">
+            <form method="post" class="flex-grow-1 mr-3" action="{{route('search.course')}}">
                 <div class="form-group mb-0">
                    <form method="POST" action="{{route('search.course')}}">
                     @csrf
                     <input class="form-control form--control pl-3" type="text" name="search" placeholder="Search Courses">
-                    <span class="la la-search search-icon"></span>
+                    <span><button type="submit" class="la la-search search-icon"></button></span>
                    </form>
                 </div>
             </form>
@@ -366,4 +277,16 @@
         </div>
     </div><!-- end mobile-search-form -->
     <div class="body-overlay"></div>
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const date = now.toLocaleDateString();
+            const time = now.toLocaleTimeString();
+
+            document.getElementById('datetime').innerHTML = `${date} ${time}`;
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+    </script>
 </header>

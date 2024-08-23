@@ -65,7 +65,7 @@
                             </div>
                         </div><!-- end card-body -->
                     </div><!-- end card -->
-                    <div class="instructor-wrap py-5">
+                    {{-- <div class="instructor-wrap py-5">
                         <h3 class="fs-22 font-weight-semi-bold pb-4">About the author</h3>
                         <div class="media media-card">
                             <div class="media-img rounded-full avatar-lg mr-4">
@@ -87,7 +87,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div><!-- end instructor-wrap -->
+                    </div><!-- end instructor-wrap --> --}}
                     @php
                         $comment = App\Models\Comment::where('post_id', $blog->id)
                             ->where('parent_id', null)
@@ -105,7 +105,7 @@
                                 <div class="media media-card border-bottom border-bottom-gray pb-4 mb-4">
                                     <div class="media-img mr-4 rounded-full">
                                         <img class="rounded-full lazy"
-                                            src="{{ !empty($com->user->photo) ? url('upload/user_images/' . $com->user->photo) : url('upload/no_image.jpg') }}"
+                                            src="{{ !empty($com->user->photo) ? url('upload/user_images/' . $com->user->photo) : url('upload/no_image2.jpeg') }}"
                                             data-src="images/small-avatar-1.jpg" alt="User image">
                                     </div>
                                     <div class="media-body">
@@ -172,10 +172,10 @@
                         </div><!-- end media --> --}}
                             </div>
                         @endforeach
-                        <div class="load-more-btn-box text-center pt-3 pb-5">
+                        {{-- <div class="load-more-btn-box text-center pt-3 pb-5">
                             <button class="btn theme-btn theme-btn-sm theme-btn-transparent lh-30"><i
                                     class="la la-refresh mr-1"></i> Load More Comment</button>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="section-block"></div>
                     <div class="add-comment-wrap pt-5">
@@ -258,7 +258,7 @@
                             </div>
                         </div><!-- end card -->
                         <!-- end card -->
-                        <div class="card card-item">
+                        {{-- <div class="card card-item">
                             <div class="card-body">
                                 <h3 class="card-title fs-18 pb-2">Post Tags</h3>
                                 <div class="divider"><span></span></div>
@@ -276,7 +276,7 @@
                                     <li class="mr-2"><a href="#">Entrepreneur</a></li>
                                 </ul>
                             </div>
-                        </div><!-- end card -->
+                        </div><!-- end card --> --}}
                         <!-- end card -->
                         <div class="card card-item">
                             <div class="card-body">

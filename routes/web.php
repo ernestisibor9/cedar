@@ -89,6 +89,7 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
         Route::get('/admin/delete/course/{id}', 'DeleteCourse')->name('delete.course');
         Route::get('/admin/add/course/bronchure', 'AddCourseBronchure')->name('add.bronchure');
         Route::post('/admin/store/course/bronchure', 'StoreCourseBronchure')->name('store.bronchure');
+        Route::get('/admin/student/course', 'StudentCourse')->name('student.course');
         // Route::get('/admin/course/download_bronchure/{id}', 'DownloadBronchure')->name('download_bronchure');
         // Route::get('/subcategory/ajax/{category_id}', 'GetSubCategory')->name('add.course');
         // Route::post('/admin/store/course', 'StoreCourse')->name('store.course');
@@ -240,6 +241,12 @@ Route::get('/category/course/list/{id}', [FrontendCourseController::class, 'Cate
 
 // Enroll course routes
 Route::get('/enroll/course/{course_id}', [FrontendCourseController::class, 'EnrollCourse'])->name('enroll.course');
+
+// Contact routes
+Route::get('/contact', [UserController::class, 'ContactUs'])->name('contact');
+
+// About routes
+Route::get('/about', [UserController::class, 'AboutUs'])->name('about');
 
 // PayPal Payment routes
 Route::post('/buy/course/paypal', [PayPalController::class, 'PayPal'])->name('paypal');

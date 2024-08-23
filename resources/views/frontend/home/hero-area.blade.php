@@ -1,17 +1,22 @@
 <style>
-    .hero-area{
+    .hero-area {
         height: 600px !important;
+    }
+
+    .slide.active {
+        opacity: 1;
     }
 </style>
 
 <section class="hero-area">
     <div class="hero-slider owl-action-styled">
-        <div class="hero-slider-item hero-bg-1">
+        <div class="hero-slider-item hero-bg-1 slide">
 
             <div class="container">
                 <div class="hero-content">
                     <div class="section-heading">
-                        <h2 class="section__title text-white fs-65 lh-80 pb-3">Start Learning Coding <br> From Home With Expert <br>Instructors</b></h2>
+                        <h2 class="section__title text-white fs-65 lh-80 pb-3">Start Learning Coding <br> From Home With
+                            Expert <br>Instructors</b></h2>
                         <p class="section__desc text-white pb-4">We are providing high-quality online courses to
                             improve your skills.
                             <br>Our instructors are highly experienced and experts.
@@ -28,7 +33,7 @@
                 </div><!-- end hero-content -->
             </div><!-- end container -->
         </div><!-- end hero-slider-item -->
-        <div class="hero-slider-item hero-bg-2">
+        <div class="hero-slider-item hero-bg-2 slide">
             <div class="container">
                 <div class="hero-content text-center">
                     <div class="section-heading">
@@ -49,13 +54,15 @@
                 </div><!-- end hero-content -->
             </div><!-- container -->
         </div><!-- end hero-slider-item -->
-        <div class="hero-slider-item hero-bg-3">
+        <div class="hero-slider-item hero-bg-3 slide">
             <div class="container">
                 <div class="hero-content text-right">
                     <div class="section-heading">
-                        <h2 class="section__title text-white fs-65 lh-80 pb-3">Our Classes Are Weekends Only <br> Except Holidays
+                        <h2 class="section__title text-white fs-65 lh-80 pb-3">Our Classes Are Weekends Only <br> Except
+                            Holidays
                         </h2>
-                        <p class="section__desc text-white pb-4">Our learning days will never affect your chil's school work, rather it
+                        <p class="section__desc text-white pb-4">Our learning days will never affect your chil's school
+                            work, rather it
                             <br>will boost their confidence in problem-solving ability.
                         </p>
                     </div>
@@ -72,3 +79,22 @@
         </div><!-- end hero-slider-item -->
     </div><!-- end hero-slide -->
 </section>
+
+<script>
+    // script.js
+    document.addEventListener("DOMContentLoaded", function() {
+        const slides = document.querySelectorAll(".slide");
+        let currentIndex = 0;
+        const slideInterval = 2000; // 5 seconds
+
+        function showNextSlide() {
+            slides[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add("active");
+        }
+
+        // Start the slideshow
+        slides[currentIndex].classList.add("active");
+        setInterval(showNextSlide, slideInterval);
+    });
+</script>

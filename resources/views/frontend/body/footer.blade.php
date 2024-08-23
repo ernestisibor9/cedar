@@ -7,9 +7,11 @@
                         <img src="{{asset('frontend/images/logo.png')}}" alt="footer logo" class="footer__logo">
                     </a>
                     <ul class="generic-list-item pt-4">
-                        <li><a href="tel:+1631237884" class="text-white">+2347072485480 +447771222476
+                        <li><a href="tel:+447771222476" class="text-white">+44 777 1222 476
                         </a></li>
-                        <li><a href="mailto:support@wbsite.com" class="text-white">Elizabeth.o@Cedargrowthconsult.com</a></li>
+                        <li><a href="tel:+447771222476" class="text-white">+234 707 2485 480
+                        </a></li>
+                        <li><a href="mailto:info@cedargrowthconsult.com" class="text-white">info@cedargrowthconsult.com</a></li>
                         <li class="text-white">Cedargrowthconsult</li>
                     </ul>
                     <h3 class="fs-20 font-weight-semi-bold pt-4 pb-2 text-white">We are on</h3>
@@ -69,7 +71,7 @@
                 <div class="col-lg-6">
                     <p class="copy-desc text-white">&copy; @php
                         echo date('Y')
-                    @endphp Aduca. All Rights Reserved. by <a href="https://techydevs.com/" class="text-white">Cedar Growth Consult</a></p>
+                    @endphp Aduca. All Rights Reserved. Powered by <a href="https://www.justimagin.com.ng" class="text-white">JUSTIMAGIN</a></p>
                 </div><!-- end col-lg-6 -->
                 {{-- <div class="col-lg-6">
                     <div class="d-flex flex-wrap align-items-center justify-content-end">

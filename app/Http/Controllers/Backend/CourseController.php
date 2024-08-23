@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Course;
 use App\Models\CourseOutline;
 use App\Models\DownloadCourse;
+use App\Models\Payment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -235,6 +236,11 @@ class CourseController extends Controller
                 'alert-type'=>'success'
             );
             return redirect()->back()->with($notification);
+    }
+    // StudentCourse
+    public function StudentCourse(){
+        $courses = Payment::latest()->get();
+        return view('admin.backend.course.student_course', compact('courses'));
     }
     // DownloadBronchure
     // public function DownloadBronchure($id)

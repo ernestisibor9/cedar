@@ -1,3 +1,24 @@
+<?php
+if (isset($_POST['submit'])) {
+    // Retrieve form data
+    $email = $_POST['email'];
+    $message = "You have received a new subscriber :  ";
+
+    $headers = " $message ". "\r\n". "" . "Email: $email" . "\r\n";
+
+
+    // send email
+    if (mail('info@pointonemfb.com.ng', "NewsLetter", $headers)) {
+        // After successful action
+        $_SESSION['success_message'] = "Thank you for subscribing!";
+    } else {
+        // After successful action
+        $_SESSION['error_message'] = "Fail to send!";
+    }
+}
+?>
+
+
 <section class="subscriber-area pt-60px pb-60px bg-gray position-relative overflow-hidden">
     <span class="stroke-shape stroke-shape-1"></span>
     <span class="stroke-shape stroke-shape-2"></span>
@@ -15,12 +36,36 @@
                 </div><!-- end section-heading -->
             </div><!-- end col-lg-5 -->
             <div class="col-lg-5 ml-auto">
+
+                <p>
+                    <?php
+                    // Check if success message exists
+                    if (isset($_SESSION['success_message'])) {
+                        // Display success message
+                        echo '<div class="text-success">' . $_SESSION['success_message'] . '</div>';
+                        // Clear session variable
+                        unset($_SESSION['success_message']);
+                    }
+
+                    ?>
+                    <?php
+                    // Check if success message exists
+                    if (isset($_SESSION['error_message'])) {
+                        // Display success message
+                        echo '<div class="text-danger">' . $_SESSION['error_message'] . '</div>';
+                        // Clear session variable
+                        unset($_SESSION['error_message']);
+                    }
+
+                    ?>
+                </p>
+
                 <form method="post" class="subscriber-form">
                     <div class="input-group">
                         <input type="email" name="email" class="form-control form--control pl-3"
                             placeholder="Enter email address">
                         <div class="input-group-append">
-                            <button class="btn theme-btn" type="button">Subscribe <i
+                            <button class="btn theme-btn" type="submit" name="submit">Subscribe <i
                                     class="la la-arrow-right icon ml-1"></i></button>
                         </div>
                     </div>
