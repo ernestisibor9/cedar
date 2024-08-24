@@ -126,6 +126,20 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-group'></i>
+                </div>
+                <div class="menu-title">Add Instructor</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('all.instructor') }}"><i class='bx bx-radio-circle'></i>All Instructor</a>
+                </li>
+                <li> <a href="{{route('add.instructor')}}"><i class='bx bx-radio-circle'></i>Add Instructor</a>
+                </li>
+                </li>
+            </ul>
+        </li>
         {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
@@ -251,7 +265,13 @@
                 <div class="menu-title">Enrolled Students</div>
             </a>
         </li>
-
+        {{-- <li>
+            <a href="{{route('all.users')}}">
+                <div class="parent-icon"><i class='bx bx-user-plus'></i>
+                </div>
+                <div class="menu-title">Add Instructor</div>
+            </a>
+        </li> --}}
 
         <li class="menu-label">Others</li>
 

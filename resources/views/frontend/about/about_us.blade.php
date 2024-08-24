@@ -40,6 +40,13 @@
     width: 100px;
     height: 100px;
 }
+
+.my-img-what {
+    width: 100px !important;
+    height: 100px !important;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
 </style>
 
 <section class="breadcrumb-area section-padding img-bg-3">
@@ -280,27 +287,33 @@
     <div class="container">
         <div class="team-member-heading-content text-center">
             <div class="section-heading">
-                <h2 class="section__title lh-50">Meet Our Leaderships</h2>
+                <h2 class="section__title lh-50">Meet Our Expert Instructors</h2>
             </div><!-- end section-heading -->
-        </div><!-- end team-member-heading-content -->
+        </div>
+        @php
+            $team = \App\Models\Instructor::latest()->get();
+        @endphp<!-- end team-member-heading-content -->
         <div class="row pt-60px">
+            @foreach ($team as $item)
             <div class="col-lg-3 responsive-column-half">
                 <div class="card card-item member-card text-center">
                     <div class="card-image">
-                        <img class="card-img-top" src="{{asset('frontend/images/small-avatar-1.jpg')}}" alt="team member">
+                        <img class="card-img-top my-img-what" src="{{asset($item->photo)}}" alt="team member">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title"><a href="#">Alex Smith</a></h5>
-                        <p class="card-text">Founder And CEO</p>
+                        <h5 class="card-title"><a href="#">{{$item->lastname}} &nbsp; {{$item->firstname}}</a></h5>
+                        <p class="card-text">{{ucfirst($item->status)}}</p>
                         <ul class="social-icons social-icons-styled social--icons-styled pt-4">
-                            <li><a href="#"><i class="la la-facebook"></i></a></li>
+                            <li><a href="{{$item->facebook_url}}" target="_blank"><i class="la la-facebook"></i></a></li>
                             <li><a href="#"><i class="la la-twitter"></i></a></li>
                             <li><a href="#"><i class="la la-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div><!-- end card -->
-            </div><!-- end col-lg-3 -->
-             <div class="col-lg-3 responsive-column-half">
+            </div>
+            @endforeach
+            <!-- end col-lg-3 -->
+             {{-- <div class="col-lg-3 responsive-column-half">
                 <div class="card card-item member-card text-center">
                     <div class="card-image">
                         <img class="card-img-top" src="{{asset('frontend/images/small-avatar-2.jpg')}}" alt="team member">
@@ -411,7 +424,7 @@
                         </ul>
                     </div>
                 </div><!-- end card -->
-            </div><!-- end col-lg-3 -->
+            </div><!-- end col-lg-3 --> --}}
         </div><!-- end row -->
     </div><!-- end container -->
 </section><!-- end team-member-area -->

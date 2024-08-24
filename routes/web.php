@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\CategoryCategory;
 use App\Http\Controllers\Backend\CourseController;
+use App\Http\Controllers\Backend\InstructorController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\StudentProjectController as BackendStudentProjectController;
 use App\Http\Controllers\Backend\TestimonialController;
@@ -101,12 +102,12 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
         // Route::get('//admin/delete/course/{id}', 'DeleteCourse')->name('delete.course');
     });
     // Admin Review All Route
-Route::controller(ReviewController::class)->group(function(){
-    Route::get('/admin/pending/review','AdminPendingReview')->name('admin.pending.review');
-    Route::post('/update/review/status','UpdateReviewStatus')->name('update.review.status');
-    Route::get('/admin/active/review','AdminActiveReview')->name('admin.active.review');
+    Route::controller(ReviewController::class)->group(function(){
+        Route::get('/admin/pending/review','AdminPendingReview')->name('admin.pending.review');
+        Route::post('/update/review/status','UpdateReviewStatus')->name('update.review.status');
+        Route::get('/admin/active/review','AdminActiveReview')->name('admin.active.review');
 
-});
+    });
     // Admin Testimonial Route
     Route::controller(TestimonialController::class)->group(function(){
         Route::get('/admin/all/testimonial','AllTestimonial')->name('all.testimonial');
@@ -116,6 +117,17 @@ Route::controller(ReviewController::class)->group(function(){
         Route::post('/update/testimonial', 'UpdateTestimonial')->name('update.testimonial');
         Route::get('/delete/testimonial/{id}', 'DeleteTestimonial')->name('delete.testimonial');
     });
+
+    // Admin Instructor Route
+    Route::controller(InstructorController::class)->group(function(){
+        Route::get('/admin/all/instructor','AllInstructor')->name('all.instructor');
+        Route::get('/admin/add/instructor','AddInstructor')->name('add.instructor');
+        Route::post('/store/instructor', 'StoreInstructor')->name('store.instructor');
+        Route::get('/edit/instructor/{id}', 'EditInstructor')->name('edit.instructor');
+        Route::post('/update/instructor', 'UpdateInstructor')->name('update.instructor');
+        Route::get('/delete/instructor/{id}', 'DeleteInstructor')->name('delete.instructor');
+    });
+
 // Admin Blog Category Route
 Route::controller(BlogController::class)->group(function(){
     Route::get('/blog/category','AllBlogCategory')->name('blog.category');
