@@ -13,7 +13,7 @@ $testimonials = App\Models\Testimonial::latest()->get();
     <div class="container">
         <div class="section-heading text-center">
             <h5 class="ribbon ribbon-lg mb-2">Testimonials</h5>
-            <h2 class="section__title">Student's Feedback</h2>
+            <h2 class="section__title">Feedback</h2>
             <span class="section-divider"></span>
         </div><!-- end section-heading -->
     </div><!-- end container -->
@@ -29,7 +29,7 @@ $testimonials = App\Models\Testimonial::latest()->get();
                         <div class="media-body">
                             <h5>{{$testimonial->name}}</h5>
                             <div class="d-flex align-items-center pt-1">
-                                <span class="lh-18 pr-2">Student</span>
+                                <span class="lh-18 pr-2">{{ucfirst($testimonial->status)}}</span>
                                 {{-- <div class="review-stars">
                                     <span class="la la-star"></span>
                                     <span class="la la-star"></span>

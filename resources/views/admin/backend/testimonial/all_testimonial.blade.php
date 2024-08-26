@@ -15,6 +15,7 @@
                             <th>S/N</th>
                             <th>Photo</th>
                             <th>Name</th>
+                            <th>Role</th>
                             <th>Message</th>
                             <th>Action</th>
                         </tr>
@@ -25,7 +26,8 @@
                                 <td>{{ $key + 1 }}</td>
                                 <td><img src="{{ asset($item->photo) }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="60" height="60"></td>
                                 <td>{{ $item->name }}</td>
-                                <td>{{ Str::substr($item->message, 0, 70) }}...</td>
+                                <td>{{ $item->status }}</td>
+                                <td>{{ Str::substr($item->message, 0, 50) }}...</td>
 
                                 <td>
                                     <a href="{{ route('edit.testimonial', $item->id) }}" title="Edit" class="btn btn-primary">Edit</a>

@@ -16,7 +16,7 @@ class SubcribeMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(private $data)
     {
         //
     }
@@ -27,7 +27,7 @@ class SubcribeMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Subcribe Mail',
+            subject: 'You have a new subscription',
         );
     }
 
@@ -36,8 +36,10 @@ class SubcribeMail extends Mailable
      */
     public function content(): Content
     {
+        $newsletter = $this->data;
         return new Content(
-            view: 'view.name',
+            view: 'mail.newsletter',
+            with: ['newsletter' => $this->data],
         );
     }
 

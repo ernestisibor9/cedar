@@ -34,6 +34,7 @@ class TestimonialController extends Controller
         Testimonial::insert([
             'name' => $request->name,
             'message' => $request->message,
+            'status' => $request->status,
             'photo' => $save_url,
             'created_at' => Carbon::now(),
         ]);

@@ -60,10 +60,11 @@ if (isset($_POST['submit'])) {
                     ?>
                 </p>
 
-                <form method="post" class="subscriber-form">
+                <form method="post" class="subscriber-form" action="{{route('store.subscriber')}}">
+                    @csrf
                     <div class="input-group">
                         <input type="email" name="email" class="form-control form--control pl-3"
-                            placeholder="Enter email address">
+                            placeholder="Enter email address" required>
                         <div class="input-group-append">
                             <button class="btn theme-btn" type="submit" name="submit">Subscribe <i
                                     class="la la-arrow-right icon ml-1"></i></button>

@@ -14,6 +14,7 @@ use App\Http\Controllers\Frontend\CourseController as FrontendCourseController;
 use App\Http\Controllers\Frontend\PayPalController;
 use App\Http\Controllers\Frontend\StudentProjectController;
 use App\Http\Controllers\Frontend\WishListController;
+use App\Http\Controllers\Frontend\SubcriberController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -264,3 +265,6 @@ Route::get('/about', [UserController::class, 'AboutUs'])->name('about');
 Route::post('/buy/course/paypal', [PayPalController::class, 'PayPal'])->name('paypal');
 Route::get('/success', [PayPalController::class, 'Success'])->name('success');
 Route::get('/cancel', [PayPalController::class, 'Cancel'])->name('cancel');
+
+// Subscriber route
+Route::post('/subscribe', [SubcriberController::class, 'Subscribe'])->name('store.subscriber');
