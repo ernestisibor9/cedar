@@ -1,6 +1,8 @@
 @php
     $id = Auth::user()->id;
     $profileData = App\Models\User::find($id);
+    $wishList = App\Models\Wishlist::where('user_id', $id)->latest()->get();
+    $newCourses = App\Models\Course::latest()->limit(3)->get();
 @endphp
 
 <header class="header-menu-area">
@@ -13,26 +15,29 @@
                             <a href="index.html" class="logo"><img src="{{asset('frontend/images/logo.png')}}" alt="logo"></a>
                             <div class="user-btn-action">
                                 <div class="search-menu-toggle icon-element icon-element-sm shadow-sm mr-2" data-toggle="tooltip" data-placement="top" title="Search">
-                                    <i class="la la-search"></i>
+                                    <i class="la la-user"></i>
                                 </div>
-                                <div class="off-canvas-menu-toggle cat-menu-toggle icon-element icon-element-sm shadow-sm mr-2" data-toggle="tooltip" data-placement="top" title="Category menu">
+                                {{-- <div class="off-canvas-menu-toggle cat-menu-toggle icon-element icon-element-sm shadow-sm mr-2" data-toggle="tooltip" data-placement="top" title="Category menu">
                                     <i class="la la-th-large"></i>
-                                </div>
+                                </div> --}}
                                 <div class="off-canvas-menu-toggle main-menu-toggle icon-element icon-element-sm shadow-sm" data-toggle="tooltip" data-placement="top" title="Main menu">
                                     <i class="la la-bars"></i>
                                 </div>
                             </div>
                         </div><!-- end logo-box -->
                         <div class="menu-wrapper">
-                            <form method="post" class="mr-auto ml-0">
+                            {{-- <form method="post" class="mr-auto ml-0">
                                 <div class="form-group mb-0">
                                     <input class="form-control form--control form--control-gray pl-3" type="text" name="search" placeholder="Search for anything">
                                     <span class="la la-search search-icon"></span>
                                 </div>
-                            </form>
+                            </form> --}}
+                            <div class="mr-auto ml-0">
+                                <h4>Welcome {{$profileData->name}}</h4>
+                            </div>
                             <div class="nav-right-button d-flex align-items-center">
                                 <div class="user-action-wrap d-flex align-items-center">
-                                    <div class="shop-cart course-cart pr-3 mr-3 border-right border-right-gray">
+                                    {{-- <div class="shop-cart course-cart pr-3 mr-3 border-right border-right-gray">
                                         <ul>
                                             <li>
                                                 <p class="shop-cart-btn d-flex align-items-center fs-16">
@@ -112,7 +117,7 @@
                                                 </ul>
                                             </li>
                                         </ul>
-                                    </div><!-- end shop-cart -->
+                                    </div><!-- end shop-cart --> --}}
                                     <div class="shop-cart wishlist-cart pr-3 mr-3 border-right border-right-gray">
                                         <ul>
                                             <li>
@@ -121,34 +126,27 @@
                                                     <span class="dot-status bg-1"></span>
                                                 </p>
                                                 <ul class="cart-dropdown-menu after-none">
+                                                    @foreach ($wishList as $item)
                                                     <li>
                                                         <div class="media media-card">
-                                                            <a href="course-details.html" class="media-img">
-                                                                <img class="mr-3" src="{{asset('frontend/images/small-img.jpg')}}" alt="Cart image">
-                                                            </a>
-                                                            <div class="media-body">
-                                                                <h5><a href="course-details.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
-                                                                <span class="d-block lh-18 py-1">Kamran Ahmed</span>
-                                                                <p class="text-black font-weight-semi-bold lh-18">$12.99 <span class="before-price fs-14">$129.99</span></p>
-                                                            </div>
+                                                            @if($item->course)
+                                                                <a href="course-details.html" class="media-img">
+                                                                    <img class="mr-3" src="{{ asset($item->course->course_image) }}" alt="Cart image">
+                                                                </a>
+                                                                <div class="media-body">
+                                                                    <h5><a href="course-details.html">{{ $item->course->course_title }}</a></h5>
+                                                                    <span class="d-block lh-18 py-1">Cedar</span>
+                                                                    <p class="text-black font-weight-semi-bold lh-18">${{ $item->course->selling_price }}
+                                                                    <span class="before-price fs-14">${{ $item->course->discount_price }}</span></p>
+                                                                </div>
+                                                            @else
+                                                                <p>No course in your wishlist.</p>
+                                                            @endif
                                                         </div>
-                                                        <a href="#" class="btn theme-btn theme-btn-sm theme-btn-transparent lh-28 w-100 mt-3">Add to cart <i class="la la-arrow-right icon ml-1"></i></a>
                                                     </li>
+                                                    @endforeach
                                                     <li>
-                                                        <div class="media media-card">
-                                                            <a href="course-details.html" class="media-img">
-                                                                <img class="mr-3" src="{{asset('frontend/images/small-img.jpg')}}" alt="Cart image">
-                                                            </a>
-                                                            <div class="media-body">
-                                                                <h5><a href="course-details.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
-                                                                <span class="d-block lh-18 py-1">Kamran Ahmed</span>
-                                                                <p class="text-black font-weight-semi-bold lh-18">$12.99 <span class="before-price fs-14">$129.99</span></p>
-                                                            </div>
-                                                        </div>
-                                                        <a href="#" class="btn theme-btn theme-btn-sm theme-btn-transparent lh-28 w-100 mt-3">Add to cart <i class="la la-arrow-right icon ml-1"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="my-courses.html" class="btn theme-btn w-100">Got to wishlist <i class="la la-arrow-right icon ml-1"></i></a>
+                                                        <a href="{{route('user.wishlist')}}" class="btn theme-btn w-100">Go to Wishlist <i class="la la-arrow-right icon ml-1"></i></a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -161,44 +159,28 @@
                                                     <i class="la la-bell"></i>
                                                     <span class="dot-status bg-1"></span>
                                                 </p>
-                                                <ul class="cart-dropdown-menu after-none p-0 notification-dropdown-menu">
-                                                    <li class="menu-heading-block d-flex align-items-center justify-content-between">
-                                                        <h4>Notifications</h4>
-                                                        <span class="ribbon fs-14">18</span>
-                                                    </li>
+                                                <ul class="cart-dropdown-menu after-none">
+                                                    @foreach ($newCourses as $item)
                                                     <li>
-                                                        <div class="notification-body">
-                                                            <a href="dashboard.html" class="media media-card align-items-center">
-                                                                <div class="icon-element icon-element-sm flex-shrink-0 bg-1 mr-3 text-white">
-                                                                    <i class="la la-bolt"></i>
-                                                                </div>
+                                                        <div class="media media-card">
+                                                            @if($item !== '')
+                                                                <a href="{{ url('course/details/' . $item->id . '/' . $item->course_name_slug) }}" class="media-img">
+                                                                    <img class="mr-3" src="{{ asset($item->course_image) }}" alt="Cart image">
+                                                                </a>
                                                                 <div class="media-body">
-                                                                    <h5>Your resume updated!</h5>
-                                                                    <span class="d-block lh-18 pt-1 text-gray fs-13">1 hour ago</span>
+                                                                    <h5><a href="{{ url('course/details/' . $item->id . '/' . $item->course_name_slug) }}">{{ $item->course_title }}</a></h5>
+                                                                    <span class="d-block lh-18 py-1">Cedar</span>
+                                                                    <p class="text-black font-weight-semi-bold lh-18">{{ $item->created_at->format('M d Y') }}
+                                                                    <span class="before-price fs-14"></span></p>
                                                                 </div>
-                                                            </a>
-                                                            <a href="dashboard.html" class="media media-card align-items-center">
-                                                                <div class="icon-element icon-element-sm flex-shrink-0 bg-2 mr-3 text-white">
-                                                                    <i class="la la-lock"></i>
-                                                                </div>
-                                                                <div class="media-body">
-                                                                    <h5>You changed password</h5>
-                                                                    <span class="d-block lh-18 pt-1 text-gray fs-13">November 12, 2019</span>
-                                                                </div>
-                                                            </a>
-                                                            <a href="dashboard.html" class="media media-card align-items-center">
-                                                                <div class="icon-element icon-element-sm flex-shrink-0 bg-3 mr-3 text-white">
-                                                                    <i class="la la-user"></i>
-                                                                </div>
-                                                                <div class="media-body">
-                                                                    <h5>Your account has been created successfully</h5>
-                                                                    <span class="d-block lh-18 pt-1 text-gray fs-13">November 12, 2019</span>
-                                                                </div>
-                                                            </a>
+                                                            @else
+                                                                <p>No course in your wishlist.</p>
+                                                            @endif
                                                         </div>
                                                     </li>
-                                                    <li class="menu-heading-block">
-                                                        <a href="dashboard.html" class="btn theme-btn w-100">Show All Notifications <i class="la la-arrow-right icon ml-1"></i></a>
+                                                    @endforeach
+                                                    <li>
+                                                        <a href="{{route('browse.all.course')}}" class="btn theme-btn w-100">All Courses <i class="la la-arrow-right icon ml-1"></i></a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -250,27 +232,42 @@
                                                     <li>
                                                         <ul class="generic-list-item">
                                                             <li>
-                                                                <a href="my-courses.html">
+                                                                <a href="{{route('dashboard')}}">
+                                                                    <i class="la la-file-video-o mr-1"></i> Dashboard
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{route('user.enroll.courses')}}">
                                                                     <i class="la la-file-video-o mr-1"></i> My courses
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shopping-cart.html">
-                                                                    <i class="la la-shopping-basket mr-1"></i> My cart
+                                                                <a href="{{route('user.profile')}}">
+                                                                    <i class="la la-file-video-o mr-1"></i> My profile
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="my-courses.html">
+                                                                <a href="{{route('user.change.password')}}">
+                                                                    <i class="la la-file-video-o mr-1"></i> Change password
+                                                                </a>
+                                                            </li>
+                                                            {{-- <li>
+                                                                <a href="shopping-cart.html">
+                                                                    <i class="la la-shopping-basket mr-1"></i> My cart
+                                                                </a>
+                                                            </li> --}}
+                                                            <li>
+                                                                <a href="{{route('user.wishlist')}}">
                                                                     <i class="la la-heart-o mr-1"></i> My wishlist
                                                                 </a>
                                                             </li>
                                                             <li><div class="section-block"></div></li>
-                                                            <li>
+                                                            {{-- <li>
                                                                 <a href="dashboard.html">
                                                                     <i class="la la-bell mr-1"></i> Notifications
                                                                     <span class="badge bg-info text-white ml-2 p-1">9+</span>
                                                                 </a>
-                                                            </li>
+                                                            </li> --}}
                                                             <li>
                                                                 <a href="dashboard-message.html">
                                                                     <i class="la la-envelope mr-1"></i> Messages
@@ -279,32 +276,11 @@
                                                             </li>
                                                             <li><div class="section-block"></div></li>
                                                             <li>
-                                                                <a href="dashboard-settings.html">
-                                                                    <i class="la la-gear mr-1"></i> Settings
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="dashboard-purchase-history.html">
+                                                                <a href="{{route('user.purchase.history')}}">
                                                                     <i class="la la-history mr-1"></i> Purchase history
                                                                 </a>
                                                             </li>
                                                             <li><div class="section-block"></div></li>
-                                                            <li>
-                                                                <a href="student-detail.html">
-                                                                    <i class="la la-user mr-1"></i> Public profile
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="dashboard-settings.html">
-                                                                    <i class="la la-edit mr-1"></i> Edit profile
-                                                                </a>
-                                                            </li>
-                                                            <li><div class="section-block"></div></li>
-                                                            <li>
-                                                                <a href="#">
-                                                                    <i class="la la-question mr-1"></i> Help
-                                                                </a>
-                                                            </li>
                                                             <li>
                                                                 <a href="{{route('user.logout')}}">
                                                                     <i class="la la-power-off mr-1"></i> Logout
@@ -313,8 +289,8 @@
                                                             <li><div class="section-block"></div></li>
                                                             <li>
                                                                 <a href="#" class="position-relative">
-                                                                    <span class="fs-17 font-weight-semi-bold d-block">Aduca for Business</span>
-                                                                    <span class="lh-20 d-block fs-14 text-gray">Bring learning to your company</span>
+                                                                    <span class="fs-17 font-weight-semi-bold d-block">Cedar Growth Consult</span>
+                                                                    <span class="lh-20 d-block fs-14 text-gray">Bring learning to your door step</span>
                                                                     <span class="position-absolute top-0 right-0 mt-3 mr-3 fs-18 text-gray">
                                                                     <i class="la la-external-link"></i>
                                                                 </span>
@@ -338,24 +314,6 @@
         <div class="off-canvas-menu-close main-menu-close icon-element icon-element-sm shadow-sm" data-toggle="tooltip" data-placement="left" title="Close menu">
             <i class="la la-times"></i>
         </div><!-- end off-canvas-menu-close -->
-        <h4 class="off-canvas-menu-heading pt-90px">Alerts</h4>
-        <ul class="generic-list-item off-canvas-menu-list pt-1 pb-2 border-bottom border-bottom-gray">
-            <li><a href="dashboard.html">Notifications</a></li>
-            <li><a href="dashboard-message.html">Messages</a></li>
-            <li><a href="my-courses.html">Wishlist</a></li>
-            <li><a href="shopping-cart.html">My cart</a></li>
-        </ul>
-        <h4 class="off-canvas-menu-heading pt-20px">Account</h4>
-        <ul class="generic-list-item off-canvas-menu-list pt-1 pb-2 border-bottom border-bottom-gray">
-            <li><a href="dashboard-settings.html">Account settings</a></li>
-            <li><a href="dashboard-purchase-history.html">Purchase history</a></li>
-        </ul>
-        <h4 class="off-canvas-menu-heading pt-20px">Profile</h4>
-        <ul class="generic-list-item off-canvas-menu-list pt-1 pb-2 border-bottom border-bottom-gray">
-            <li><a href="student-detail.html">Public profile</a></li>
-            <li><a href="dashboard-settings.html">Edit profile</a></li>
-            <li><a href="index.html">Log out</a></li>
-        </ul>
         <h4 class="off-canvas-menu-heading pt-20px">More from Aduca</h4>
         <ul class="generic-list-item off-canvas-menu-list pt-1">
             <li><a href="for-business.html">Aduca for Business</a></li>
@@ -386,7 +344,7 @@
             </button>
         </div>
     </div><!-- end off-canvas-menu -->
-    <div class="off-canvas-menu custom-scrollbar-styled category-off-canvas-menu">
+    {{-- <div class="off-canvas-menu custom-scrollbar-styled category-off-canvas-menu">
         <div class="off-canvas-menu-close cat-menu-close icon-element icon-element-sm shadow-sm" data-toggle="tooltip" data-placement="left" title="Close menu">
             <i class="la la-times"></i>
         </div><!-- end off-canvas-menu-close -->
@@ -513,15 +471,16 @@
                 </ul>
             </li>
         </ul>
-    </div><!-- end off-canvas-menu -->
+    </div><!-- end off-canvas-menu --> --}}
     <div class="mobile-search-form">
         <div class="d-flex align-items-center">
-            <form method="post" class="flex-grow-1 mr-3">
+            {{-- <form method="post" class="flex-grow-1 mr-3">
                 <div class="form-group mb-0">
                     <input class="form-control form--control pl-3" type="text" name="search" placeholder="Search for anything">
                     <span class="la la-search search-icon"></span>
                 </div>
-            </form>
+            </form> --}}
+            <h3 class="text-dark">Welcome {{ $profileData->name}}</h3>
             <div class="search-bar-close icon-element icon-element-sm shadow-sm">
                 <i class="la la-times"></i>
             </div><!-- end off-canvas-menu-close -->

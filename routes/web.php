@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\UserController as BackendUserController;
 use App\Http\Controllers\Frontend\CommentController;
 use App\Http\Controllers\Frontend\CourseController as FrontendCourseController;
+use App\Http\Controllers\Frontend\EnrollCourseController;
 use App\Http\Controllers\Frontend\PayPalController;
 use App\Http\Controllers\Frontend\StudentProjectController;
 use App\Http\Controllers\Frontend\WishListController;
@@ -57,6 +58,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/user/wishlist', 'AllWishlist')->name('user.wishlist');
         Route::get('/get-wishlist-course/','GetWishlistCourse');
         Route::get('/wishlist-remove/{id}','RemoveWishlist');
+    });
+    // User Enroll Routes
+    Route::controller(EnrollCourseController::class)->group(function(){
+        Route::get('/user/enroll/course', 'UserEnrollCourse')->name('user.enroll.courses');
+        Route::get('/user/purchase/history', 'UserPurchaseHistory')->name('user.purchase.history');
+        // Route::get('/wishlist-remove/{id}','RemoveWishlist');
     });
 });
 
