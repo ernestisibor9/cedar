@@ -20,7 +20,7 @@
                                 <a href="{{route('register.students')}}">
                                     <p class="mb-0 text-secondary">Registered Students</p>
                                     <h4 class="my-1 text-info">{{ count($registeredStudents) }}</h4>
-                                    <p class="mb-0 font-13">Total registered students</p>
+                                    <p class="mb-0 font-13">registered students</p>
                                 </a>
                             </div>
                             <div class="widgets-icons-2 rounded-circle bg-gradient-blues text-white ms-auto"><i

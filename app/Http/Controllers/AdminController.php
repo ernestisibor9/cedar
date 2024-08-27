@@ -103,4 +103,20 @@ class AdminController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+    // Register Student
+    public function RegisterStudent(){
+        return view('admin.stats.register_student');
+    }
+    // Enrolled Student
+    public function EnrolledStudent(){
+        return view('admin.stats.enrolled_student');
+    }
+    // Total Course
+    public function TotalCourse(){
+        return view('admin.stats.total_course');
+    }
+    // Total Blog
+    public function TotalBlog(){
+        return view('admin.stats.total_blog');
+    }
 }

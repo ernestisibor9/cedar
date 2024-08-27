@@ -102,7 +102,14 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
         // Route::post('/update/course/goal', 'UpdateCourseGoal')->name('update.course.goal');
         // Route::get('//admin/delete/course/{id}', 'DeleteCourse')->name('delete.course');
     });
-    // Admin Review All Route
+    // Admin Dasboard routes statistics
+    Route::controller(AdminController::class)->group(function(){
+        Route::get('/admin/registered/students', 'RegisterStudent')->name('register.students');
+        Route::get('/admin/enrolled/students', 'EnrolledStudent')->name('enrolled.students');
+        Route::get('/admin/total/course', 'TotalCourse')->name('total.course');
+        Route::get('/admin/total/blog', 'TotalBlog')->name('total.blog');
+    });
+    //// Admin Review All Route
     Route::controller(ReviewController::class)->group(function(){
         Route::get('/admin/pending/review','AdminPendingReview')->name('admin.pending.review');
         Route::post('/update/review/status','UpdateReviewStatus')->name('update.review.status');

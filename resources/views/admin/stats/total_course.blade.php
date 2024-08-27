@@ -20,7 +20,7 @@
                                 <a href="{{route('register.students')}}">
                                     <p class="mb-0 text-secondary">Registered Students</p>
                                     <h4 class="my-1 text-info">{{ count($registeredStudents) }}</h4>
-                                    <p class="mb-0 font-13">Total registered students</p>
+                                    <p class="mb-0 font-13"> registered students</p>
                                 </a>
                             </div>
                             <div class="widgets-icons-2 rounded-circle bg-gradient-blues text-white ms-auto"><i
@@ -92,7 +92,7 @@
             <div class="card-header">
                 <div class="d-flex align-items-center">
                     <div>
-                        <h6 class="mb-0">Enrolled Students</h6>
+                        <h6 class="mb-0">Total Courses</h6>
                     </div>
 
                 </div>
@@ -103,27 +103,23 @@
                         <thead class="table-light">
                             <tr>
                                 <th>S/N</th>
-                                <th>Photo</th>
-                                <th>Name</th>
-                                <th>Course</th>
-                                <th>Amount</th>
-                                <th>Payment ID</th>
-                                <th>Payment Method</th>
-                                <th>Date of Payment</th>
+                                <th>Course Image</th>
+                                <th>Course Name</th>
+                                <th>Price</th>
+                                <th>Language</th>
+                                <th>Level</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($payment as $key => $item)
+                            @foreach ($totalCourses as $key => $item)
                             <tr>
                                 <td>{{$key + 1}}</td>
-                                <td><img src="{{ !empty($item->user->photo) ? url('upload/user_images/' . $item->user->photo) : url('upload/no_image2.jpeg') }}"" class="product-img-2"
+                                <td><img src="{{asset($item->course_image) }}" class="product-img-2"
                                         alt="product img"></td>
-                                <td>{{$item->user->name}}</td>
-                                <td>{{$item->course->course_name}}</td>
-                                <td>${{$item->amount}}</td>
-                                <td>{{$item->payment_id}}</td>
-                                <td> <span class="badge bg-gradient-quepal text-white shadow-sm w-100">{{$item->payment_method}}</span></td>
-                                <td>{{ $item->created_at->format('M d Y') }} </td>
+                                <td>{{$item->course_name}}</td>
+                                <td>${{$item->selling_price}}</td>
+                                <td>{{$item->language}}</td>
+                                <td>{{$item->level}}</td>
                             </tr>
                             @endforeach
                         </tbody>
