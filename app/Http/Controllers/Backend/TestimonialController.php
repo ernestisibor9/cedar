@@ -10,17 +10,20 @@ use Illuminate\Http\Request;
 class TestimonialController extends Controller
 {
     // AllTestimonial
-    public function AllTestimonial(){
+    public function AllTestimonial()
+    {
         $testimonial = Testimonial::latest()->get();
         return view("admin.backend.testimonial.all_testimonial", compact("testimonial"));
     }
     //
     // AddTestimonial
-    public function AddTestimonial(){
+    public function AddTestimonial()
+    {
         return view("admin.backend.testimonial.add_testimonial");
     }
-     // StoreTestimonial
-     public function StoreTestimonial(Request $request){
+    // StoreTestimonial
+    public function StoreTestimonial(Request $request)
+    {
         $request->validate([
             'photo' => 'required|image|max:2024|mimes:jpg,jpeg,png,gif',
         ]);
@@ -39,22 +42,24 @@ class TestimonialController extends Controller
             'created_at' => Carbon::now(),
         ]);
         $notification = array(
-            'message'=> 'Testimonial Inserted Successfully',
-            'alert-type'=>'success'
+            'message' => 'Testimonial Inserted Successfully',
+            'alert-type' => 'success'
         );
         return redirect()->route('all.testimonial')->with($notification);
     }
     //
     // Edit Testimonial
-    public function EditTestimonial($id){
+    public function EditTestimonial($id)
+    {
         $editTestimonial = Testimonial::findOrFail($id);
         return view('admin.backend.testimonial.edit_testimonial', compact('editTestimonial'));
     }
     // Update Testimonial
-    public function UpdateTestimonial(Request $request){
+    public function UpdateTestimonial(Request $request)
+    {
         $pid = $request->id;
 
-        if($request->file('photo')){
+        if ($request->file('photo')) {
             $request->validate([
                 'photo' => 'required|image|max:2024',
             ]);
@@ -71,31 +76,31 @@ class TestimonialController extends Controller
                 'photo' => $save_url,
                 'created_at' => Carbon::now(),
             ]);
-        }
-        else{
+        } else {
             Testimonial::findOrFail($pid)->update([
                 'name' => $request->name,
                 'message' => $request->message,
                 'created_at' => Carbon::now(),
             ]);
         }
-            $notification = array(
-                'message'=> 'Testimonial Updated Successfully',
-                'alert-type'=>'success'
-            );
-            return redirect()->route('all.testimonial')->with($notification);
+        $notification = array(
+            'message' => 'Testimonial Updated Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.testimonial')->with($notification);
     }
     //
-     // Delete Testimonial
-     public function DeleteTestimonial($id){
+    // Delete Testimonial
+    public function DeleteTestimonial($id)
+    {
         $deleteId = Testimonial::findOrFail($id);
         unlink($deleteId->photo);
 
         Testimonial::findOrFail($id)->delete();
 
         $notification = array(
-                'message'=> 'Testimonial Deleted Successfully',
-                'alert-type'=>'success'
+            'message' => 'Testimonial Deleted Successfully',
+            'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
     }

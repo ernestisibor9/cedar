@@ -12,10 +12,11 @@ use Illuminate\Support\Facades\Mail;
 class SubcriberController extends Controller
 {
     // Subscribe
-    public function subscribe(Request $request){
+    public function subscribe(Request $request)
+    {
         // Validate the request
         $request->validate([
-            'email' =>'required|email|unique:subscribers,email',
+            'email' => 'required|email|unique:subscribers,email',
         ]);
 
         // Create a new subscriber

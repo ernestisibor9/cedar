@@ -12,10 +12,11 @@
                         <div class="card-body">
                             <form action="{{ route('update.course.outline') }}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" name="id" value="{{$courseOutline ->id}}">
+                                <input type="hidden" name="id" value="{{ $courseOutline->id }}">
                                 <div class="mb-3">
                                     <label for="">Course Outline</label>
-                                    <textarea name="course_outlines" id="mytextarea" cols="30" rows="10" class="form-control @error('course_outlines')is-invalid @enderror">
+                                    <textarea name="course_outlines" id="mytextarea" cols="30" rows="10"
+                                        class="form-control @error('course_outlines')is-invalid @enderror">
                                         {!! $courseOutline->course_outlines !!}
                                     </textarea>
                                     @error('course_outlines')

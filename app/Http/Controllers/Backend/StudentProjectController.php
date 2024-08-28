@@ -10,25 +10,28 @@ use Illuminate\Http\Request;
 class StudentProjectController extends Controller
 {
     // AllStudentPoject
-    public function AllStudentPoject(){
+    public function AllStudentPoject()
+    {
         $studentProjects = StudentProject::latest()->get();
         return view('admin.backend.student_project.all_student_project', compact('studentProjects'));
     }
     // AddStudentProject
-    public function AddStudentProject(){
+    public function AddStudentProject()
+    {
         return view('admin.backend.student_project.add_student_project');
     }
     // StoreStudentProject
-    public function StoreStudentProject(Request $request){
+    public function StoreStudentProject(Request $request)
+    {
         $request->validate([
             'student_name' => 'required',
             'project_url' => 'required',
         ]);
-            StudentProject::insert([
-                'student_name' => $request->student_name,
-                'project_url' => $request->project_url,
-                'created_at' => Carbon::now(),
-            ]);
+        StudentProject::insert([
+            'student_name' => $request->student_name,
+            'project_url' => $request->project_url,
+            'created_at' => Carbon::now(),
+        ]);
 
         $notification = array(
             'message' => 'Student Project Inserted Successfully',
@@ -37,11 +40,12 @@ class StudentProjectController extends Controller
         return redirect()->route('all.student.project')->with($notification);
     }
     // EditStudentProject
-    public function EditStudentProject($id){
+    public function EditStudentProject($id)
+    {
         $studentProject = StudentProject::find($id);
         return view('admin.backend.student_project.edit_student_project', compact('studentProject'));
     }
-        // UpdateCourseOutline
+    // UpdateCourseOutline
     public function UpdateStudentProject(Request $request)
     {
         $sid = $request->id;

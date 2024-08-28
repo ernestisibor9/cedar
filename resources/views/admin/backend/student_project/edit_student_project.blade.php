@@ -12,17 +12,17 @@
                         <div class="card-body">
                             <form action="{{ route('update.student.project') }}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" name="id" value="{{$studentProject->id}}">
+                                <input type="hidden" name="id" value="{{ $studentProject->id }}">
                                 <div class="mb-3">
                                     <label for="">Student Name</label>
-                                    <input type="text" class="form-control"
-                                        name="student_name" id="" value="{{$studentProject->student_name}}">
+                                    <input type="text" class="form-control" name="student_name" id=""
+                                        value="{{ $studentProject->student_name }}">
 
                                 </div>
                                 <div class="mb-3">
                                     <label for="">Project URL</label>
-                                    <input type="text" class="form-control"
-                                        name="project_url" id="" value="{{$studentProject->project_url}}">
+                                    <input type="text" class="form-control" name="project_url" id=""
+                                        value="{{ $studentProject->project_url }}">
                                 </div>
                                 <div class="mb-2">
                                     <button type="submit" class="btn btn-primary">Update Student Project</button>

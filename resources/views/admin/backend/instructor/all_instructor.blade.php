@@ -40,15 +40,16 @@
                             @foreach ($instructors as $key => $item)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
-                                    <td><img src="{{asset($item->photo)}}"
-                                            alt="" width="60px" height="60px"></td>
+                                    <td><img src="{{ asset($item->photo) }}" alt="" width="60px" height="60px">
+                                    </td>
                                     <td>{{ $item->firstname }}</td>
                                     <td>{{ $item->lastname }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->phone }}</td>
                                     <td>
                                         {{-- <a href="{{ route('edit.post', $item->id) }}" class="btn btn-success px-5">View </a> --}}
-                                        <a href="{{ route('edit.instructor', $item->id) }}" class="btn btn-info px-5">Edit </a>
+                                        <a href="{{ route('edit.instructor', $item->id) }}" class="btn btn-info px-5">Edit
+                                        </a>
                                         <a href="{{ route('delete.instructor', $item->id) }}" class="btn btn-danger px-5"
                                             id="delete">Delete </a>
                                     </td>

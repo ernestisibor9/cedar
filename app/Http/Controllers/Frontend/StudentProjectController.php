@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class StudentProjectController extends Controller
 {
     // ViewAllProject
-    public function ViewAllProject(){
+    public function ViewAllProject()
+    {
         $studentProjects = StudentProject::latest()->paginate(4);
         return view('frontend.project.student_project', compact('studentProjects'));
     }

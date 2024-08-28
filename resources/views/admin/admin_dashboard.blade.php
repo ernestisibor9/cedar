@@ -9,7 +9,7 @@
     <link rel="icon" href="{{ asset('backend/assets/images/favicon.png') }}" type="image/png" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--plugins-->
-    <link rel="stylesheet" href="{{asset('backend/assets/plugins/input-tags/css/tagsinput.css')}}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/plugins/input-tags/css/tagsinput.css') }}">
     <link href="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
     <link href="{{ asset('backend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
     <link href="{{ asset('backend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
@@ -32,14 +32,15 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/css/semi-dark.css') }}" />
     <link rel="stylesheet" href="{{ asset('backend/assets/css/header-colors.css') }}" />
     <link href="{{ asset('backend/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
-    <title>Admin Dashboard</title>
-    <script src="https://cdn.tiny.cloud/1/bs6au1qu048pnog0s5m4f5jbdfqhbl6bx2k4cz9vnkhwhl25/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <title>@yield('title')</title>
+    <script src="https://cdn.tiny.cloud/1/bs6au1qu048pnog0s5m4f5jbdfqhbl6bx2k4cz9vnkhwhl25/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
     <script>
-		tinymce.init({
-		  selector: '#mytextarea',
-		//   apiKey: 'bs6au1qu048pnog0s5m4f5jbdfqhbl6bx2k4cz9vnkhwhl25'
-		});
-	  </script>
+        tinymce.init({
+            selector: '#mytextarea',
+            //   apiKey: 'bs6au1qu048pnog0s5m4f5jbdfqhbl6bx2k4cz9vnkhwhl25'
+        });
+    </script>
 </head>
 
 <body>
@@ -84,7 +85,7 @@
     <script src="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
     <script src="{{ asset('backend/assets/plugins/chartjs/js/chart.js') }}"></script>
     <script src="{{ asset('backend/assets/js/index.js') }}"></script>
-    <script src="{{asset('backend/assets/plugins/input-tags/js/tagsinput.js')}}"></script>
+    <script src="{{ asset('backend/assets/plugins/input-tags/js/tagsinput.js') }}"></script>
     <script src="{{ asset('backend/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('backend/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
     <!--app JS-->
@@ -135,57 +136,57 @@
     <!--app JS-->
     <script src="{{ asset('backend/assets/js/app.js') }}"></script>
 
-    	<!-- SweetAlert -->
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-	<script>
-	$(function () {
-    $(document).on("click", "#delete", function (e) {
-        e.preventDefault();
-        let link = $(this).attr("href");
+    <script>
+        $(function() {
+            $(document).on("click", "#delete", function(e) {
+                e.preventDefault();
+                let link = $(this).attr("href");
 
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = link;
-                Swal.fire("Deleted!", "Your file has been deleted.", "success");
-            }
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = link;
+                        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+                    }
+                });
+            });
         });
-    });
-});
-</script>
+    </script>
 
 
-<script>
-	$(function () {
-    $(document).on("click", "#confirm", function (e) {
-        e.preventDefault();
-        let link = $(this).attr("href");
+    <script>
+        $(function() {
+            $(document).on("click", "#confirm", function(e) {
+                e.preventDefault();
+                let link = $(this).attr("href");
 
-        Swal.fire({
-            title: "Are you sure?",
-            text: "Confirm the Data!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, confirm it!",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = link;
-                Swal.fire("Confirm!", "Your file has been confirmed.", "success");
-            }
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "Confirm the Data!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, confirm it!",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = link;
+                        Swal.fire("Confirm!", "Your file has been confirmed.", "success");
+                    }
+                });
+            });
         });
-    });
-});
-</script>
+    </script>
 </body>
 
 </html>

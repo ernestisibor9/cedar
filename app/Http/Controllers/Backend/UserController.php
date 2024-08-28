@@ -12,12 +12,14 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     // AllUsers
-    public function AllUsers(){
+    public function AllUsers()
+    {
         $users = User::where('role', 'user')->latest()->get();
         return view('admin.backend.user.all_users', compact('users'));
     }
     // AllEnrolledUsers
-    public function AllEnrolledUsers(){
+    public function AllEnrolledUsers()
+    {
         $users = Payment::latest()->get();
         return view('admin.backend.user.enrolled_users', compact('users'));
     }

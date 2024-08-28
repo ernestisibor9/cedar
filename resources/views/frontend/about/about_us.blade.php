@@ -2,51 +2,55 @@
 
 @section('home')
 
+@section('title')
+    Cedar - About us
+@endsection
+
 <style>
-.testimonial-section {
-    /* background-color: #f8f9fa; */
-    padding: 60px 0;
-}
+    .testimonial-section {
+        /* background-color: #f8f9fa; */
+        padding: 60px 0;
+    }
 
-.section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #333;
-}
+    .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #333;
+    }
 
-.section-subtitle {
-    font-size: 1.25rem;
-    color: #777;
-}
+    .section-subtitle {
+        font-size: 1.25rem;
+        color: #777;
+    }
 
-.testimonial-card {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+    .testimonial-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-.testimonial-card .card-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #333;
-}
+    .testimonial-card .card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #333;
+    }
 
-.testimonial-card .card-text {
-    font-style: italic;
-    color: #555;
-}
+    .testimonial-card .card-text {
+        font-style: italic;
+        color: #555;
+    }
 
-.testimonial-card .rounded-circle {
-    width: 100px;
-    height: 100px;
-}
+    .testimonial-card .rounded-circle {
+        width: 100px;
+        height: 100px;
+    }
 
-.my-img-what {
-    width: 100px !important;
-    height: 100px !important;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
+    .my-img-what {
+        width: 100px !important;
+        height: 100px !important;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
 </style>
 
 <section class="breadcrumb-area section-padding img-bg-3">
@@ -58,8 +62,10 @@
                 <h2 class="section__title fs-45 lh-60 text-white">Improve Your Lives <br> With Learning</h2>
             </div>
             <div class="breadcrumb-btn-box pt-40px pl-3">
-                <a href="#" class="btn-text text-white video-play-btn d-inline-flex align-items-center" data-fancybox data-src="https://www.youtube.com/watch?v=cRXm1p-CNyk">
-                    <span class="icon-element icon-element-md pulse-btn mr-3"><i class="la la-play"></i></span>Watch the Video
+                <a href="#" class="btn-text text-white video-play-btn d-inline-flex align-items-center"
+                    data-fancybox data-src="https://www.youtube.com/watch?v=cRXm1p-CNyk">
+                    <span class="icon-element icon-element-md pulse-btn mr-3"><i class="la la-play"></i></span>Watch the
+                    Video
                 </a>
             </div>
         </div><!-- end breadcrumb-content -->
@@ -78,13 +84,18 @@
             <div class="col-lg-6">
                 <div class="about-content pb-5">
                     <div class="section-heading">
-                        <h2 class="section__title pb-3 lh-50">We are providing the best quality online courses suitable for all age groups</h2>
-                        <p class="section__desc">Unlock Your Digital Potential with Cedargrowthconsult  – Where Code Meets Innovation!</p>
+                        <h2 class="section__title pb-3 lh-50">We are providing the best quality online courses suitable
+                            for all age groups</h2>
+                        <p class="section__desc">Unlock Your Digital Potential with Cedargrowthconsult – Where Code
+                            Meets Innovation!</p>
                     </div><!-- end section-heading -->
                     <ul class="generic-list-item pt-3">
-                        <li><i class="la la-check-circle mr-2 text-success"></i>Online Courses with full discount systems.</li>
-                        <li><i class="la la-check-circle mr-2 text-success"></i>Online Certificates which can be used worldwide.</li>
-                        <li><i class="la la-check-circle mr-2 text-success"></i>An online leadership development program at Cedar.</li>
+                        <li><i class="la la-check-circle mr-2 text-success"></i>Online Courses with full discount
+                            systems.</li>
+                        <li><i class="la la-check-circle mr-2 text-success"></i>Online Certificates which can be used
+                            worldwide.</li>
+                        <li><i class="la la-check-circle mr-2 text-success"></i>An online leadership development program
+                            at Cedar.</li>
                     </ul>
                 </div><!-- end about-content -->
             </div>
@@ -95,23 +106,26 @@
             <div class="col-lg-6">
                 <div class="generic-img-box generic-img-box-layout-2">
                     <div class="img__item img__item-1">
-                        <img class="lazy" src="images/img-loading.png" data-src="{{asset('frontend/images/img15.jpeg')}}" alt="About image">
+                        <img class="lazy" src="images/img-loading.png"
+                            data-src="{{ asset('frontend/images/img15.jpeg') }}" alt="About image">
                         <div class="generic-img-box-content">
                             <h3 class="fs-24 font-weight-semi-bold pb-1">5+</h3>
                             <span>Instructors</span>
                         </div>
                     </div>
                     <div class="img__item img__item-2">
-                        <img class="lazy" src="images/img-loading.png" data-src="{{asset('frontend/images/img16.jpeg')}}" alt="About image">
+                        <img class="lazy" src="images/img-loading.png"
+                            data-src="{{ asset('frontend/images/img16.jpeg') }}" alt="About image">
                         <div class="generic-img-box-content">
-                            <h3 class="fs-24 font-weight-semi-bold pb-1">{{count($courses)}}+</h3>
+                            <h3 class="fs-24 font-weight-semi-bold pb-1">{{ count($courses) }}+</h3>
                             <span>Courses</span>
                         </div>
                     </div>
                     <div class="img__item img__item-3">
-                        <img class="lazy" src="images/img-loading.png" data-src="{{asset('frontend/images/img17.jpeg')}}" alt="About image">
+                        <img class="lazy" src="images/img-loading.png"
+                            data-src="{{ asset('frontend/images/img17.jpeg') }}" alt="About image">
                         <div class="generic-img-box-content">
-                            <h3 class="fs-24 font-weight-semi-bold pb-1">{{count($users)}}+</h3>
+                            <h3 class="fs-24 font-weight-semi-bold pb-1">{{ count($users) }}+</h3>
                             <span>Learners</span>
                         </div>
                     </div>
@@ -139,32 +153,45 @@
             <div class="col-lg-4 responsive-column-half">
                 <div class="card card-item hover-s text-center">
                     <div class="card-body">
-                        <img src="{{asset('frontend/images/img-loading.png')}}" data-src="{{asset('frontend/images/small-img-2.jpg')}}" alt="card image" class="img-fluid lazy rounded-full">
+                        <img src="{{ asset('frontend/images/img-loading.png') }}"
+                            data-src="{{ asset('frontend/images/small-img-2.jpg') }}" alt="card image"
+                            class="img-fluid lazy rounded-full">
                         <h5 class="card-title pt-4 pb-2">High Quality Courses</h5>
-                        <p class="card-text">We are committed to delivering high quality courses that empower you with the skills and knowledge you need to thrive in the tech industry. We have courses tailored for each age group</p>
+                        <p class="card-text">We are committed to delivering high quality courses that empower you with
+                            the skills and knowledge you need to thrive in the tech industry. We have courses tailored
+                            for each age group</p>
                     </div><!-- end card-body -->
                 </div><!-- end card -->
             </div><!-- end col-lg-4 -->
             <div class="col-lg-4 responsive-column-half">
                 <div class="card card-item hover-s text-center">
                     <div class="card-body">
-                        <img src="{{asset('frontend/images/img-loading.png')}}" data-src="{{asset('frontend/images/small-img-3.jpg')}}" alt="card image" class="img-fluid lazy rounded-full">
+                        <img src="{{ asset('frontend/images/img-loading.png') }}"
+                            data-src="{{ asset('frontend/images/small-img-3.jpg') }}" alt="card image"
+                            class="img-fluid lazy rounded-full">
                         <h5 class="card-title pt-4 pb-2">Expert Instructors</h5>
-                        <p class="card-text">Our coding instructors bring a wealth of knowledge and experience to the table. With a passion for teaching, Our instructors are dedicated to helping you master the art of coding to make it A1</p>
+                        <p class="card-text">Our coding instructors bring a wealth of knowledge and experience to the
+                            table. With a passion for teaching, Our instructors are dedicated to helping you master the
+                            art of coding to make it A1</p>
                     </div><!-- end card-body -->
                 </div><!-- end card -->
             </div><!-- end col-lg-4 -->
             <div class="col-lg-4 responsive-column-half">
                 <div class="card card-item hover-s text-center">
                     <div class="card-body">
-                        <img src="{{asset('frontend/images/img-loading.png')}}" data-src="{{asset('frontend/images/small-img-4.jpg')}}" alt="card image" class="img-fluid lazy rounded-full">
+                        <img src="{{ asset('frontend/images/img-loading.png') }}"
+                            data-src="{{ asset('frontend/images/small-img-4.jpg') }}" alt="card image"
+                            class="img-fluid lazy rounded-full">
                         <h5 class="card-title pt-4 pb-2">Life Time Access</h5>
-                        <p class="card-text">At Cedar Growth Consult, we believe in your journey of continuous learning. That is why we offer lifetime access to our courses, with this unique advantage, you can revisit and review the material.</p>
+                        <p class="card-text">At Cedar Growth Consult, we believe in your journey of continuous learning.
+                            That is why we offer lifetime access to our courses, with this unique advantage, you can
+                            revisit and review the material.</p>
                     </div><!-- end card-body -->
                 </div><!-- end card -->
             </div><!-- end col-lg-4 -->
         </div><!-- end row -->
-        <p class="text-center">Want to join with us? See our<a href="careers.html" class="text-color hover-underline"> open positions</a></p>
+        <p class="text-center">Want to join with us? See our<a href="careers.html" class="text-color hover-underline">
+                open positions</a></p>
     </div><!-- end container -->
 </section><!-- end get-started-area -->
 <!-- ================================
@@ -181,22 +208,30 @@
                 <div class="row pb-5">
                     <div class="col-lg-6 responsive-column-half">
                         <div class="img-box">
-                            <img src="{{asset('frontend/images/img-loading.png')}}" data-src="{{asset('frontend/images/img8.jpg')}}" alt="our mission image" class="img-fluid lazy rounded-rounded">
+                            <img src="{{ asset('frontend/images/img-loading.png') }}"
+                                data-src="{{ asset('frontend/images/img8.jpg') }}" alt="our mission image"
+                                class="img-fluid lazy rounded-rounded">
                         </div>
                     </div><!-- end col-lg-6 -->
                     <div class="col-lg-6 responsive-column-half">
                         <div class="img-box my-3">
-                            <img src="{{asset('frontend/images/img-loading.png')}}" data-src="{{asset('frontend/images/img10.jpg')}}" alt="our mission image" class="img-fluid lazy rounded-rounded">
+                            <img src="{{ asset('frontend/images/img-loading.png') }}"
+                                data-src="{{ asset('frontend/images/img10.jpg') }}" alt="our mission image"
+                                class="img-fluid lazy rounded-rounded">
                         </div>
                     </div><!-- end col-lg-6 -->
                     <div class="col-lg-6 responsive-column-half">
                         <div class="img-box">
-                            <img src="{{asset('frontend/images/img-loading.png')}}" data-src="{{asset('frontend/images/img11.jpg')}}" alt="our mission image" class="img-fluid lazy rounded-rounded">
+                            <img src="{{ asset('frontend/images/img-loading.png') }}"
+                                data-src="{{ asset('frontend/images/img11.jpg') }}" alt="our mission image"
+                                class="img-fluid lazy rounded-rounded">
                         </div>
                     </div><!-- end col-lg-6 -->
                     <div class="col-lg-6 responsive-column-half">
                         <div class="img-box my-3">
-                            <img src="{{asset('frontend/images/img-loading.png')}}" data-src="{{asset('frontend/images/img12.jpg')}}" alt="our mission image" class="img-fluid lazy rounded-rounded">
+                            <img src="{{ asset('frontend/images/img-loading.png') }}"
+                                data-src="{{ asset('frontend/images/img12.jpg') }}" alt="our mission image"
+                                class="img-fluid lazy rounded-rounded">
                         </div>
                     </div><!-- end col-lg-6 -->
                 </div>
@@ -205,8 +240,13 @@
                 <div class="about-content pl-4">
                     <div class="section-heading">
                         <h2 class="section__title pb-3 lh-50">Our Mission</h2>
-                        <p class="section__desc pb-3">We’re not one of those companies. We are rethinking education from the bottom up. The web has rethought nearly everything - commerce, social networking, healthcare, and more. We are building the education the world needs - the first truly net native education. We take more cues from modern tech innovators in creating an engaging educational experience than we do from the classroom.</p>
-                        <p class="section__desc text-black">Education is broken. Come help us build the education the world deserves.</p>
+                        <p class="section__desc pb-3">We’re not one of those companies. We are rethinking education
+                            from the bottom up. The web has rethought nearly everything - commerce, social networking,
+                            healthcare, and more. We are building the education the world needs - the first truly net
+                            native education. We take more cues from modern tech innovators in creating an engaging
+                            educational experience than we do from the classroom.</p>
+                        <p class="section__desc text-black">Education is broken. Come help us build the education the
+                            world deserves.</p>
                     </div><!-- end section-heading -->
                 </div><!-- end about-content -->
             </div><!-- end col-lg-6 -->
@@ -232,7 +272,8 @@
                     <div class="col-md-6 col-lg-3 mb-4">
                         <div class="card testimonial-card h-100">
                             <div class="card-body text-center">
-                                <img src="{{asset('frontend/images/test1.jpg')}}" class="rounded-circle mb-3" alt="Client 1">
+                                <img src="{{ asset('frontend/images/test1.jpg') }}" class="rounded-circle mb-3"
+                                    alt="Client 1">
                                 <h5 class="card-title mb-1">John Doe</h5>
                                 <p class="text-muted">CEO, Example Corp</p>
                                 <p class="card-text">"Outstanding service! I am very happy with the results."</p>
@@ -242,7 +283,8 @@
                     <div class="col-md-6 col-lg-3 mb-4">
                         <div class="card testimonial-card h-100">
                             <div class="card-body text-center">
-                                <img src="{{asset('frontend/images/test2.jpg')}}" class="rounded-circle mb-3" alt="Client 2">
+                                <img src="{{ asset('frontend/images/test2.jpg') }}" class="rounded-circle mb-3"
+                                    alt="Client 2">
                                 <h5 class="card-title mb-1">Jane Smith</h5>
                                 <p class="text-muted">Marketing Head, XYZ Inc.</p>
                                 <p class="card-text">"Their team is incredible. We saw amazing results."</p>
@@ -252,7 +294,8 @@
                     <div class="col-md-6 col-lg-3 mb-4">
                         <div class="card testimonial-card h-100">
                             <div class="card-body text-center">
-                                <img src="{{asset('frontend/images/test3.jpg')}}" class="rounded-circle mb-3" alt="Client 3">
+                                <img src="{{ asset('frontend/images/test3.jpg') }}" class="rounded-circle mb-3"
+                                    alt="Client 3">
                                 <h5 class="card-title mb-1">Michael Johnson</h5>
                                 <p class="text-muted">Freelancer</p>
                                 <p class="card-text">"Highly recommended! Their approach is unique and effective."</p>
@@ -262,10 +305,12 @@
                     <div class="col-md-6 col-lg-3 mb-4">
                         <div class="card testimonial-card h-100">
                             <div class="card-body text-center">
-                                <img src="{{asset('frontend/images/test4.jpg')}}" class="rounded-circle mb-3" alt="Client 4">
+                                <img src="{{ asset('frontend/images/test4.jpg') }}" class="rounded-circle mb-3"
+                                    alt="Client 4">
                                 <h5 class="card-title mb-1">Emily Brown</h5>
                                 <p class="text-muted">Business Owner</p>
-                                <p class="card-text">"Professional and reliable. I will definitely work with them again."</p>
+                                <p class="card-text">"Professional and reliable. I will definitely work with them
+                                    again."</p>
                             </div>
                         </div>
                     </div>
@@ -295,25 +340,27 @@
         @endphp<!-- end team-member-heading-content -->
         <div class="row pt-60px">
             @foreach ($team as $item)
-            <div class="col-lg-3 responsive-column-half">
-                <div class="card card-item member-card text-center">
-                    <div class="card-image">
-                        <img class="card-img-top my-img-what" src="{{asset($item->photo)}}" alt="team member">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="#">{{$item->lastname}} &nbsp; {{$item->firstname}}</a></h5>
-                        <p class="card-text">{{ucfirst($item->status)}}</p>
-                        <ul class="social-icons social-icons-styled social--icons-styled pt-4">
-                            <li><a href="{{$item->facebook_url}}" target="_blank"><i class="la la-facebook"></i></a></li>
-                            <li><a href="#"><i class="la la-twitter"></i></a></li>
-                            <li><a href="#"><i class="la la-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                </div><!-- end card -->
-            </div>
+                <div class="col-lg-3 responsive-column-half">
+                    <div class="card card-item member-card text-center">
+                        <div class="card-image">
+                            <img class="card-img-top my-img-what" src="{{ asset($item->photo) }}" alt="team member">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">{{ $item->lastname }} &nbsp;
+                                    {{ $item->firstname }}</a></h5>
+                            <p class="card-text">{{ ucfirst($item->status) }}</p>
+                            <ul class="social-icons social-icons-styled social--icons-styled pt-4">
+                                <li><a href="{{ $item->facebook_url }}" target="_blank"><i
+                                            class="la la-facebook"></i></a></li>
+                                <li><a href="#"><i class="la la-twitter"></i></a></li>
+                                <li><a href="#"><i class="la la-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div><!-- end card -->
+                </div>
             @endforeach
             <!-- end col-lg-3 -->
-             {{-- <div class="col-lg-3 responsive-column-half">
+            {{-- <div class="col-lg-3 responsive-column-half">
                 <div class="card card-item member-card text-center">
                     <div class="card-image">
                         <img class="card-img-top" src="{{asset('frontend/images/small-avatar-2.jpg')}}" alt="team member">

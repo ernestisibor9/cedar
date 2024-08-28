@@ -12,20 +12,21 @@
                         <div class="card-body">
                             <form action="{{ route('update.user') }}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" name="id" value="{{$user->id}}">
+                                <input type="hidden" name="id" value="{{ $user->id }}">
                                 <div class="mb-3">
                                     <label for="">Name</label>
-                                    <input type="text" class="form-control"
-                                        name="name" id="" value="{{$user->name}}">
+                                    <input type="text" class="form-control" name="name" id=""
+                                        value="{{ $user->name }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="">Email</label>
-                                    <input type="email" class="form-control"
-                                        name="email" id="" value="{{$user->email}}">
+                                    <input type="email" class="form-control" name="email" id=""
+                                        value="{{ $user->email }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="">Phone</label>
-                                    <input type="text" class="form-control" name="phone" id="" value="{{$user->phone}}">
+                                    <input type="text" class="form-control" name="phone" id=""
+                                        value="{{ $user->phone }}">
                                 </div>
                                 <div class="row">
                                     <div class="col-9 mb-3">
@@ -34,13 +35,13 @@
                                     </div>
                                     <div class="col-3 mb-3">
                                         <img id="showImage"
-                                        src="{{ !empty($user->photo) ? url('upload/user_images/' . $user->photo) : url('upload/no_image2.jpeg') }}"
-                                        alt="Admin" class="rounded-circle p-1 bg-primary" width="90">
+                                            src="{{ !empty($user->photo) ? url('upload/user_images/' . $user->photo) : url('upload/no_image2.jpeg') }}"
+                                            alt="Admin" class="rounded-circle p-1 bg-primary" width="90">
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="">Address</label>
-                                    <textarea name="address" class="form-control" id="exampleFormControlTextarea1" rows="3">{{$user->address}}</textarea>
+                                    <textarea name="address" class="form-control" id="exampleFormControlTextarea1" rows="3">{{ $user->address }}</textarea>
                                 </div>
                                 <div class="mb-2">
                                     <button type="submit" class="btn btn-primary">Update User Profile</button>

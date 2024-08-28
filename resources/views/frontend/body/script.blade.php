@@ -53,8 +53,8 @@
             success: function(response) {
                 $('#wishQty').text(response.wishQty);
                 var rows = ""
-                $.each(response.wishlist, function(key, value){
-            rows += `
+                $.each(response.wishlist, function(key, value) {
+                    rows += `
                     <div class="col-lg-4 responsive-column-half">
             <div class="card card-item">
                 <div class="card-image">
@@ -80,7 +80,7 @@
         </div>
              `
                 });
-               $('#wishlist').html(rows);
+                $('#wishlist').html(rows);
             }
         })
     }
@@ -90,44 +90,44 @@
 {{-- ---Display WishList End --}}
 
 
-{{-----Wishlist Remove----}}
+{{-- ---Wishlist Remove-- --}}
 <script>
-     function wishlistRemove(id){
+    function wishlistRemove(id) {
         $.ajax({
             type: "GET",
             dataType: 'json',
-            url: "/wishlist-remove/"+id,
-            success:function(data){
-             wishlist();
-                 // Start Message
-            const Toast = Swal.mixin({
-                  toast: true,
-                  position: 'top-end',
-                  showConfirmButton: false,
-                  timer: 6000
-            })
-            if ($.isEmptyObject(data.error)) {
+            url: "/wishlist-remove/" + id,
+            success: function(data) {
+                wishlist();
+                // Start Message
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 6000
+                })
+                if ($.isEmptyObject(data.error)) {
 
                     Toast.fire({
-                    type: 'success',
-                    icon: 'success',
-                    title: data.success,
+                        type: 'success',
+                        icon: 'success',
+                        title: data.success,
                     })
-            }else{
+                } else {
 
-           Toast.fire({
-                    type: 'error',
-                    icon: 'error',
-                    title: data.error,
+                    Toast.fire({
+                        type: 'error',
+                        icon: 'error',
+                        title: data.error,
                     })
                 }
-              // End Message
+                // End Message
             }
         })
     }
 </script>
 
-{{-----End Wishlist Remove-------}}
+{{-- ---End Wishlist Remove----- --}}
 
 
 {{-- /// Start Add To Cart  // --}}
@@ -248,17 +248,17 @@
 
 
 
- {{-- /// Start MyCart  // --}}
- <script type="text/javascript">
-    function cart(){
+{{-- /// Start MyCart  // --}}
+<script type="text/javascript">
+    function cart() {
         $.ajax({
             type: 'GET',
             url: '/get-cart-course',
             dataType: 'json',
-            success:function(response){
+            success: function(response) {
                 $('span[id="cartSubTotal"]').text(response.cartTotal);
                 var rows = ""
-                $.each(response.carts, function(key,value){
+                $.each(response.carts, function(key, value) {
                     rows += `
                     <tr>
                     <th scope="row">
@@ -295,41 +295,41 @@
 </script>
 {{-- /// End MyCart // --}}
 <script>
-// My Cart Remove Start
-function cartRemove(rowId){
-   $.ajax({
-       type: 'GET',
-       url: '/cart-remove/'+rowId,
-       dataType: 'json',
-       success:function(data){
-       miniCart();
-       cart();
-// Start Message
-const Toast = Swal.mixin({
-             toast: true,
-             position: 'top-end',
-             showConfirmButton: false,
-             timer: 3000
-       })
-       if ($.isEmptyObject(data.error)) {
+    // My Cart Remove Start
+    function cartRemove(rowId) {
+        $.ajax({
+            type: 'GET',
+            url: '/cart-remove/' + rowId,
+            dataType: 'json',
+            success: function(data) {
+                miniCart();
+                cart();
+                // Start Message
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+                if ($.isEmptyObject(data.error)) {
 
-               Toast.fire({
-               type: 'success',
-               icon: 'success',
-               title: data.success,
-               })
-       }else{
+                    Toast.fire({
+                        type: 'success',
+                        icon: 'success',
+                        title: data.success,
+                    })
+                } else {
 
-      Toast.fire({
-               type: 'error',
-               icon: 'error',
-               title: data.error,
-               })
-           }
-         // End Message
-       }
-   })
-}
-// End My Cart Remove
+                    Toast.fire({
+                        type: 'error',
+                        icon: 'error',
+                        title: data.error,
+                    })
+                }
+                // End Message
+            }
+        })
+    }
+    // End My Cart Remove
 </script>
 {{-- /// End MyCart // --}}

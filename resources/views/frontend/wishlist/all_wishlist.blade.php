@@ -1,6 +1,10 @@
 @extends('frontend.dashboard.user_dashboard')
 @section('userdashboard')
 
+@section('title')
+    Cedar - All WishList
+@endsection
+
 
 <div class="container-fluid">
 

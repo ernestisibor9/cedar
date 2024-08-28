@@ -14,7 +14,8 @@
                                 @csrf
                                 <div class="mb-3">
                                     <label for="">Course Outline</label>
-                                    <textarea name="course_outlines" id="mytextarea" cols="30" rows="10" class="form-control @error('course_outlines')is-invalid @enderror">
+                                    <textarea name="course_outlines" id="mytextarea" cols="30" rows="10"
+                                        class="form-control @error('course_outlines')is-invalid @enderror">
 
                                     </textarea>
                                     @error('course_outlines')

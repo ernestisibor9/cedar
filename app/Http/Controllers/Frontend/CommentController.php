@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Auth;
 class CommentController extends Controller
 {
     // Store Comment
-    public function StoreComment(Request $request){
+    public function StoreComment(Request $request)
+    {
 
         $pid = $request->post_id;
 
@@ -25,12 +26,11 @@ class CommentController extends Controller
 
         ]);
 
-          $notification = array(
+        $notification = array(
             'message' => 'Comment Inserted Successfully',
             'alert-type' => 'success'
         );
 
         return redirect()->back()->with($notification);
-
-    }// End Metho
+    } // End Metho
 }

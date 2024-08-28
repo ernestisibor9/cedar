@@ -107,7 +107,8 @@
                                 <div class="row">
                                     <div class="mb-3">
                                         <label for="">Description</label>
-                                        <textarea name="description" id="mytextarea" cols="30" rows="10" class="form-control @error('description')is-invalid @enderror">
+                                        <textarea name="description" id="mytextarea" cols="30" rows="10"
+                                            class="form-control @error('description')is-invalid @enderror">
 
                                         </textarea>
                                         @error('description')
@@ -119,7 +120,8 @@
                                 <div class="row">
                                     <div class="mb-3">
                                         <label for="">Course Outline</label>
-                                        <textarea name="course_outlines" id="mytextarea" cols="30" rows="10" class="form-control @error('course_outline')is-invalid @enderror">
+                                        <textarea name="course_outlines" id="mytextarea" cols="30" rows="10"
+                                            class="form-control @error('course_outline')is-invalid @enderror">
 
                                         </textarea>
                                         @error('course_outline')
@@ -131,7 +133,8 @@
                                 <div class="row">
                                     <div class="mb-3">
                                         <label for="">Course Benefits</label>
-                                        <textarea name="course_benefits" id="mytextarea" cols="30" rows="10" class="form-control @error('course_benefits')is-invalid @enderror">
+                                        <textarea name="course_benefits" id="mytextarea" cols="30" rows="10"
+                                            class="form-control @error('course_benefits')is-invalid @enderror">
 
                                         </textarea>
                                         @error('course_benefits')
@@ -140,7 +143,8 @@
                                     </div>
                                 </div>
                                 <div class="d-grid gap-2">
-                                    <button class="btn btn-primary" type="submit">Add Course</button>                                  </div>
+                                    <button class="btn btn-primary" type="submit">Add Course</button>
+                                </div>
                             </form>
                         </div>
                     </div>

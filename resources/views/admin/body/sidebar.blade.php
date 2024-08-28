@@ -8,11 +8,11 @@
         </div>
         <div class="toggle-icon ms-auto"><i class='bx bx-arrow-back'></i>
         </div>
-     </div>
+    </div>
     <!--navigation-->
     <ul class="metismenu" id="menu">
         <li>
-            <a href="{{route('admin.dashboard')}}" class="">
+            <a href="{{ route('admin.dashboard') }}" class="">
                 <div class="parent-icon"><i class='bx bx-home-alt'></i>
                 </div>
                 <div class="menu-title">Dashboard</div>
@@ -29,9 +29,9 @@
             <ul>
                 <li> <a href="{{ route('all.courses') }}"><i class='bx bx-radio-circle'></i>All Courses</a>
                 </li>
-                <li> <a href="{{route('add.courses')}}"><i class='bx bx-radio-circle'></i>Add Course</a>
+                <li> <a href="{{ route('add.courses') }}"><i class='bx bx-radio-circle'></i>Add Course</a>
                 </li>
-                <li> <a href="{{route('add.bronchure')}}"><i class='bx bx-radio-circle'></i>Add Bronchure</a>
+                <li> <a href="{{ route('add.bronchure') }}"><i class='bx bx-radio-circle'></i>Add Bronchure</a>
                 </li>
             </ul>
         </li>
@@ -44,7 +44,7 @@
             <ul>
                 <li> <a href="{{ route('admin.pending.review') }}"><i class='bx bx-radio-circle'></i>Pending Review</a>
                 </li>
-                <li> <a href="{{route('admin.active.review')}}"><i class='bx bx-radio-circle'></i>Active Reveiew</a>
+                <li> <a href="{{ route('admin.active.review') }}"><i class='bx bx-radio-circle'></i>Active Reveiew</a>
                 </li>
             </ul>
         </li>
@@ -57,7 +57,7 @@
             <ul>
                 <li> <a href="{{ route('blog.category') }}"><i class='bx bx-radio-circle'></i>Blog Category</a>
                 </li>
-                <li> <a href="{{route('blog.post')}}"><i class='bx bx-radio-circle'></i>Blog Post</a>
+                <li> <a href="{{ route('blog.post') }}"><i class='bx bx-radio-circle'></i>Blog Post</a>
                 </li>
             </ul>
         </li>
@@ -81,9 +81,11 @@
                 <div class="menu-title">Student's Project</div>
             </a>
             <ul>
-                <li> <a href="{{ route('all.student.project') }}"><i class='bx bx-radio-circle'></i>All Student Projects</a>
+                <li> <a href="{{ route('all.student.project') }}"><i class='bx bx-radio-circle'></i>All Student
+                        Projects</a>
                 </li>
-                <li> <a href="{{route('add.student.project')}}"><i class='bx bx-radio-circle'></i>Add Student Project</a>
+                <li> <a href="{{ route('add.student.project') }}"><i class='bx bx-radio-circle'></i>Add Student
+                        Project</a>
                 </li>
             </ul>
         </li>
@@ -98,7 +100,7 @@
                 </li>
             </ul>
         </li> --}}
-                <li>
+        <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-grid-alt'></i>
                 </div>
@@ -107,40 +109,40 @@
             <ul>
                 <li> <a href="{{ route('all.category') }}"><i class='bx bx-radio-circle'></i>All Category</a>
                 </li>
-                <li> <a href="{{route('add.category')}}"><i class='bx bx-radio-circle'></i>Add Category</a>
+                <li> <a href="{{ route('add.category') }}"><i class='bx bx-radio-circle'></i>Add Category</a>
                 </li>
-                </li>
-            </ul>
         </li>
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-group'></i>
-                </div>
-                <div class="menu-title">Manage Testimonial</div>
-            </a>
-            <ul>
-                <li> <a href="{{ route('all.testimonial') }}"><i class='bx bx-radio-circle'></i>All Testimonial</a>
-                </li>
-                <li> <a href="{{route('add.testimonial')}}"><i class='bx bx-radio-circle'></i>Add Testimonial</a>
-                </li>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-group'></i>
-                </div>
-                <div class="menu-title">Add Instructor</div>
-            </a>
-            <ul>
-                <li> <a href="{{ route('all.instructor') }}"><i class='bx bx-radio-circle'></i>All Instructor</a>
-                </li>
-                <li> <a href="{{route('add.instructor')}}"><i class='bx bx-radio-circle'></i>Add Instructor</a>
-                </li>
-                </li>
-            </ul>
-        </li>
-        {{-- <li>
+    </ul>
+    </li>
+    <li>
+        <a href="javascript:;" class="has-arrow">
+            <div class="parent-icon"><i class='bx bx-group'></i>
+            </div>
+            <div class="menu-title">Manage Testimonial</div>
+        </a>
+        <ul>
+            <li> <a href="{{ route('all.testimonial') }}"><i class='bx bx-radio-circle'></i>All Testimonial</a>
+            </li>
+            <li> <a href="{{ route('add.testimonial') }}"><i class='bx bx-radio-circle'></i>Add Testimonial</a>
+            </li>
+    </li>
+    </ul>
+    </li>
+    <li>
+        <a href="javascript:;" class="has-arrow">
+            <div class="parent-icon"><i class='bx bx-group'></i>
+            </div>
+            <div class="menu-title">Add Instructor</div>
+        </a>
+        <ul>
+            <li> <a href="{{ route('all.instructor') }}"><i class='bx bx-radio-circle'></i>All Instructor</a>
+            </li>
+            <li> <a href="{{ route('add.instructor') }}"><i class='bx bx-radio-circle'></i>Add Instructor</a>
+            </li>
+    </li>
+    </ul>
+    </li>
+    {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
                 </div>
@@ -154,7 +156,7 @@
             </ul>
         </li>  --}}
 
-        {{-- <li>
+    {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
                 </div>
@@ -168,7 +170,7 @@
             </ul>
         </li> --}}
 
-        {{-- <li>
+    {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
                 </div>
@@ -182,7 +184,7 @@
             </ul>
         </li> --}}
 
-        {{-- <li>
+    {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
                 </div>
@@ -194,7 +196,7 @@
             </ul>
         </li> --}}
 
-        {{-- <li>
+    {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
                 </div>
@@ -208,7 +210,7 @@
             </ul>
         </li> --}}
 
-        {{-- <li>
+    {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
                 </div>
@@ -221,7 +223,7 @@
                 </li>
             </ul>
         </li> --}}
-{{--
+    {{--
         <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-repeat"></i>
@@ -237,35 +239,35 @@
                 </li>
             </ul>
         </li> --}}
-        <li>
-            <a href="{{route('admin.blog.comment')}}">
-                <div class="parent-icon"><i class='bx bx-comment-detail'></i>
-                </div>
-                <div class="menu-title">Blog Comment</div>
-            </a>
-        </li>
-        <li>
-            <a href="{{route('student.course')}}">
-                <div class="parent-icon"><i class='bx bx-user-plus'></i>
-                </div>
-                <div class="menu-title">Student's Course</div>
-            </a>
-        </li>
-        <li>
-            <a href="{{route('all.users')}}">
-                <div class="parent-icon"><i class='bx bx-user-plus'></i>
-                </div>
-                <div class="menu-title">Registered Students</div>
-            </a>
-        </li>
-        <li>
-            <a href="{{route('all.enrolled.users')}}">
-                <div class="parent-icon"><i class='bx bx-user-plus'></i>
-                </div>
-                <div class="menu-title">Enrolled Students</div>
-            </a>
-        </li>
-        {{-- <li>
+    <li>
+        <a href="{{ route('admin.blog.comment') }}">
+            <div class="parent-icon"><i class='bx bx-comment-detail'></i>
+            </div>
+            <div class="menu-title">Blog Comment</div>
+        </a>
+    </li>
+    <li>
+        <a href="{{ route('student.course') }}">
+            <div class="parent-icon"><i class='bx bx-user-plus'></i>
+            </div>
+            <div class="menu-title">Student's Course</div>
+        </a>
+    </li>
+    <li>
+        <a href="{{ route('all.users') }}">
+            <div class="parent-icon"><i class='bx bx-user-plus'></i>
+            </div>
+            <div class="menu-title">Registered Students</div>
+        </a>
+    </li>
+    <li>
+        <a href="{{ route('all.enrolled.users') }}">
+            <div class="parent-icon"><i class='bx bx-user-plus'></i>
+            </div>
+            <div class="menu-title">Enrolled Students</div>
+        </a>
+    </li>
+    {{-- <li>
             <a href="{{route('all.users')}}">
                 <div class="parent-icon"><i class='bx bx-user-plus'></i>
                 </div>
@@ -273,15 +275,15 @@
             </a>
         </li> --}}
 
-        <li class="menu-label">Others</li>
+    <li class="menu-label">Others</li>
 
-        <li>
-            <a href="https://themeforest.net/user/codervent" target="_blank">
-                <div class="parent-icon"><i class="bx bx-support"></i>
-                </div>
-                <div class="menu-title">Support</div>
-            </a>
-        </li>
+    <li>
+        <a href="https://themeforest.net/user/codervent" target="_blank">
+            <div class="parent-icon"><i class="bx bx-support"></i>
+            </div>
+            <div class="menu-title">Support</div>
+        </a>
+    </li>
     </ul>
     <!--end navigation-->
 </div>

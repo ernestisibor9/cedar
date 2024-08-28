@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Auth;
 class ReviewController extends Controller
 {
     //StoreReview
-    public function StoreReview(Request $request){
+    public function StoreReview(Request $request)
+    {
         $course = $request->course_id;
 
         $request->validate([
@@ -32,17 +33,18 @@ class ReviewController extends Controller
         );
         return redirect()->back()->with($notification);
     }
-    public function AdminPendingReview(){
+    public function AdminPendingReview()
+    {
 
-        $review = Review::where('status',0)->orderBy('id','DESC')->get();
-        return view('admin.backend.review.pending_review',compact('review'));
-
-    }// End Method
+        $review = Review::where('status', 0)->orderBy('id', 'DESC')->get();
+        return view('admin.backend.review.pending_review', compact('review'));
+    } // End Method
     //
-    public function UpdateReviewStatus(Request $request){
+    public function UpdateReviewStatus(Request $request)
+    {
 
         $reviewId = $request->input('review_id');
-        $isChecked = $request->input('is_checked',0);
+        $isChecked = $request->input('is_checked', 0);
 
         $review = Review::find($reviewId);
         if ($review) {
@@ -51,13 +53,12 @@ class ReviewController extends Controller
         }
 
         return response()->json(['message' => 'Review Status Updated Successfully']);
-
-    }// End Method
+    } // End Method
     //
-    public function AdminActiveReview(){
+    public function AdminActiveReview()
+    {
 
-        $review = Review::where('status',1)->orderBy('id','DESC')->get();
-        return view('admin.backend.review.active_review',compact('review'));
-
-    }// End Method
+        $review = Review::where('status', 1)->orderBy('id', 'DESC')->get();
+        return view('admin.backend.review.active_review', compact('review'));
+    } // End Method
 }

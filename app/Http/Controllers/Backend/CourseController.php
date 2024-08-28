@@ -96,7 +96,7 @@ class CourseController extends Controller
         $oldImage = $request->old_img;
         $oldVideo = $request->old_vid;
 
-        if($request->file('course_image')){
+        if ($request->file('course_image')) {
             if (file_exists($oldImage)) {
                 unlink($oldImage);
             }
@@ -128,8 +128,7 @@ class CourseController extends Controller
                 'course_image' => $save_url,
                 'updated_at' => Carbon::now()
             ]);
-        }
-        else if($request->file('video')){
+        } else if ($request->file('video')) {
             if (file_exists($oldVideo)) {
                 unlink($oldVideo);
             }
@@ -160,8 +159,7 @@ class CourseController extends Controller
                 'start_date' => $request->start_date,
                 'updated_at' => Carbon::now()
             ]);
-        }
-        else{
+        } else {
             Course::find($course_id)->update([
                 'category_id' => $request->category_id,
                 'course_title' => $request->course_title,
@@ -187,7 +185,8 @@ class CourseController extends Controller
         return redirect()->route('all.courses')->with($notification);
     }
     // DeleteCourse
-    public function DeleteCourse($id){
+    public function DeleteCourse($id)
+    {
         $course = Course::find($id);
         $oldImage = $course->old_img;
         $oldVideo = $course->old_vid;
@@ -202,7 +201,7 @@ class CourseController extends Controller
 
         Course::find($id)->delete();
         $notification = array(
-           'message' => 'Course deleted Successfully',
+            'message' => 'Course deleted Successfully',
             'alert-type' => 'error'
         );
         return redirect()->route('all.courses')->with($notification);
@@ -214,31 +213,33 @@ class CourseController extends Controller
         return view('admin.backend.course.add_course_bronchure', compact('courses'));
     }
     // StoreCourseBronchure
-    public function StoreCourseBronchure(Request $request){
+    public function StoreCourseBronchure(Request $request)
+    {
         $request->validate([
             'pdf_file' => 'required|mimes:pdf|max:2048', // PDF files, maximum 2MB
             'course_id' => 'required',
-            ]);
+        ]);
 
-            $pdfPath = $request->file('pdf_file');
-            $filename = date('YmdHi') . $pdfPath->getClientOriginalName();
-            $pdfPath->move(public_path('upload/bronchure'), $filename);
-            // You can store the $pdfPath in your database if needed
-            // $dateOfUpload = date('Y-m-d', strtotime($request->date_upload));
+        $pdfPath = $request->file('pdf_file');
+        $filename = date('YmdHi') . $pdfPath->getClientOriginalName();
+        $pdfPath->move(public_path('upload/bronchure'), $filename);
+        // You can store the $pdfPath in your database if needed
+        // $dateOfUpload = date('Y-m-d', strtotime($request->date_upload));
 
-            DownloadCourse::insert([
-                'course_id' => $request->course_id,
-                'pdf_file' => $filename,
-                'created_at' => Carbon::now()
-            ]);
-            $notification = array(
-                'message'=> 'Course Bronchure uploaded successfully',
-                'alert-type'=>'success'
-            );
-            return redirect()->back()->with($notification);
+        DownloadCourse::insert([
+            'course_id' => $request->course_id,
+            'pdf_file' => $filename,
+            'created_at' => Carbon::now()
+        ]);
+        $notification = array(
+            'message' => 'Course Bronchure uploaded successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
     }
     // StudentCourse
-    public function StudentCourse(){
+    public function StudentCourse()
+    {
         $courses = Payment::latest()->get();
         return view('admin.backend.course.student_course', compact('courses'));
     }

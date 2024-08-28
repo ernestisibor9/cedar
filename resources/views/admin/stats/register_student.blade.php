@@ -17,7 +17,7 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div>
-                                <a href="{{route('register.students')}}">
+                                <a href="{{ route('register.students') }}">
                                     <p class="mb-0 text-secondary">Registered Students</p>
                                     <h4 class="my-1 text-info">{{ count($registeredStudents) }}</h4>
                                     <p class="mb-0 font-13">registered students</p>
@@ -35,7 +35,7 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div>
-                                <a href="{{route('enrolled.students')}}">
+                                <a href="{{ route('enrolled.students') }}">
                                     <p class="mb-0 text-secondary">Enrolled Students</p>
                                     <h4 class="my-1 text-danger">{{ count($enrollStudents) }}</h4>
                                     <p class="mb-0 font-13">Total enrolled students</p>
@@ -53,7 +53,7 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div>
-                                <a href="{{route('total.course')}}">
+                                <a href="{{ route('total.course') }}">
                                     <p class="mb-0 text-secondary">Total Course</p>
                                     <h4 class="my-1 text-success">{{ count($totalCourses) }}</h4>
                                     <p class="mb-0 font-13">Total number of courses</p>
@@ -71,7 +71,7 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div>
-                                <a href="{{route('total.blog')}}">
+                                <a href="{{ route('total.blog') }}">
                                     <p class="mb-0 text-secondary">Total Blog Post</p>
                                     <h4 class="my-1 text-warning">{{ count($blogPost) }}</h4>
                                     <p class="mb-0 font-13">Total Blog Post</p>
@@ -111,14 +111,14 @@
                         </thead>
                         <tbody>
                             @foreach ($registeredStudents as $key => $item)
-                            <tr>
-                                <td>{{$key + 1}}</td>
-                                <td><img src="{{ !empty($item->photo) ? url('upload/user_images/' . $item->photo) : url('upload/no_image2.jpeg') }}"" class="product-img-2"
-                                        alt="product img"></td>
-                                <td>{{$item->name}}</td>
-                                <td>{{$item->email}}</td>
-                                <td>{{$item->phone}}</td>
-                            </tr>
+                                <tr>
+                                    <td>{{ $key + 1 }}</td>
+                                    <td><img src="{{ !empty($item->photo) ? url('upload/user_images/' . $item->photo) : url('upload/no_image2.jpeg') }}""
+                                            class="product-img-2" alt="product img"></td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->email }}</td>
+                                    <td>{{ $item->phone }}</td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

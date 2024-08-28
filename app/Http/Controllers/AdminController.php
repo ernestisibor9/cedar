@@ -74,49 +74,55 @@ class AdminController extends Controller
         return redirect()->back()->with($notification);
     }
     // Change Password
-    public function AdminChangePassword(){
+    public function AdminChangePassword()
+    {
         $id = Auth::user()->id;
         $profileData = User::find($id);
         return view('admin.admin_change_password', compact('profileData'));
     }
     // Update password
-    public function AdminPasswordUpdate(Request $request){
+    public function AdminPasswordUpdate(Request $request)
+    {
         $request->validate([
-            'old_password'=> 'required',
-            'new_password'=> 'required|confirmed',
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
         ]);
         // Match the old password
-        if(!Hash::check($request->old_password, auth::user()->password)){
+        if (!Hash::check($request->old_password, auth::user()->password)) {
             $notification = array(
-				'message'=> 'Old Password Does not Match',
-				'alert-type'=>'error'
-				);
-			return back()->with($notification);
+                'message' => 'Old Password Does not Match',
+                'alert-type' => 'error'
+            );
+            return back()->with($notification);
         }
         // Update the new password
         User::whereId(auth::user()->id)->update([
-            'password'=> Hash::make($request->new_password)
+            'password' => Hash::make($request->new_password)
         ]);
         $notification = array(
-            'message'=> 'Password Changed Successfully',
-            'alert-type'=>'success'
+            'message' => 'Password Changed Successfully',
+            'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
     }
     // Register Student
-    public function RegisterStudent(){
+    public function RegisterStudent()
+    {
         return view('admin.stats.register_student');
     }
     // Enrolled Student
-    public function EnrolledStudent(){
+    public function EnrolledStudent()
+    {
         return view('admin.stats.enrolled_student');
     }
     // Total Course
-    public function TotalCourse(){
+    public function TotalCourse()
+    {
         return view('admin.stats.total_course');
     }
     // Total Blog
-    public function TotalBlog(){
+    public function TotalBlog()
+    {
         return view('admin.stats.total_blog');
     }
 }

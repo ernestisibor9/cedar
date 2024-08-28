@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Aduca - Education HTML Template</title>
+    <title>@yield('title')</title>
 
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,8 +19,8 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 
     <!-- inject:css -->
@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/fancybox.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/tooltipster.bundle.cs') }}s">
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
-    <link rel="stylesheet" href="{{asset('frontend/css/plyr.css')}}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/plyr.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <!-- end inject -->
 </head>
@@ -277,39 +277,39 @@
     <script src="{{ asset('frontend/js/tooltipster.bundle.min.js') }}"></script>
     <script src="{{ asset('frontend/js/jquery.lazy.min.js') }}"></script>
     <script src="{{ asset('frontend/js/main.js') }}"></script>
-    <script src="{{asset('frontend/js/plyr.js')}}"></script>
+    <script src="{{ asset('frontend/js/plyr.js') }}"></script>
 
     <script>
         var player = new Plyr('#player');
     </script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script>
-    @if (Session::has('message'))
-        var type = "{{ Session::get('alert-type', 'info') }}"
-        switch (type) {
-            case 'info':
-                toastr.info(" {{ Session::get('message') }} ");
-                break;
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
 
-            case 'success':
-                toastr.success(" {{ Session::get('message') }} ");
-                break;
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
 
-            case 'warning':
-                toastr.warning(" {{ Session::get('message') }} ");
-                break;
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
 
-            case 'error':
-                toastr.error(" {{ Session::get('message') }} ");
-                break;
-        }
-    @endif
-</script>
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
+        @endif
+    </script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-@include('frontend.body.script')
+    @include('frontend.body.script')
 </body>
 
 </html>

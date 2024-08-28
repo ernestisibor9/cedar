@@ -1,6 +1,9 @@
 @extends('frontend.dashboard.user_dashboard')
 @section('userdashboard')
 
+@section('title')
+    Cedar - Change Password
+@endsection
 
 
 
@@ -10,14 +13,15 @@
 
 
         <form method="post" action="{{ route('user.password.update') }}" enctype="multipart/form-data" class="row pt-40px">
-        @csrf
+            @csrf
 
 
 
             <div class="input-box col-lg-12">
                 <label class="label-text"> Old Password</label>
                 <div class="form-group">
-                    <input class="form-control form--control @error('old_password') is-invalid @enderror" type="password" name="old_password" id="old_password" >
+                    <input class="form-control form--control @error('old_password') is-invalid @enderror"
+                        type="password" name="old_password" id="old_password">
                     <span class="la la-user input-icon"></span>
 
                     @error('old_password')
@@ -31,7 +35,8 @@
             <div class="input-box col-lg-12">
                 <label class="label-text"> New Password</label>
                 <div class="form-group">
-                    <input class="form-control form--control @error('new_password') is-invalid @enderror" type="password" name="new_password" id="new_password" >
+                    <input class="form-control form--control @error('new_password') is-invalid @enderror"
+                        type="password" name="new_password" id="new_password">
                     <span class="la la-user input-icon"></span>
 
                     @error('new_password')
@@ -44,7 +49,8 @@
             <div class="input-box col-lg-12">
                 <label class="label-text"> Confirm New Password</label>
                 <div class="form-group">
-                    <input class="form-control form--control" type="password" name="new_password_confirmation" id="new_password_confirmation" >
+                    <input class="form-control form--control" type="password" name="new_password_confirmation"
+                        id="new_password_confirmation">
                     <span class="la la-user input-icon"></span>
                 </div>
             </div><!-- end input-box -->

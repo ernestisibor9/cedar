@@ -12,11 +12,11 @@
                         <div class="card-body">
                             <form action="{{ route('update.category') }}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" name="id" value="{{$category->id}}">
+                                <input type="hidden" name="id" value="{{ $category->id }}">
                                 <div class="mb-3">
                                     <label for="">Category Name</label>
                                     <input type="text" class="form-control @error('category_name')is-invalid @enderror"
-                                        name="category_name" id="" value="{{$category->category_name}}">
+                                        name="category_name" id="" value="{{ $category->category_name }}">
                                     @error('category_name')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -26,7 +26,7 @@
                                     <input type="file" class="form-control" name="image" id="image">
                                 </div>
                                 <div class="mb-4">
-                                    <img id="showImage" src="{{ asset($category->image)}}" alt="Admin"
+                                    <img id="showImage" src="{{ asset($category->image) }}" alt="Admin"
                                         class="rounded-circle p-1 bg-primary" width="90">
                                 </div>
                                 <div class="mb-2">

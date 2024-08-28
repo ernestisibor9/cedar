@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link href="{{ asset('backend/assets/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/assets/css/icons.css') }}" rel="stylesheet">
-    <title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
+    <title>Cedar - Verify Email</title>
 </head>
 
 <body class="">
@@ -29,8 +29,7 @@
                         <div class="card shadow">
                             <div class="card-body">
                                 <div class="text-center mb-4">
-                                    <img src="{{ asset('backend/assets/images/logo.png') }}"
-                                        alt="" />
+                                    <img src="{{ asset('backend/assets/images/logo.png') }}" alt="" />
                                 </div>
                                 <div class="mb-4 text-sm text-gray-600">
                                     {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}

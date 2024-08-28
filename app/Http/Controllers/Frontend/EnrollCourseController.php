@@ -10,11 +10,13 @@ use Illuminate\Support\Facades\Auth;
 class EnrollCourseController extends Controller
 {
     // UserEnrollCourse
-    public function UserEnrollCourse(){
+    public function UserEnrollCourse()
+    {
         return view('frontend.enrollcourse.enroll_course');
     }
     // UserPurchaseHistory
-    public function UserPurchaseHistory(){
+    public function UserPurchaseHistory()
+    {
         $id = Auth::user()->id;
         $profileData = User::find($id);
         return view('frontend.enrollcourse.purchase_history', compact('profileData'));

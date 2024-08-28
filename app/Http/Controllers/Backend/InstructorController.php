@@ -57,73 +57,75 @@ class InstructorController extends Controller
         return redirect()->route('all.instructor')->with($notification);
     }
     // EditInstructor
-    public function EditInstructor($id){
+    public function EditInstructor($id)
+    {
         $instructor = Instructor::find($id);
-        return view('admin.backend.instructor.edit_instructor',compact('instructor'));
+        return view('admin.backend.instructor.edit_instructor', compact('instructor'));
     }
     // UpdateInstructor
-    public function UpdateInstructor(Request $request){
+    public function UpdateInstructor(Request $request)
+    {
         $instructor_id = $request->id;
 
         if ($request->file('photo')) {
 
-        $image = $request->file('photo');
-        $filename = date('YmdHi') . $image->getClientOriginalName();
-        $image->move(public_path('upload/instructor_images/'), $filename);
-        $save_url = 'upload/instructor_images/' . $filename;
+            $image = $request->file('photo');
+            $filename = date('YmdHi') . $image->getClientOriginalName();
+            $image->move(public_path('upload/instructor_images/'), $filename);
+            $save_url = 'upload/instructor_images/' . $filename;
 
-        Instructor::find($instructor_id)->update([
-            'firstname' => $request->firstname,
-            'lastname' => $request->lastname,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'address' => $request->address,
-            'facebook_url' => $request->facebook_url,
-            'twitter_url' => $request->twitter_url,
-            'instagram_url' => $request->instagram_url,
-            'photo' => $save_url,
-            'created_at' => Carbon::now(),
-        ]);
+            Instructor::find($instructor_id)->update([
+                'firstname' => $request->firstname,
+                'lastname' => $request->lastname,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'address' => $request->address,
+                'facebook_url' => $request->facebook_url,
+                'twitter_url' => $request->twitter_url,
+                'instagram_url' => $request->instagram_url,
+                'photo' => $save_url,
+                'created_at' => Carbon::now(),
+            ]);
 
-        $notification = array(
-            'message' => 'Instructor Updated Successfully',
-            'alert-type' => 'success'
-        );
-        return redirect()->route('all.instructor')->with($notification);
+            $notification = array(
+                'message' => 'Instructor Updated Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('all.instructor')->with($notification);
+        } else {
 
-    } else {
+            Instructor::find($instructor_id)->update([
+                'firstname' => $request->firstname,
+                'lastname' => $request->lastname,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'address' => $request->address,
+                'facebook_url' => $request->facebook_url,
+                'twitter_url' => $request->twitter_url,
+                'instagram_url' => $request->instagram_url,
+                'created_at' => Carbon::now(),
+            ]);
 
-        Instructor::find($instructor_id)->update([
-            'firstname' => $request->firstname,
-            'lastname' => $request->lastname,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'address' => $request->address,
-            'facebook_url' => $request->facebook_url,
-            'twitter_url' => $request->twitter_url,
-            'instagram_url' => $request->instagram_url,
-            'created_at' => Carbon::now(),
-        ]);
-
-        $notification = array(
-            'message' => 'Instructor Updated Successfully',
-            'alert-type' => 'success'
-        );
-        return redirect()->route('all.instructor')->with($notification);
-    }
+            $notification = array(
+                'message' => 'Instructor Updated Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('all.instructor')->with($notification);
+        }
     }
     // DeleteInstructor
-    public function DeleteInstructor($id){
+    public function DeleteInstructor($id)
+    {
         $item = Instructor::find($id);
         $img = $item->photo;
         unlink($img);
 
         Instructor::find($id)->delete();
 
-            $notification = array(
-                'message' => 'Instructor Deleted Successfully',
-                'alert-type' => 'success'
-            );
-            return redirect()->back()->with($notification);
+        $notification = array(
+            'message' => 'Instructor Deleted Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
     }
 }

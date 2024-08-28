@@ -14,18 +14,20 @@
     <!-- loader-->
     <link href="{{ asset('backend/assets/css/pace.min.css') }}" rel="stylesheet" />
     <script src="{{ asset('backend/assets/js/pace.min.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Bootstrap CSS -->
     <link href="{{ asset('backend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/assets/css/bootstrap-extended.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link href="{{ asset('backend/assets/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('backend//css/icons.css') }}" rel="stylesheet">
-    <title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
+    <title>Cedar - Admin Login</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 </head>
 
 <body class="">
@@ -52,8 +54,7 @@
                             <div class="card-body p-sm-5">
                                 <div class="">
                                     <div class="mb-3 text-center">
-                                        <img src="{{ asset('backend/assets/images/logo.png') }}"
-                                            alt="">
+                                        <img src="{{ asset('backend/assets/images/logo.png') }}" alt="">
                                     </div>
                                     <div class="text-center mb-4">
                                         <h5 class="">Admin Login</h5>
@@ -95,7 +96,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6 text-end"> <a
-                                                    href="{{route('password.email')}}">Forgot Password ?</a>
+                                                    href="{{ route('password.email') }}">Forgot Password ?</a>
                                             </div>
                                             <div class="col-12">
                                                 <div class="d-grid">
@@ -165,29 +166,29 @@
         });
     </script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script>
-    @if (Session::has('message'))
-        var type = "{{ Session::get('alert-type', 'info') }}"
-        switch (type) {
-            case 'info':
-                toastr.info(" {{ Session::get('message') }} ");
-                break;
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
 
-            case 'success':
-                toastr.success(" {{ Session::get('message') }} ");
-                break;
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
 
-            case 'warning':
-                toastr.warning(" {{ Session::get('message') }} ");
-                break;
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
 
-            case 'error':
-                toastr.error(" {{ Session::get('message') }} ");
-                break;
-        }
-    @endif
-</script>
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
+        @endif
+    </script>
 
     <!--app JS-->
     <script src="{{asset('backend/assets/js/app.js')}"></script>

@@ -12,15 +12,18 @@
                 <div class="row align-items-center">
                     <div class="col-lg-12">
                         <div class="logo-box logo--box">
-                            <a href="index.html" class="logo"><img src="{{asset('frontend/images/logo.png')}}" alt="logo"></a>
+                            <a href="index.html" class="logo"><img src="{{ asset('frontend/images/logo.png') }}"
+                                    alt="logo"></a>
                             <div class="user-btn-action">
-                                <div class="search-menu-toggle icon-element icon-element-sm shadow-sm mr-2" data-toggle="tooltip" data-placement="top" title="Search">
+                                <div class="search-menu-toggle icon-element icon-element-sm shadow-sm mr-2"
+                                    data-toggle="tooltip" data-placement="top" title="Search">
                                     <i class="la la-user"></i>
                                 </div>
                                 {{-- <div class="off-canvas-menu-toggle cat-menu-toggle icon-element icon-element-sm shadow-sm mr-2" data-toggle="tooltip" data-placement="top" title="Category menu">
                                     <i class="la la-th-large"></i>
                                 </div> --}}
-                                <div class="off-canvas-menu-toggle main-menu-toggle icon-element icon-element-sm shadow-sm" data-toggle="tooltip" data-placement="top" title="Main menu">
+                                <div class="off-canvas-menu-toggle main-menu-toggle icon-element icon-element-sm shadow-sm"
+                                    data-toggle="tooltip" data-placement="top" title="Main menu">
                                     <i class="la la-bars"></i>
                                 </div>
                             </div>
@@ -33,7 +36,7 @@
                                 </div>
                             </form> --}}
                             <div class="mr-auto ml-0">
-                                <h4>Welcome {{$profileData->name}}</h4>
+                                <h4>Welcome {{ $profileData->name }}</h4>
                             </div>
                             <div class="nav-right-button d-flex align-items-center">
                                 <div class="user-action-wrap d-flex align-items-center">
@@ -127,26 +130,36 @@
                                                 </p>
                                                 <ul class="cart-dropdown-menu after-none">
                                                     @foreach ($wishList as $item)
-                                                    <li>
-                                                        <div class="media media-card">
-                                                            @if($item->course)
-                                                                <a href="course-details.html" class="media-img">
-                                                                    <img class="mr-3" src="{{ asset($item->course->course_image) }}" alt="Cart image">
-                                                                </a>
-                                                                <div class="media-body">
-                                                                    <h5><a href="course-details.html">{{ $item->course->course_title }}</a></h5>
-                                                                    <span class="d-block lh-18 py-1">Cedar</span>
-                                                                    <p class="text-black font-weight-semi-bold lh-18">${{ $item->course->selling_price }}
-                                                                    <span class="before-price fs-14">${{ $item->course->discount_price }}</span></p>
-                                                                </div>
-                                                            @else
-                                                                <p>No course in your wishlist.</p>
-                                                            @endif
-                                                        </div>
-                                                    </li>
+                                                        <li>
+                                                            <div class="media media-card">
+                                                                @if ($item->course)
+                                                                    <a href="course-details.html" class="media-img">
+                                                                        <img class="mr-3"
+                                                                            src="{{ asset($item->course->course_image) }}"
+                                                                            alt="Cart image">
+                                                                    </a>
+                                                                    <div class="media-body">
+                                                                        <h5><a
+                                                                                href="course-details.html">{{ $item->course->course_title }}</a>
+                                                                        </h5>
+                                                                        <span class="d-block lh-18 py-1">Cedar</span>
+                                                                        <p
+                                                                            class="text-black font-weight-semi-bold lh-18">
+                                                                            ${{ $item->course->selling_price }}
+                                                                            <span
+                                                                                class="before-price fs-14">${{ $item->course->discount_price }}</span>
+                                                                        </p>
+                                                                    </div>
+                                                                @else
+                                                                    <p>No course in your wishlist.</p>
+                                                                @endif
+                                                            </div>
+                                                        </li>
                                                     @endforeach
                                                     <li>
-                                                        <a href="{{route('user.wishlist')}}" class="btn theme-btn w-100">Go to Wishlist <i class="la la-arrow-right icon ml-1"></i></a>
+                                                        <a href="{{ route('user.wishlist') }}"
+                                                            class="btn theme-btn w-100">Go to Wishlist <i
+                                                                class="la la-arrow-right icon ml-1"></i></a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -161,26 +174,36 @@
                                                 </p>
                                                 <ul class="cart-dropdown-menu after-none">
                                                     @foreach ($newCourses as $item)
-                                                    <li>
-                                                        <div class="media media-card">
-                                                            @if($item !== '')
-                                                                <a href="{{ url('course/details/' . $item->id . '/' . $item->course_name_slug) }}" class="media-img">
-                                                                    <img class="mr-3" src="{{ asset($item->course_image) }}" alt="Cart image">
-                                                                </a>
-                                                                <div class="media-body">
-                                                                    <h5><a href="{{ url('course/details/' . $item->id . '/' . $item->course_name_slug) }}">{{ $item->course_title }}</a></h5>
-                                                                    <span class="d-block lh-18 py-1">Cedar</span>
-                                                                    <p class="text-black font-weight-semi-bold lh-18">{{ $item->created_at->format('M d Y') }}
-                                                                    <span class="before-price fs-14"></span></p>
-                                                                </div>
-                                                            @else
-                                                                <p>No course in your wishlist.</p>
-                                                            @endif
-                                                        </div>
-                                                    </li>
+                                                        <li>
+                                                            <div class="media media-card">
+                                                                @if ($item !== '')
+                                                                    <a href="{{ url('course/details/' . $item->id . '/' . $item->course_name_slug) }}"
+                                                                        class="media-img">
+                                                                        <img class="mr-3"
+                                                                            src="{{ asset($item->course_image) }}"
+                                                                            alt="Cart image">
+                                                                    </a>
+                                                                    <div class="media-body">
+                                                                        <h5><a
+                                                                                href="{{ url('course/details/' . $item->id . '/' . $item->course_name_slug) }}">{{ $item->course_title }}</a>
+                                                                        </h5>
+                                                                        <span class="d-block lh-18 py-1">Cedar</span>
+                                                                        <p
+                                                                            class="text-black font-weight-semi-bold lh-18">
+                                                                            {{ $item->created_at->format('M d Y') }}
+                                                                            <span class="before-price fs-14"></span>
+                                                                        </p>
+                                                                    </div>
+                                                                @else
+                                                                    <p>No course in your wishlist.</p>
+                                                                @endif
+                                                            </div>
+                                                        </li>
                                                     @endforeach
                                                     <li>
-                                                        <a href="{{route('browse.all.course')}}" class="btn theme-btn w-100">All Courses <i class="la la-arrow-right icon ml-1"></i></a>
+                                                        <a href="{{ route('browse.all.course') }}"
+                                                            class="btn theme-btn w-100">All Courses <i
+                                                                class="la la-arrow-right icon ml-1"></i></a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -191,39 +214,68 @@
                                             <li>
                                                 <div class="shop-cart-btn">
                                                     <div class="avatar-xs">
-                                                        <img class="rounded-full img-fluid" src="{{ !empty($profileData->photo) ? url('upload/user_images/' . $profileData->photo) : url('upload/no_image2.jpeg') }}" alt="Avatar image">
+                                                        <img class="rounded-full img-fluid"
+                                                            src="{{ !empty($profileData->photo) ? url('upload/user_images/' . $profileData->photo) : url('upload/no_image2.jpeg') }}"
+                                                            alt="Avatar image">
                                                     </div>
                                                     <span class="dot-status bg-1"></span>
                                                 </div>
-                                                <ul class="cart-dropdown-menu after-none p-0 notification-dropdown-menu">
+                                                <ul
+                                                    class="cart-dropdown-menu after-none p-0 notification-dropdown-menu">
                                                     <li class="menu-heading-block d-flex align-items-center">
-                                                        <a href="teacher-detail.html" class="avatar-sm flex-shrink-0 d-block">
-                                                            <img class="rounded-full img-fluid" src="{{ !empty($profileData->photo) ? url('upload/user_images/' . $profileData->photo) : url('upload/no_image2.jpeg') }}" alt="Avatar image">
+                                                        <a href="teacher-detail.html"
+                                                            class="avatar-sm flex-shrink-0 d-block">
+                                                            <img class="rounded-full img-fluid"
+                                                                src="{{ !empty($profileData->photo) ? url('upload/user_images/' . $profileData->photo) : url('upload/no_image2.jpeg') }}"
+                                                                alt="Avatar image">
                                                         </a>
                                                         <div class="ml-2">
-                                                            <h4><a href="teacher-detail.html" class="text-black">{{$profileData->name}}</a></h4>
-                                                            <span class="d-block fs-14 lh-20">{{$profileData->email}}</span>
+                                                            <h4><a href="teacher-detail.html"
+                                                                    class="text-black">{{ $profileData->name }}</a>
+                                                            </h4>
+                                                            <span
+                                                                class="d-block fs-14 lh-20">{{ $profileData->email }}</span>
                                                         </div>
                                                     </li>
                                                     <li>
-                                                        <div class="theme-picker d-flex align-items-center justify-content-center lh-40">
-                                                            <button class="theme-picker-btn dark-mode-btn w-100 font-weight-semi-bold justify-content-center" title="Dark mode">
-                                                                <svg class="mr-1" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                                        <div
+                                                            class="theme-picker d-flex align-items-center justify-content-center lh-40">
+                                                            <button
+                                                                class="theme-picker-btn dark-mode-btn w-100 font-weight-semi-bold justify-content-center"
+                                                                title="Dark mode">
+                                                                <svg class="mr-1" viewBox="0 0 24 24"
+                                                                    stroke-width="1.5" stroke-linecap="round"
+                                                                    stroke-linejoin="round">
+                                                                    <path
+                                                                        d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z">
+                                                                    </path>
                                                                 </svg>
                                                                 Dark Mode
                                                             </button>
-                                                            <button class="theme-picker-btn light-mode-btn w-100 font-weight-semi-bold justify-content-center" title="Light mode">
-                                                                <svg class="mr-1" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                                                    <circle cx="12" cy="12" r="5"></circle>
-                                                                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                                                                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                                                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                                                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                                                                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                                                                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                                                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                                                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                                            <button
+                                                                class="theme-picker-btn light-mode-btn w-100 font-weight-semi-bold justify-content-center"
+                                                                title="Light mode">
+                                                                <svg class="mr-1" viewBox="0 0 24 24"
+                                                                    stroke-width="1.5" stroke-linecap="round"
+                                                                    stroke-linejoin="round">
+                                                                    <circle cx="12" cy="12" r="5">
+                                                                    </circle>
+                                                                    <line x1="12" y1="1" x2="12"
+                                                                        y2="3"></line>
+                                                                    <line x1="12" y1="21"
+                                                                        x2="12" y2="23"></line>
+                                                                    <line x1="4.22" y1="4.22"
+                                                                        x2="5.64" y2="5.64"></line>
+                                                                    <line x1="18.36" y1="18.36"
+                                                                        x2="19.78" y2="19.78"></line>
+                                                                    <line x1="1" y1="12"
+                                                                        x2="3" y2="12"></line>
+                                                                    <line x1="21" y1="12"
+                                                                        x2="23" y2="12"></line>
+                                                                    <line x1="4.22" y1="19.78"
+                                                                        x2="5.64" y2="18.36"></line>
+                                                                    <line x1="18.36" y1="5.64"
+                                                                        x2="19.78" y2="4.22"></line>
                                                                 </svg>
                                                                 Light Mode
                                                             </button>
@@ -232,23 +284,24 @@
                                                     <li>
                                                         <ul class="generic-list-item">
                                                             <li>
-                                                                <a href="{{route('dashboard')}}">
+                                                                <a href="{{ route('dashboard') }}">
                                                                     <i class="la la-file-video-o mr-1"></i> Dashboard
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="{{route('user.enroll.courses')}}">
+                                                                <a href="{{ route('user.enroll.courses') }}">
                                                                     <i class="la la-file-video-o mr-1"></i> My courses
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="{{route('user.profile')}}">
+                                                                <a href="{{ route('user.profile') }}">
                                                                     <i class="la la-file-video-o mr-1"></i> My profile
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="{{route('user.change.password')}}">
-                                                                    <i class="la la-file-video-o mr-1"></i> Change password
+                                                                <a href="{{ route('user.change.password') }}">
+                                                                    <i class="la la-file-video-o mr-1"></i> Change
+                                                                    password
                                                                 </a>
                                                             </li>
                                                             {{-- <li>
@@ -257,11 +310,13 @@
                                                                 </a>
                                                             </li> --}}
                                                             <li>
-                                                                <a href="{{route('user.wishlist')}}">
+                                                                <a href="{{ route('user.wishlist') }}">
                                                                     <i class="la la-heart-o mr-1"></i> My wishlist
                                                                 </a>
                                                             </li>
-                                                            <li><div class="section-block"></div></li>
+                                                            <li>
+                                                                <div class="section-block"></div>
+                                                            </li>
                                                             {{-- <li>
                                                                 <a href="dashboard.html">
                                                                     <i class="la la-bell mr-1"></i> Notifications
@@ -271,29 +326,40 @@
                                                             <li>
                                                                 <a href="dashboard-message.html">
                                                                     <i class="la la-envelope mr-1"></i> Messages
-                                                                    <span class="badge bg-info text-white ml-2 p-1">12+</span>
+                                                                    <span
+                                                                        class="badge bg-info text-white ml-2 p-1">12+</span>
                                                                 </a>
                                                             </li>
-                                                            <li><div class="section-block"></div></li>
                                                             <li>
-                                                                <a href="{{route('user.purchase.history')}}">
+                                                                <div class="section-block"></div>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{ route('user.purchase.history') }}">
                                                                     <i class="la la-history mr-1"></i> Purchase history
                                                                 </a>
                                                             </li>
-                                                            <li><div class="section-block"></div></li>
                                                             <li>
-                                                                <a href="{{route('user.logout')}}">
+                                                                <div class="section-block"></div>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{ route('user.logout') }}">
                                                                     <i class="la la-power-off mr-1"></i> Logout
                                                                 </a>
                                                             </li>
-                                                            <li><div class="section-block"></div></li>
+                                                            <li>
+                                                                <div class="section-block"></div>
+                                                            </li>
                                                             <li>
                                                                 <a href="#" class="position-relative">
-                                                                    <span class="fs-17 font-weight-semi-bold d-block">Cedar Growth Consult</span>
-                                                                    <span class="lh-20 d-block fs-14 text-gray">Bring learning to your door step</span>
-                                                                    <span class="position-absolute top-0 right-0 mt-3 mr-3 fs-18 text-gray">
-                                                                    <i class="la la-external-link"></i>
-                                                                </span>
+                                                                    <span
+                                                                        class="fs-17 font-weight-semi-bold d-block">Cedar
+                                                                        Growth Consult</span>
+                                                                    <span class="lh-20 d-block fs-14 text-gray">Bring
+                                                                        learning to your door step</span>
+                                                                    <span
+                                                                        class="position-absolute top-0 right-0 mt-3 mr-3 fs-18 text-gray">
+                                                                        <i class="la la-external-link"></i>
+                                                                    </span>
                                                                 </a>
                                                             </li>
                                                         </ul>
@@ -311,7 +377,8 @@
         </div><!-- end container-fluid -->
     </div><!-- end header-menu-content -->
     <div class="off-canvas-menu custom-scrollbar-styled main-off-canvas-menu">
-        <div class="off-canvas-menu-close main-menu-close icon-element icon-element-sm shadow-sm" data-toggle="tooltip" data-placement="left" title="Close menu">
+        <div class="off-canvas-menu-close main-menu-close icon-element icon-element-sm shadow-sm"
+            data-toggle="tooltip" data-placement="left" title="Close menu">
             <i class="la la-times"></i>
         </div><!-- end off-canvas-menu-close -->
         <h4 class="off-canvas-menu-heading pt-20px">More from Cedar</h4>
@@ -322,14 +389,20 @@
             <li><a href="contact.html">Help</a></li>
         </ul>
         <div class="theme-picker d-flex align-items-center justify-content-center mt-4 px-3">
-            <button class="theme-picker-btn dark-mode-btn btn theme-btn-sm theme-btn-white w-100 font-weight-semi-bold justify-content-center" title="Dark mode">
-                <svg class="mr-1" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <button
+                class="theme-picker-btn dark-mode-btn btn theme-btn-sm theme-btn-white w-100 font-weight-semi-bold justify-content-center"
+                title="Dark mode">
+                <svg class="mr-1" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
                 Dark Mode
             </button>
-            <button class="theme-picker-btn light-mode-btn btn theme-btn-sm theme-btn-white w-100 font-weight-semi-bold justify-content-center" title="Light mode">
-                <svg class="mr-1" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <button
+                class="theme-picker-btn light-mode-btn btn theme-btn-sm theme-btn-white w-100 font-weight-semi-bold justify-content-center"
+                title="Light mode">
+                <svg class="mr-1" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round">
                     <circle cx="12" cy="12" r="5"></circle>
                     <line x1="12" y1="1" x2="12" y2="3"></line>
                     <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -480,7 +553,7 @@
                     <span class="la la-search search-icon"></span>
                 </div>
             </form> --}}
-            <h3 class="text-dark">Welcome {{ $profileData->name}}</h3>
+            <h3 class="text-dark">Welcome {{ $profileData->name }}</h3>
             <div class="search-bar-close icon-element icon-element-sm shadow-sm">
                 <i class="la la-times"></i>
             </div><!-- end off-canvas-menu-close -->

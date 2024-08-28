@@ -27,42 +27,46 @@
 
                     <div class="form-group col-md-6">
                         <label for="input1" class="form-label">First Name</label>
-                        <input type="text" name="firstname" class="form-control @error('firstname')is-invalid @enderror" id="input1">
+                        <input type="text" name="firstname" class="form-control @error('firstname')is-invalid @enderror"
+                            id="input1">
                         @error('firstname')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="form-group col-md-6">
                         <label for="input1" class="form-label">Last Name</label>
-                        <input type="text" name="lastname" class="form-control @error('lastname')is-invalid @enderror" id="input1">
+                        <input type="text" name="lastname" class="form-control @error('lastname')is-invalid @enderror"
+                            id="input1">
                         @error('lastname')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="form-group col-md-6">
                         <label for="input1" class="form-label">Phone</label>
-                        <input type="text" name="phone" class="form-control @error('phone')is-invalid @enderror" id="input1">
+                        <input type="text" name="phone" class="form-control @error('phone')is-invalid @enderror"
+                            id="input1">
                         @error('phone')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="form-group col-md-6">
                         <label for="input1" class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control @error('email')is-invalid @enderror" id="input1">
+                        <input type="email" name="email" class="form-control @error('email')is-invalid @enderror"
+                            id="input1">
                         @error('email')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="form-group col-md-12">
                         <label for="input1" class="form-label">Address</label>
                         <textarea name="address" class="form-control @error('address')is-invalid @enderror"></textarea>
                         @error('address')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="form-group col-md-4">
@@ -79,11 +83,12 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="input2" class="form-label">Instructor Photo </label>
-                        <input class="form-control @error('photo')is-invalid @enderror" name="photo" type="file" id="image">
+                        <input class="form-control @error('photo')is-invalid @enderror" name="photo" type="file"
+                            id="image">
 
                         @error('photo')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="col-md-6">
