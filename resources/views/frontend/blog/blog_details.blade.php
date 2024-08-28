@@ -50,14 +50,17 @@
                                         <li class="mr-2"><a href="#">{{ ucwords($tag) }}</a></li>
                                     @endforeach
                                 </ul>
+
                                 <div class="share-wrap">
                                     <ul class="social-icons social-icons-styled">
                                         <li class="mr-0"><a href="#" class="facebook-bg"><i
-                                                    class="la la-facebook"></i></a></li>
+                                                    class="la la-facebook facebook-share"></i></a></li>
                                         <li class="mr-0"><a href="#" class="twitter-bg"><i
-                                                    class="la la-twitter"></i></a></li>
-                                        <li class="mr-0"><a href="#" class="instagram-bg"><i
-                                                    class="la la-instagram"></i></a></li>
+                                                    class="la la-twitter twitter-share"></i></a></li>
+                                        {{-- <li class="mr-0"><a href="#" class="instagram-bg"><i
+                                                    class="la la-instagram instagram-share"></i> --}}
+                                                    <li class="mr-0"><a href="#" class="whatsapp-bg"><i
+                                                        class="la la-whatsapp whatsapp-share"></i></a></li>
                                     </ul>
                                     <div class="icon-element icon-element-sm shadow-sm cursor-pointer share-toggle"
                                         title="Toggle to expand social icons"><i class="la la-share-alt"></i></div>
@@ -298,4 +301,42 @@
     <!-- ================================
            START BLOG AREA
     ================================= -->
+
+
+        <script>
+        // script.js
+        document.addEventListener("DOMContentLoaded", function() {
+            const facebookShareBtn = document.querySelector(".facebook-share");
+            const twitterShareBtn = document.querySelector(".twitter-share");
+            const whatsappShareBtn = document.querySelector(".whatsapp-share");
+            // const instagramShareBtn = document.querySelector(".instagram-share");
+
+            // Facebook share functionality
+            facebookShareBtn.addEventListener("click", function(event) {
+                event.preventDefault();
+                // Replace URL and other parameters with your actual content
+                window.open(
+                    "https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/blog/details/{{  $blog->post_slug }}",
+                    "_blank");
+            });
+
+            // Twitter share functionality
+            twitterShareBtn.addEventListener("click", function(event) {
+                event.preventDefault();
+                // Replace URL and other parameters with your actual content
+                window.open(
+                    "https://twitter.com/intent/tweet?url=http://localhost:8000/blog/details/{{  $blog->post_slug }}&text=",
+                    "_blank");
+            });
+
+            // WhatsApp share functionality
+            whatsappShareBtn.addEventListener("click", function(event) {
+                event.preventDefault();
+                // Replace URL and other parameters with your actual content
+                window.open(
+                    "https://api.whatsapp.com/send?text=%20-%20http://localhost:8000/blog/details/{{  $blog->post_slug }}",
+                    "_blank");
+            });
+        })
+    </script>
 @endsection
