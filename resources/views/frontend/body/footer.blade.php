@@ -71,7 +71,7 @@
                 <div class="col-lg-6">
                     <p class="copy-desc text-white">&copy; @php
                         echo date('Y')
-                    @endphp Aduca. All Rights Reserved. Powered by <a href="https://www.justimagin.com.ng" class="text-white">JUSTIMAGIN</a></p>
+                    @endphp Cedar Growth Consult. All Rights Reserved. Powered by <a href="https://www.justimagin.com.ng" class="text-white">JUSTIMAGIN</a></p>
                 </div><!-- end col-lg-6 -->
                 {{-- <div class="col-lg-6">
                     <div class="d-flex flex-wrap align-items-center justify-content-end">

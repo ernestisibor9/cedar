@@ -34,7 +34,7 @@
     <div class="container">
         <div class="filter-bar mb-4">
             <div class="filter-bar-inner d-flex flex-wrap align-items-center justify-content-between">
-                <p class="fs-14">We found <span class="text-black">{{count($courses)}}</span> courses available for you</p>
+                <p class="fs-14">We found <span class="text-black">{{count($courses)}}</span> {{count($courses) < 2 ? 'course' : 'courses'}} available for you</p>
                 <div class="d-flex flex-wrap align-items-center">
 
                     {{-- <div class="select-container select--container mr-3">
@@ -505,14 +505,16 @@
                                 <span class="rating-total pl-1">({{ count($reviewcount) }})</span>
                             </div><!-- end rating-wrap -->
                             <div class="d-flex justify-content-between align-items-center">
-                                @if ($course->discount_price === null)
+                                <p class="card-price text-black font-weight-bold">
+                                    $ {{ number_format($course->selling_price, 0, 2) }}</p>
+                                {{-- @if ($course->discount_price === null)
                                     <p class="card-price text-black font-weight-bold">
                                         &pound;{{ $course->selling_price }}</p>
                                 @else
                                     <p class="card-price text-black font-weight-bold">
                                         &pound;{{ $course->discount_price }} <span
                                             class="before-price font-weight-medium">	&pound;{{ $course->selling_price }}</span>
-                                @endif
+                                @endif --}}
                                 {{-- <p class="card-price text-black font-weight-bold">12.99 <span class="before-price font-weight-medium">129.99</span></p> --}}
                                 <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
                                     title="Add to Wishlist" id="{{ $course->id }}" onclick="addToWishList(this.id)"><i class="la la-heart-o"></i></div>

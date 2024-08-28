@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Course;
 use App\Models\DownloadCourse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -49,6 +50,15 @@ class CourseController extends Controller
     public function EnrollCourse($id){
         // code to enroll a course goes here
         $eid = Course::find($id);
-        return view('frontend.course.enroll_course', compact('eid'));
+        $notification = array(
+            'message' => 'Please login to enroll  this course',
+            'alert-type' => 'warning',
+        );
+        if (Auth::check()) {
+            return view('frontend.course.enroll_course', compact('eid'));
+        }
+        else{
+            return redirect()->route('login')->with($notification);
+        }
     }
 }

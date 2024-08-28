@@ -314,9 +314,9 @@
         <div class="off-canvas-menu-close main-menu-close icon-element icon-element-sm shadow-sm" data-toggle="tooltip" data-placement="left" title="Close menu">
             <i class="la la-times"></i>
         </div><!-- end off-canvas-menu-close -->
-        <h4 class="off-canvas-menu-heading pt-20px">More from Aduca</h4>
+        <h4 class="off-canvas-menu-heading pt-20px">More from Cedar</h4>
         <ul class="generic-list-item off-canvas-menu-list pt-1">
-            <li><a href="for-business.html">Aduca for Business</a></li>
+            <li><a href="for-business.html">Cedar for Business</a></li>
             <li><a href="#">Get the app</a></li>
             <li><a href="invite.html">Invite friends</a></li>
             <li><a href="contact.html">Help</a></li>

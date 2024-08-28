@@ -9,7 +9,7 @@
         <div class="section-heading">
             <h5 class="ribbon ribbon-lg mb-2">Our partners</h5>
             <h2 class="section__title">Top companies choose <a href="for-business.html"
-                    class="text-color hover-underline">Aduca for Business</a> to build
+                    class="text-color hover-underline">Cedar for Business</a> to build
                 <br> in-demand career skills
             </h2>
             <span class="section-divider"></span>

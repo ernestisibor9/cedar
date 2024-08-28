@@ -12,7 +12,7 @@
                             </g>
                         </svg>
                     </div>
-                    <h4 class="counter__title counter text-color-2">7520</h4>
+                    <h4 class="counter__title counter text-color-2">30</h4>
                     <p class="counter__meta">expert instructors</p>
                 </div><!-- end counter-item -->
             </div><!-- end col-lg-3 -->
@@ -60,8 +60,8 @@
                             </g>
                         </svg>
                     </div>
-                    <h4 class="counter__title counter text-color-3">54,252</h4>
-                    <p class="counter__meta">foreign followers</p>
+                    <h4 class="counter__title counter text-color-3">100</h4>
+                    <p class="counter__meta">success rate (%)</p>
                 </div><!-- end counter-item -->
             </div><!-- end col-lg-3 -->
             <div class="col-lg-3 responsive-column-half">
@@ -122,7 +122,7 @@
                             </g>
                         </svg>
                     </div>
-                    <h4 class="counter__title counter text-color-4">97,220</h4>
+                    <h4 class="counter__title counter text-color-4">7,220</h4>
                     <p class="counter__meta">students enrolled</p>
                 </div><!-- end counter-item -->
             </div><!-- end col-lg-3 -->
@@ -165,7 +165,7 @@
                             </g>
                         </svg>
                     </div>
-                    <h4 class="counter__title counter text-color-5">20</h4>
+                    <h4 class="counter__title counter text-color-5">10</h4>
                     <p class="counter__meta">years of experience</p>
                 </div><!-- end counter-item -->
             </div><!-- end col-lg-3 -->

@@ -196,41 +196,4 @@
     ================================= -->
 
 
-    {{-- <script>
-        // script.js
-        document.addEventListener("DOMContentLoaded", function() {
-            const facebookShareBtn = document.querySelector(".facebook-share");
-            const twitterShareBtn = document.querySelector(".twitter-share");
-            const whatsappShareBtn = document.querySelector(".whatsapp-share");
-            // const instagramShareBtn = document.querySelector(".instagram-share");
-
-            // Facebook share functionality
-            facebookShareBtn.addEventListener("click", function(event) {
-                event.preventDefault();
-                // Replace URL and other parameters with your actual content
-                window.open(
-                    "https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/blog/details/{{  $blog->post_slug }}",
-                    "_blank");
-            });
-
-            // Twitter share functionality
-            twitterShareBtn.addEventListener("click", function(event) {
-                event.preventDefault();
-                // Replace URL and other parameters with your actual content
-                window.open(
-                    "https://twitter.com/intent/tweet?url=http://localhost:8000/blog/details/{{  $blog->post_slug }}&text=",
-                    "_blank");
-            });
-
-            // WhatsApp share functionality
-            whatsappShareBtn.addEventListener("click", function(event) {
-                event.preventDefault();
-                // Replace URL and other parameters with your actual content
-                window.open(
-                    "https://api.whatsapp.com/send?text=%20-%20http://localhost:8000/blog/details/{{  $blog->post_slug }}",
-                    "_blank");
-            });
-        })
-    </script> --}}
-
 @endsection

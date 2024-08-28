@@ -54,7 +54,7 @@
     <div class="container">
         <div class="breadcrumb-content">
             <div class="section-heading">
-                <h5 class="ribbon ribbon-lg ribbon-white mb-2">Welcome to aduca</h5>
+                <h5 class="ribbon ribbon-lg ribbon-white mb-2">Welcome to Cedar</h5>
                 <h2 class="section__title fs-45 lh-60 text-white">Improve Your Lives <br> With Learning</h2>
             </div>
             <div class="breadcrumb-btn-box pt-40px pl-3">

@@ -113,10 +113,10 @@
                             data-target="#shareModal">
                             <i class="la la-share mr-1"></i>Share
                         </button>
-                        <button class="btn theme-btn theme-btn-sm theme-btn-transparent lh-28 mb-2" data-toggle="modal"
+                        {{-- <button class="btn theme-btn theme-btn-sm theme-btn-transparent lh-28 mb-2" data-toggle="modal"
                             data-target="#reportModal">
                             <i class="la la-flag mr-1"></i>Report abuse
-                        </button>
+                        </button> --}}
                     </div>
                 </div><!-- end breadcrumb-content -->
             </div><!-- end col-lg-8 -->
@@ -457,7 +457,7 @@
                                         </div><!-- end rating-wrap -->
                                         <div class="d-flex justify-content-between align-items-center">
                                             <p class="card-price text-black font-weight-bold">${{number_format($coursePaid->course->selling_price, 2)}} <span
-                                                    class="before-price font-weight-medium">${{number_format($coursePaid->course->discount_price, 2)}} </span></p>
+                                                    class="before-price font-weight-medium"> </span></p>
                                                     <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
                                                     title="Add to Wishlist" id="{{ $course->id }}" onclick="addToWishList(this.id)"><i class="la la-heart-o"></i></div>
                                         </div>
@@ -790,8 +790,8 @@
                                     <p class="d-flex align-items-center pb-2">
                                         <span
                                             class="fs-35 font-weight-semi-bold text-black">${{ number_format($course->selling_price, 2) }}</span>
-                                        <span
-                                            class="before-price mx-1">${{ number_format($course->discount_price, 2) }}</span>
+                                        {{-- <span
+                                            class="before-price mx-1">${{ number_format($course->discount_price, 2) }}</span> --}}
                                         {{-- <span class="price-discount">24% off</span> --}}
                                     </p>
                                     <p class="preview-price-discount-text pb-35px">
@@ -813,32 +813,7 @@
                                                 class="la la-shopping-bag mr-1"></i>Download Bronchure</a>
                                     </div>
                                     <p class="fs-14 text-center pb-4">30-Day Money-Back Guarantee</p>
-                                    <div class="preview-course-incentives">
-                                        <h3 class="card-title fs-18 pb-2">This course includes</h3>
-                                        <ul class="generic-list-item pb-3">
-                                            <li><i class="la la-play-circle-o mr-2 text-color"></i>{{ $course->duration }}
-                                                hours on-demand
-                                                video</li>
-                                            {{-- <li><i class="la la-file mr-2 text-color"></i>34 articles</li> --}}
-                                            <li><i class="la la-file-text mr-2 text-color"></i>12 downloadable resources
-                                            </li>
-                                            <li><i class="la la-code mr-2 text-color"></i>51 coding exercises</li>
-                                            <li><i class="la la-key mr-2 text-color"></i>Full lifetime access</li>
-                                            <li><i class="la la-television mr-2 text-color"></i>Access on mobile and TV
-                                            </li>
-                                            <li><i class="la la-certificate mr-2 text-color"></i>Certificate of Completion
-                                            </li>
-                                        </ul>
-                                        <div class="section-block"></div>
-                                        {{-- <div class="buy-for-team-container pt-4">
-                                            <h3 class="fs-18 font-weight-semi-bold pb-2">Training 5 or more people?</h3>
-                                            <p class="lh-24 pb-3">Get your team access to 3,000+ top Aduca courses anytime,
-                                                anywhere.</p>
-                                            <a href="for-business.html"
-                                                class="btn theme-btn theme-btn-sm theme-btn-transparent lh-30 w-100">Try
-                                                Aduca for Business</a>
-                                        </div> --}}
-                                    </div><!-- end preview-course-incentives -->
+                                    <!-- end preview-course-incentives -->
                                 </div><!-- end preview-course-content -->
                             </div>
                         </div><!-- end card -->
@@ -964,7 +939,7 @@
                 $moreCourses = App\Models\Course::latest()->get();
             @endphp
             <div class="related-course-wrap">
-                <h3 class="fs-28 font-weight-semi-bold pb-35px">More Courses by <a href="teacher-detail.html"
+                <h3 class="fs-28 font-weight-semi-bold pb-35px">More Courses by <a href="#"
                         class="text-color hover-underline">Cedar</a></h3>
                 <div class="view-more-carousel-2 owl-action-styled">
                     @foreach ($moreCourses as $moreCourse)
@@ -1033,7 +1008,7 @@
                                 {{-- <span class="rating-total pl-1">({{ count($reviewcount) }})</span> --}}
                             <div class="d-flex justify-content-between align-items-center">
                                 <p class="card-price text-black font-weight-bold">${{number_format($moreCourse->selling_price, 2)}}<span
-                                        class="before-price font-weight-medium">${{number_format($moreCourse->discount_price, 2)}}</span></p>
+                                        class="before-price font-weight-medium"></span></p>
                                         <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
                                         title="Add to Wishlist" id="{{ $moreCourse->id }}" onclick="addToWishList(this.id)"><i class="la la-heart-o"></i></div>
                             </div>
@@ -1172,7 +1147,7 @@
                 <div class="modal-header border-bottom-gray">
                     <div class="pr-2">
                         <h5 class="modal-title fs-19 font-weight-semi-bold lh-24" id="reportModalTitle">Report Abuse</h5>
-                        <p class="pt-1 fs-14 lh-24">Flagged content is reviewed by Aduca staff to determine whether it
+                        <p class="pt-1 fs-14 lh-24">Flagged content is reviewed by Cedar Consult Growth staff to determine whether it
                             violates Terms of Service or Community Guidelines. If you have a question or technical issue,
                             please contact our
                             <a href="contact.html" class="text-color hover-underline">Support team here</a>.
@@ -1183,18 +1158,19 @@
                     </button>
                 </div><!-- end modal-header -->
                 <div class="modal-body">
-                    <form method="post">
+                    <form method="post" action="">
+                        @csrf
                         <div class="input-box">
                             <label class="label-text">Select Report Type</label>
                             <div class="form-group">
                                 <div class="select-container w-auto">
-                                    <select class="select-container-select">
+                                    <select class="select-container-select" name="report_type">
                                         <option value>-- Select One --</option>
-                                        <option value="1">Inappropriate Course Content</option>
-                                        <option value="2">Inappropriate Behavior</option>
-                                        <option value="3">Aduca Policy Violation</option>
-                                        <option value="4">Spammy Content</option>
-                                        <option value="5">Other</option>
+                                        <option value="Inappropriate Course Content">Inappropriate Course Content</option>
+                                        <option value="Inappropriate Behavior">Inappropriate Behavior</option>
+                                        <option value="Cedar Policy Violation">Cedar Policy Violation</option>
+                                        <option value="Spammy Content">Spammy Content</option>
+                                        <option value="Other">Other</option>
                                     </select>
                                 </div>
                             </div>
@@ -1202,7 +1178,7 @@
                         <div class="input-box">
                             <label class="label-text">Write Message</label>
                             <div class="form-group">
-                                <textarea class="form-control form--control pl-3" name="message" placeholder="Provide additional details here..."
+                                <textarea class="form-control form--control pl-3" name="report_message" placeholder="Provide additional details here..."
                                     rows="5"></textarea>
                             </div>
                         </div>

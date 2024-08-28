@@ -108,15 +108,15 @@
                                         </div><!-- end rating-wrap -->
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div>
-
+                                                $ {{$course->selling_price}}
                                             </div>
                                             {{-- @if ($course->discount_price === null)
                                                 <p class="card-price text-black font-weight-bold">
-                                                    &pound;{{ $course->selling_price }}</p>
+                                                    $ {{ $course->selling_price }}</p>
                                             @else
                                                 <p class="card-price text-black font-weight-bold">
-                                                    &pound;{{ $course->discount_price }} <span
-                                                        class="before-price font-weight-medium">	&pound;{{ $course->selling_price }}</span>
+                                                    $ {{ $course->discount_price }} <span
+                                                        class="before-price font-weight-medium">	${{ $course->selling_price }}</span>
                                             @endif --}}
                                             {{-- <p class="card-price text-black font-weight-bold">12.99 <span class="before-price font-weight-medium">129.99</span></p> --}}
                                             <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
